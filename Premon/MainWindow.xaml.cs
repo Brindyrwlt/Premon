@@ -19,9 +19,13 @@ namespace Premon
     {
         private static readonly int PAS_DEPLACEMENT = 50;
         private static DispatcherTimer intervalleDeplacement;
-        private static readonly int INTERVALLE_DEPLACEMENT = 500;
-        private static double gauche;
-        private static double haut;
+        private static readonly int INTERVALLE_DEPLACEMENT = 100;
+        /*private static double gauche;
+        private static double haut;*/
+        private static bool? gauche = null;
+        private static bool? haut = null;
+        private static bool aAppuye = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,37 +34,77 @@ namespace Premon
 
         private void fenetre_KeyDown(object sender, KeyEventArgs e)
         {
+
             switch (e.Key)
             {
                 case Key.Left:
-                    gauche -= PAS_DEPLACEMENT;
+                    gauche = true;
                     break;
                 case Key.Right:
-                    gauche += PAS_DEPLACEMENT;
+                    gauche = false;
                     break;
                 case Key.Up:
-                    haut -= PAS_DEPLACEMENT;
+                    haut = true;
                     break;
                 case Key.Down:
-                    haut += PAS_DEPLACEMENT;
+                    haut = false;
                     break;
+
             }
+
+            if (aAppuye == false)
+            {
+
+                intervalleDeplacement.Stop();
+                aAppuye = true;
+                DeplacementPerso();
+                intervalleDeplacement.Start();
+
+            }
+            
         }
 
         private void InitIntervalleDeplacement()
         {
-            gauche = Canvas.GetLeft(perso);
-            haut = Canvas.GetTop(perso);
             intervalleDeplacement = new DispatcherTimer();
             intervalleDeplacement.Interval = TimeSpan.FromMilliseconds(INTERVALLE_DEPLACEMENT);
-            intervalleDeplacement.Tick += DeplacerVers;
+            intervalleDeplacement.Tick += Jeu;
             intervalleDeplacement.Start();
         }
 
-        private void DeplacerVers(object? sender, EventArgs e)
+        private void Jeu(object? sender, EventArgs e)
         {
-            Canvas.SetLeft(perso, gauche);
-            Canvas.SetTop(perso, haut);
+
+            DeplacementPerso();
+        }
+
+        private void fenetre_KeyUp(object sender, KeyEventArgs e)
+        {
+            gauche = null;
+            haut = null;
+            aAppuye = false;
+        }
+
+        private void DeplacementPerso()
+        {
+
+            double gauchePerso = Canvas.GetLeft(perso);
+            double hautPerso = Canvas.GetTop(perso);
+
+            if (gauche != null)
+                gauchePerso += gauche == false ? PAS_DEPLACEMENT : -PAS_DEPLACEMENT;
+
+            if (haut != null)
+                hautPerso += haut == false ? PAS_DEPLACEMENT : -PAS_DEPLACEMENT;
+
+            Console.WriteLine($"Gauche : {gauchePerso}\n" +
+                $"Haut : {hautPerso}");
+
+            if(gauchePerso >= 0 && gauchePerso < ActualWidth - perso.Width)
+                Canvas.SetLeft(perso, gauchePerso);
+
+            if (hautPerso >= 0 && hautPerso < ActualHeight - perso.Height)
+                Canvas.SetTop(perso, hautPerso);
         }
     }
 }
