@@ -24,5 +24,10 @@
             Panel.ZIndex="1"
             Stroke="Black" />
 
+        <Rectangle
+            x:Name="Bush1"
+            Width="200"
+            Height="200" Canvas.Left="209" Canvas.Top="155"
+            Stroke="Green"/>
     </Canvas>
 </Window>

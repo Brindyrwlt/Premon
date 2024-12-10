@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Printing;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,16 +21,29 @@ namespace Premon
         private static readonly int PAS_DEPLACEMENT = 50;
         private static DispatcherTimer intervalleDeplacement;
         private static readonly int INTERVALLE_DEPLACEMENT = 100;
-        /*private static double gauche;
-        private static double haut;*/
         private static bool? gauche = null;
         private static bool? haut = null;
         private static bool aAppuye = false;
+
+        // 100 HP pour la base
+        private Premon[] premons =
+        {
+
+            new Premon("Mammouth", 200, Attaques.COUP_DE_PIED),
+            new Premon("Bouquetin", 80, Attaques.EMPALEMENT, Attaques.AIGUISAGE)
+
+        };
 
         public MainWindow()
         {
             InitializeComponent();
             InitIntervalleDeplacement();
+        }
+
+        private void Jeu(object? sender, EventArgs e)
+        {
+
+            DeplacementPerso();
         }
 
         private void fenetre_KeyDown(object sender, KeyEventArgs e)
@@ -72,12 +86,6 @@ namespace Premon
             intervalleDeplacement.Start();
         }
 
-        private void Jeu(object? sender, EventArgs e)
-        {
-
-            DeplacementPerso();
-        }
-
         private void fenetre_KeyUp(object sender, KeyEventArgs e)
         {
             gauche = null;
@@ -96,10 +104,10 @@ namespace Premon
 
             if (haut != null)
                 hautPerso += haut == false ? PAS_DEPLACEMENT : -PAS_DEPLACEMENT;
-
+#if DEBUG
             Console.WriteLine($"Gauche : {gauchePerso}\n" +
                 $"Haut : {hautPerso}");
-
+#endif
             if(gauchePerso >= 0 && gauchePerso < ActualWidth - perso.Width)
                 Canvas.SetLeft(perso, gauchePerso);
 
