@@ -8,4 +8,218 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Textures\Decoration\Arbre\Arbre_1.png" />
+    <None Remove="Textures\Decoration\Arbre\Arbre_2.png" />
+    <None Remove="Textures\Decoration\Arbre\Arbre_3.png" />
+    <None Remove="Textures\Decoration\Arbre\Palmier_1.png" />
+    <None Remove="Textures\Decoration\Arbre\Palmier_2.png" />
+    <None Remove="Textures\Decoration\Arbre\Palmier_3.png" />
+    <None Remove="Textures\Decoration\Fleur\Fleur_bleu_1.png" />
+    <None Remove="Textures\Decoration\Fleur\Fleur_bleu_2.png" />
+    <None Remove="Textures\Decoration\Fleur\Fleur_bleu_3.png" />
+    <None Remove="Textures\Decoration\Fleur\Fleur_jaune_1.png" />
+    <None Remove="Textures\Decoration\Fleur\Fleur_jaune_2.png" />
+    <None Remove="Textures\Decoration\Fleur\Fleur_jaune_3.png" />
+    <None Remove="Textures\Decoration\Fleur\Fleur_rouge_1.png" />
+    <None Remove="Textures\Decoration\Fleur\Fleur_rouge_2.png" />
+    <None Remove="Textures\Decoration\Fleur\Fleur_rouge_3.png" />
+    <None Remove="Textures\Eau\Eau.png" />
+    <None Remove="Textures\Eau\Eau_1.png" />
+    <None Remove="Textures\Eau\Eau_10.png" />
+    <None Remove="Textures\Eau\Eau_2.png" />
+    <None Remove="Textures\Eau\Eau_3.png" />
+    <None Remove="Textures\Eau\Eau_4.png" />
+    <None Remove="Textures\Eau\Eau_5.png" />
+    <None Remove="Textures\Eau\Eau_6.png" />
+    <None Remove="Textures\Eau\Eau_7.png" />
+    <None Remove="Textures\Eau\Eau_8.png" />
+    <None Remove="Textures\Eau\Eau_9.png" />
+    <None Remove="Textures\Mur\Mur_1.png" />
+    <None Remove="Textures\Mur\Mur_2.png" />
+    <None Remove="Textures\Mur\Mur_3.png" />
+    <None Remove="Textures\Mur\Mur_4.png" />
+    <None Remove="Textures\Mur\Mur_5.png" />
+    <None Remove="Textures\Mur\Mur_6.png" />
+    <None Remove="Textures\Mur\Mur_7.png" />
+    <None Remove="Textures\Mur\Mur_8.png" />
+    <None Remove="Textures\Personnage\Personnage_derriere.png" />
+    <None Remove="Textures\Personnage\Personnage_devant.png" />
+    <None Remove="Textures\Personnage\Personnage_droite.png" />
+    <None Remove="Textures\Personnage\Personnage_gauche.png" />
+    <None Remove="Textures\Sol\Chemin.png" />
+    <None Remove="Textures\Sol\Chemin_1.png" />
+    <None Remove="Textures\Sol\Chemin_2.png" />
+    <None Remove="Textures\Sol\Chemin_3.png" />
+    <None Remove="Textures\Sol\Chemin_4.png" />
+    <None Remove="Textures\Sol\Sol.png" />
+    <None Remove="Textures\Trou\Trou_1.png" />
+    <None Remove="Textures\Trou\Trou_2.png" />
+    <None Remove="Textures\Trou\Trou_3.png" />
+    <None Remove="Textures\Trou\Trou_4.png" />
+    <None Remove="Textures\Trou\Trou_5.png" />
+    <None Remove="Textures\Trou\Trou_6.png" />
+    <None Remove="Textures\Trou\Trou_7.png" />
+    <None Remove="Textures\Trou\Trou_8.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Textures\Decoration\Arbre\Arbre_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Decoration\Arbre\Arbre_2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Decoration\Arbre\Arbre_3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Decoration\Arbre\Palmier_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Decoration\Arbre\Palmier_2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Decoration\Arbre\Palmier_3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Decoration\Fleur\Fleur_bleu_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Decoration\Fleur\Fleur_bleu_2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Decoration\Fleur\Fleur_bleu_3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Decoration\Fleur\Fleur_jaune_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Decoration\Fleur\Fleur_jaune_2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Decoration\Fleur\Fleur_jaune_3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Decoration\Fleur\Fleur_rouge_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Decoration\Fleur\Fleur_rouge_2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Decoration\Fleur\Fleur_rouge_3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Eau\Eau.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Eau\Eau_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Eau\Eau_10.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Eau\Eau_2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Eau\Eau_3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Eau\Eau_4.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Eau\Eau_5.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Eau\Eau_6.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Eau\Eau_7.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Eau\Eau_8.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Eau\Eau_9.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Mur\Mur_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Mur\Mur_2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Mur\Mur_3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Mur\Mur_4.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Mur\Mur_5.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Mur\Mur_6.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Mur\Mur_7.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Mur\Mur_8.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Personnage\Personnage_derriere.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Personnage\Personnage_devant.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Personnage\Personnage_droite.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Personnage\Personnage_gauche.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Sol\Chemin.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Sol\Chemin_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Sol\Chemin_2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Sol\Chemin_3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Sol\Chemin_4.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Sol\Sol.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Trou\Trou_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Trou\Trou_2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Trou\Trou_3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Trou\Trou_4.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Trou\Trou_5.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Trou\Trou_6.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Trou\Trou_7.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Trou\Trou_8.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
 </Project>
