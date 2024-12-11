@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="fenetre"
     Title="Premon"
-    Width="1200"
-    Height="600"
+    Width="1216"
+    Height="589"
     KeyDown="fenetre_KeyDown"
     mc:Ignorable="d" KeyUp="fenetre_KeyUp">
     <Canvas x:Name="monCanvas">
