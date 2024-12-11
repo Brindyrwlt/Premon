@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Premon
 {
-    internal class Premon
+    internal class Animal
     {
 
         public readonly int HPMax;
@@ -15,7 +15,7 @@ namespace Premon
         public Attaques[] attaques;
         private double multiplicateur = 1.0;
 
-        public Premon(string nom, int maxhp, params Attaques[] attaques)
+        public Animal(string nom, int maxhp, params Attaques[] attaques)
         {
 
             Nom = nom;
@@ -24,7 +24,7 @@ namespace Premon
 
         }
 
-        public void Attaque(Attaques attaque, Premon cible)
+        public void Attaque(Attaques attaque, Animal cible)
         {
 
             switch(attaque)
@@ -45,7 +45,6 @@ namespace Premon
         COUP_DE_PIED,
         EMPALEMENT,
         AIGUISAGE
-
 
     }
 }

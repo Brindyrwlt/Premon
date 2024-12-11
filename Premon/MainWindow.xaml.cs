@@ -26,11 +26,11 @@ namespace Premon
         private static bool aAppuye = false;
 
         // 100 HP pour la base
-        private Premon[] premons =
+        private Animal[] premons =
         {
 
-            new Premon("Mammouth", 200, Attaques.COUP_DE_PIED),
-            new Premon("Bouquetin", 80, Attaques.EMPALEMENT, Attaques.AIGUISAGE)
+            new Animal("Mammouth", 200, Attaques.COUP_DE_PIED),
+            new Animal("Bouquetin", 80, Attaques.EMPALEMENT, Attaques.AIGUISAGE)
 
         };
 
@@ -44,6 +44,7 @@ namespace Premon
         {
 
             DeplacementPerso();
+
         }
 
         private void fenetre_KeyDown(object sender, KeyEventArgs e)
@@ -113,6 +114,8 @@ namespace Premon
 
             if (hautPerso >= 0 && hautPerso < ActualHeight - perso.Height)
                 Canvas.SetTop(perso, hautPerso);
+
+            
         }
     }
 }
