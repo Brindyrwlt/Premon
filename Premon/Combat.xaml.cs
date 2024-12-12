@@ -19,6 +19,10 @@ namespace Premon
     /// </summary>
     public partial class Combat : Window
     {
+
+        Animal animalJoueur;
+        Animal animalSauvage;
+
         public Combat()
         {
             InitializeComponent();
@@ -27,6 +31,8 @@ namespace Premon
         internal void InitAnimaux(Animal animalJoueur, Animal animalSauvage)
         {
 
+            this.animalJoueur = animalJoueur;
+            this.animalSauvage = animalSauvage;
             ImageAnimalJoueur.Source = animalJoueur.Image;
             ImageAnimalSauvage.Source = animalSauvage.Image;
 
@@ -35,6 +41,13 @@ namespace Premon
         private void BoutonFuite_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
+        }
+
+        private void BoutonAttaque_Click(object sender, RoutedEventArgs e)
+        {
+            EcranAttaque ecranAttaque = new EcranAttaque();
+            ecranAttaque.attaques = animalJoueur.Attaques;
+            ecranAttaque.ShowDialog();
         }
     }
 }

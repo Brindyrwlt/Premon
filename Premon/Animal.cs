@@ -18,8 +18,8 @@ namespace Premon
         public Attaques[] Attaques;
         public BitmapImage Image;
         public int ChanceComplementaire = 1;
+        public static Dictionary<Attaques, string> descriptionsAttaques = new Dictionary<Attaques, string>();
         private double multiplicateur = 1.0;
-        private Dictionary<Attaques, string> descriptionsAttaques = new Dictionary<Attaques, string>();
 
         public Animal(string nom, int hpMax, int chanceComplementaire, params Attaques[] attaques)
         {

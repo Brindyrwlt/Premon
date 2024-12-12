@@ -8,7 +8,7 @@
         Title="Combat" Height="450" Width="800">
     <Canvas>
         <Rectangle HorizontalAlignment="Center" Height="70" Margin="0,340,0,0" Stroke="Black" VerticalAlignment="Top" Width="800" StrokeThickness="5"/>
-        <Button x:Name="BoutonAttaque" Content="Attaque" HorizontalAlignment="Center" Height="50" Width="200" Margin="50,350,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Button x:Name="BoutonAttaque" Content="Attaque" HorizontalAlignment="Center" Height="50" Width="200" Margin="50,350,0,0" VerticalAlignment="Top" FontSize="18" Click="BoutonAttaque_Click"/>
         <Button x:Name="BoutonObjets" Content="Objets" HorizontalAlignment="Center" Height="50" Width="200" Margin="300,350,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Button x:Name="BoutonFuite" Content="Fuite" HorizontalAlignment="Center" Height="50" Width="200" Margin="550,350,0,0" VerticalAlignment="Top" FontSize="18" Click="BoutonFuite_Click"/>
         <Image x:Name="ImageAnimalJoueur"  Height="200" Canvas.Left="50" Canvas.Top="117" Width="200"/>
