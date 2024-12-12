@@ -240,5 +240,13 @@
             Height="55"
             HorizontalAlignment="Left"
             VerticalAlignment="Center" />
+
+        <Rectangle
+            x:Name="Butte_1"
+            Canvas.Left="440"
+            Width="345"
+            Height="30"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center" />
     </Canvas>
 </Window>
