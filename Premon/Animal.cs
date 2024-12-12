@@ -41,6 +41,12 @@ namespace Premon
                 case Premon.Attaques.EMPALEMENT:
                     break;
 
+                case Premon.Attaques.COUP_DE_PIED:
+                    break;
+
+                case Premon.Attaques.AIGUISAGE:
+                    break;
+
             }
 
         }
@@ -48,7 +54,9 @@ namespace Premon
         public static void InitDescriptionAttaques()
         {
 
-            
+            descriptionsAttaques.Add(Premon.Attaques.COUP_DE_PIED, "Le premon charge vers l'avant et lance un gros coup de pied infligeant 20 degâts");
+            descriptionsAttaques.Add(Premon.Attaques.EMPALEMENT, "Le premon utilise ses cornes pour transpercer son ennemi infligeant 40 degâts");
+            descriptionsAttaques.Add(Premon.Attaques.AIGUISAGE, "Le premon aiguise ses pointes, augmentation de 10% de la prochaine attaque");
 
         }
         
