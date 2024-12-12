@@ -52,9 +52,13 @@
     <None Remove="Textures\Mur\Mur_7.png" />
     <None Remove="Textures\Mur\Mur_8.png" />
     <None Remove="Textures\Personnage\Personnage_derriere.png" />
+    <None Remove="Textures\Personnage\Personnage_derriere\Personnage_derriere_1.png" />
     <None Remove="Textures\Personnage\Personnage_devant.png" />
+    <None Remove="Textures\Personnage\Personnage_devant\Personnage_devant_1.png" />
     <None Remove="Textures\Personnage\Personnage_droite.png" />
+    <None Remove="Textures\Personnage\Personnage_droite\Personnage_droite_1.png" />
     <None Remove="Textures\Personnage\Personnage_gauche.png" />
+    <None Remove="Textures\Personnage\Personnage_gauche\Personnage_gauche_1.png" />
     <None Remove="Textures\Sol\Chemin.png" />
     <None Remove="Textures\Sol\Chemin_1.png" />
     <None Remove="Textures\Sol\Chemin_2.png" />
@@ -174,6 +178,18 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Textures\Mur\Mur_8.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Personnage\Personnage_derriere\Personnage_derriere_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Personnage\Personnage_devant\Personnage_devant_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Personnage\Personnage_droite\Personnage_droite_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Personnage\Personnage_gauche\Personnage_gauche_1.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Textures\Sol\Chemin.png">
