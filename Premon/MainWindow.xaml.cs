@@ -19,7 +19,7 @@ namespace Premon
     public partial class MainWindow : Window
     {
 
-        // Paramètres ---------------------------------------
+        // Constantes ----------------------------------------
 
         // Mouvement
         private static readonly int PAS_DEPLACEMENT = 50;
@@ -35,6 +35,7 @@ namespace Premon
         private static bool? gauche = null;
         private static bool? haut = null;
         private static bool aAppuye = false;
+        private static bool animalChoisi;
 
         // Inventaire
         private static List<Animal> animauxPossedes = new List<Animal>();
@@ -135,13 +136,33 @@ namespace Premon
 
                 if(player.IntersectsWith(buissonRect))
                 {
-
 #if DEBUG
                     Console.WriteLine("Intersection");
 #endif
-
                     if (random.NextDouble() < POURCENTAGE_RENCONTRE_BUISSON)
+                    {
+
+                        animalChoisi = false;
+
+                        while (!animalChoisi)
+                        {
+
+                            Animal animal = animaux[(Animaux) random.Next(0, Animaux.GetValues(typeof(Animaux)).Length)];
+
+                            if(random.Next(0, (int) (1 / animal.ChanceComplementaire) - 1) == 0)
+                            {
+
+
+
+                            }
+
+                            
+
+                        }
+
                         DebutCombat();
+
+                    }
 
                 }
 
@@ -236,8 +257,6 @@ namespace Premon
 
             if (hautPerso >= 0 && hautPerso < ActualHeight - Personnage.Height)
                 Canvas.SetTop(Personnage, hautPerso);
-
-            
 
         }
     }
