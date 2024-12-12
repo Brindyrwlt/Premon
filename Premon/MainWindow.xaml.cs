@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Windows.Media.Imaging;
 
 namespace Premon
 {
@@ -20,6 +21,9 @@ namespace Premon
 
         // Probabilité
         private static readonly double POURCENTAGE_RENCONTRE_BUISSON = 0.2;
+
+        // Image
+        private static BitmapImage imgPersonnage;
 
         // Variables système  --------------------------------
 
@@ -55,8 +59,14 @@ namespace Premon
             InitBuissons();
             InitObstacles();
             InitAnimaux();
+            InitBitmap();
 
             animauxPossedes.Add(animaux[Animaux.Mammouth]);
+        }
+
+        private void InitBitmap()
+        {
+            imgPersonnage = new BitmapImage(new Uri($"pack://application:,,,/Textures/Personnage/Personnage_devant/Personnage_devant_1.png"));
         }
 
         private void InitBuissons()
