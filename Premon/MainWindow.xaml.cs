@@ -59,6 +59,7 @@ namespace Premon
             InitializeComponent();
             InitIntervalleDeplacement();
             InitBuissons();
+            InitObstacles();
             InitAnimaux();
 
             animauxPossedes.Add(animaux[Animaux.Mammouth]);
@@ -88,6 +89,7 @@ namespace Premon
             obstacles.Add(Eau_5);
             obstacles.Add(Pierre_1);
             obstacles.Add(Pierre_2);
+            obstacles.Add(Butte_1);
         }
 
         private void InitAnimaux()
