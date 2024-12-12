@@ -95,7 +95,7 @@ namespace Premon
         private void InitAnimaux()
         {
 
-            animaux.Add(Animaux.Mammouth, new Animal("Mammouth", 200, "Mammouth.png", Attaques.COUP_DE_PIED));
+            animaux.Add(Animaux.Mammouth, new Animal("Mammouth", 200, Attaques.COUP_DE_PIED));
 
         }
 
@@ -140,18 +140,22 @@ namespace Premon
                     Console.WriteLine("Intersection");
 #endif
 
-                    if(random.NextDouble() < POURCENTAGE_RENCONTRE_BUISSON)
-                    {
-
-                        Combat combat = new Combat();
-                        combat.ShowDialog();
-
-                    }
+                    if (random.NextDouble() < POURCENTAGE_RENCONTRE_BUISSON)
+                        DebutCombat();
 
                 }
 
             }
             
+        }
+
+        private static void DebutCombat()
+        {
+
+            Combat combat = new Combat();
+            combat.InitAnimaux(animauxPossedes[0]);
+            combat.ShowDialog();
+
         }
 
         private void fenetre_KeyDown(object sender, KeyEventArgs e)
