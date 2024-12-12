@@ -77,8 +77,12 @@
 
   <ItemGroup>
     <Resource Include="scene1.png" />
-    <Resource Include="Textures\Animal\Bouquetin.png" />
-    <Resource Include="Textures\Animal\Mammouth.png" />
+    <Resource Include="Textures\Animal\Bouquetin.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Animal\Mammouth.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Textures\Decoration\Arbre\Arbre_1.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
