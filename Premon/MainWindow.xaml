@@ -150,7 +150,7 @@
         <Rectangle
             x:Name="Eau_3"
             Canvas.Left="750"
-            Canvas.Top="300"
+            Canvas.Top="250"
             Width="50"
             Height="150"
             HorizontalAlignment="Left"
@@ -160,7 +160,7 @@
         <Rectangle
             x:Name="Eau_4"
             Canvas.Left="400"
-            Canvas.Top="250"
+            Canvas.Top="200"
             Width="50"
             Height="200"
             HorizontalAlignment="Left"
@@ -169,10 +169,10 @@
 
         <Rectangle
             x:Name="Eau_5"
-            Canvas.Left="412"
-            Canvas.Top="410"
-            Width="91"
-            Height="48"
+            Canvas.Left="400"
+            Canvas.Top="400"
+            Width="100"
+            Height="50"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Stroke="Blue" />
@@ -180,10 +180,10 @@
         <!--  2 Pierres à coter de l'eau  -->
         <Rectangle
             x:Name="Pierre_1"
-            Canvas.Left="503"
-            Canvas.Top="410"
-            Width="105"
-            Height="55"
+            Canvas.Left="500"
+            Canvas.Top="400"
+            Width="100"
+            Height="50"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Stroke="Brown" />
@@ -191,10 +191,10 @@
         <!--  Pierre en bas à droite  -->
         <Rectangle
             x:Name="Pierre_2"
-            Canvas.Left="1014"
-            Canvas.Top="518"
+            Canvas.Left="1000"
+            Canvas.Top="500"
             Width="50"
-            Height="55"
+            Height="50"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             Stroke="Brown" />
@@ -212,10 +212,10 @@
         <!--  2 Grand arbres en haut tout à droite  -->
         <Rectangle
             x:Name="Arbre_2"
-            Canvas.Left="1114"
+            Canvas.Left="1100"
             Canvas.Top="0"
-            Width="102"
-            Height="210"
+            Width="100"
+            Height="200"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             Stroke="DarkGreen" />
@@ -223,10 +223,10 @@
         <!--  3 Grand arbres en haut à droite  -->
         <Rectangle
             x:Name="Arbre_3"
-            Canvas.Left="810"
-            Canvas.Top="-2"
-            Width="305"
-            Height="106"
+            Canvas.Left="800"
+            Canvas.Top="0"
+            Width="300"
+            Height="100"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Stroke="DarkGreen" />
@@ -234,19 +234,21 @@
         <!--  Petit tron d'arbre en haut a droite  -->
         <Rectangle
             x:Name="Arbre_4"
-            Canvas.Left="860"
+            Canvas.Left="850"
             Canvas.Top="100"
-            Width="55"
-            Height="55"
+            Width="50"
+            Height="50"
             HorizontalAlignment="Left"
-            VerticalAlignment="Center" />
+            VerticalAlignment="Center"
+            Stroke="DarkGreen" />
 
         <Rectangle
             x:Name="Butte_1"
-            Canvas.Left="440"
-            Width="345"
-            Height="30"
+            Canvas.Left="400"
+            Width="400"
+            Height="50"
             HorizontalAlignment="Left"
-            VerticalAlignment="Center" />
+            VerticalAlignment="Center"
+            Stroke="DarkOrange" />
     </Canvas>
 </Window>
