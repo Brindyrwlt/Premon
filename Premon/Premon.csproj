@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Personnage_devant.png" />
     <None Remove="scene1.png" />
     <None Remove="Textures\Decoration\Arbre\Arbre_1.png" />
     <None Remove="Textures\Decoration\Arbre\Arbre_2.png" />
@@ -65,6 +66,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Personnage_devant.png" />
     <Resource Include="scene1.png" />
     <Resource Include="Textures\Decoration\Arbre\Arbre_1.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

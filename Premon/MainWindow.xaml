@@ -26,7 +26,11 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Panel.ZIndex="1"
-            Stroke="Black" />
+            Stroke="Black" >
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Personnage_devant.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
 
         <Rectangle
             x:Name="Buisson_1"
