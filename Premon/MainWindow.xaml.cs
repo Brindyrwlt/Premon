@@ -104,6 +104,11 @@ namespace Premon
 
         }
 
+        private void InitObjets()
+        {
+
+        }
+
         private void Jeu(object? sender, EventArgs e)
         {
 
