@@ -13,7 +13,7 @@
     mc:Ignorable="d" KeyUp="fenetre_KeyUp">
     <Canvas x:Name="monCanvas">
         <Rectangle
-            x:Name="perso"
+            x:Name="Personnage"
             Canvas.Left="0"
             Canvas.Top="0"
             Width="50"
@@ -25,7 +25,7 @@
             Stroke="Black" />
 
         <Rectangle
-            x:Name="Bush1"
+            x:Name="Buisson_1"
             Width="200"
             Height="200" Canvas.Left="209" Canvas.Top="155"
             Stroke="Green"/>

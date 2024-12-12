@@ -21,9 +21,11 @@ namespace Premon
         private static readonly int PAS_DEPLACEMENT = 50;
         private static DispatcherTimer intervalleDeplacement;
         private static readonly int INTERVALLE_DEPLACEMENT = 100;
+        private static readonly double POURCENTAGE_RENCONTRE_BUISSON = 0.2;
         private static bool? gauche = null;
         private static bool? haut = null;
         private static bool aAppuye = false;
+        private Random random = new Random();
 
         // 100 HP pour la base
         private Animal[] premons =
@@ -34,17 +36,75 @@ namespace Premon
 
         };
 
+        private List<Rectangle> buissons = new List<Rectangle>();
+
         public MainWindow()
         {
             InitializeComponent();
             InitIntervalleDeplacement();
+            InitBuissons();
+        }
+
+        private void InitBuissons()
+        {
+            
+            buissons.Add(Buisson_1);
+        
         }
 
         private void Jeu(object? sender, EventArgs e)
         {
 
             DeplacementPerso();
+            
+    
+        }
 
+        private void RencontreBuisson()
+        {
+
+            System.Drawing.Rectangle player = new System.Drawing.Rectangle
+                (
+                
+                    (int) Canvas.GetLeft(Personnage),
+                    (int) Canvas.GetTop(Personnage),
+                    (int) Personnage.Width,
+                    (int) Personnage.Height
+
+                );
+
+            foreach(Rectangle buisson in buissons)
+            {
+
+                System.Drawing.Rectangle buissonRect = new System.Drawing.Rectangle
+                (
+
+                    (int) Canvas.GetLeft(buisson),
+                    (int) Canvas.GetTop(buisson),
+                    (int) buisson.Width,
+                    (int) buisson.Height
+
+                );
+
+                if(player.IntersectsWith(buissonRect))
+                {
+
+#if DEBUG
+                    Console.WriteLine("Intersection");
+#endif
+
+                    if(random.NextDouble() < POURCENTAGE_RENCONTRE_BUISSON)
+                    {
+
+                        Combat combat = new Combat();
+                        combat.ShowDialog();
+
+                    }
+
+                }
+
+            }
+            
         }
 
         private void fenetre_KeyDown(object sender, KeyEventArgs e)
@@ -76,7 +136,9 @@ namespace Premon
                 intervalleDeplacement.Start();
 
             }
-            
+
+            RencontreBuisson();
+
         }
 
         private void InitIntervalleDeplacement()
@@ -97,25 +159,28 @@ namespace Premon
         private void DeplacementPerso()
         {
 
-            double gauchePerso = Canvas.GetLeft(perso);
-            double hautPerso = Canvas.GetTop(perso);
+            double gauchePerso = Canvas.GetLeft(Personnage);
+            double hautPerso = Canvas.GetTop(Personnage);
 
             if (gauche != null)
                 gauchePerso += gauche == false ? PAS_DEPLACEMENT : -PAS_DEPLACEMENT;
 
             if (haut != null)
                 hautPerso += haut == false ? PAS_DEPLACEMENT : -PAS_DEPLACEMENT;
+
 #if DEBUG
             Console.WriteLine($"Gauche : {gauchePerso}\n" +
                 $"Haut : {hautPerso}");
 #endif
-            if(gauchePerso >= 0 && gauchePerso < ActualWidth - perso.Width)
-                Canvas.SetLeft(perso, gauchePerso);
 
-            if (hautPerso >= 0 && hautPerso < ActualHeight - perso.Height)
-                Canvas.SetTop(perso, hautPerso);
+            if(gauchePerso >= 0 && gauchePerso < ActualWidth - Personnage.Width)
+                Canvas.SetLeft(Personnage, gauchePerso);
+
+            if (hautPerso >= 0 && hautPerso < ActualHeight - Personnage.Height)
+                Canvas.SetTop(Personnage, hautPerso);
 
             
+
         }
     }
 }
