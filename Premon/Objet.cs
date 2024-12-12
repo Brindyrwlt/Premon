@@ -12,6 +12,7 @@ namespace Premon
         public static string Nom;
         public static int Quantite = 0;
         public BitmapImage Image;
+        private static readonly int maxQuantite = 5;
 
         public Objet(string nom, int quantite) 
         {
