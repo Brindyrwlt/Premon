@@ -39,23 +39,26 @@ namespace Premon
             boutons[BoutonAttaque3] = 2;
             boutons[BoutonAttaque4] = 3;
             
-            foreach(atta)
+            foreach(KeyValuePair<Button, int> bouton in boutons)
+            {
+
+                if(bouton.Value < attaques.Length)
+                {
+
+                    bouton.Key.IsEnabled = true;
+                    bouton.Key.Content = attaques[bouton.Value];
+
+                }
+
+            }
 
         }
 
-        private void ChangeDescription(Button bouton, int nombreBouton = 0)
+        private void ChangeDescription(int nombreBouton = 0)
         {
 
             
             Attaques attaque = attaques[nombreBouton];
-            if (attaque == null)
-            {
-
-                bouton.IsEnabled = false;
-                bouton.Text
-
-            }
-                
             NomAttaque.Content = nombreBouton != 0 ? attaque.ToString() : "Sélectionnez une attaque";
             DescriptionAttaque.Text = nombreBouton != 0 ? Animal.descriptionsAttaques[attaque] : "";
 
@@ -67,7 +70,7 @@ namespace Premon
         }
 
         private void BoutonAttaque1_MouseEnter(object sender, MouseEventArgs e)
-            => ChangeDescription(, 1);
+            => ChangeDescription(1);
 
         private void BoutonAttaque1_MouseLeave(object sender, MouseEventArgs e)
             => ChangeDescription();
