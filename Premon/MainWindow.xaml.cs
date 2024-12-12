@@ -161,15 +161,22 @@ namespace Premon
 
             switch (e.Key)
             {
+                case Key.Q:
                 case Key.Left:
                     gauche = true;
                     break;
+
+                case Key.D:
                 case Key.Right:
                     gauche = false;
                     break;
+
+                case Key.Z:
                 case Key.Up:
                     haut = true;
                     break;
+
+                case Key.S:
                 case Key.Down:
                     haut = false;
                     break;
