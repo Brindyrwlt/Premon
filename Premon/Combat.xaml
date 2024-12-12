@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Premon"
         mc:Ignorable="d"
-        Title="Combat" Height="450" Width="800">
+        Title="Combat" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Canvas>
         <Rectangle HorizontalAlignment="Center" Height="70" Margin="0,340,0,0" Stroke="Black" VerticalAlignment="Top" Width="800" StrokeThickness="5"/>
         <Button x:Name="BoutonAttaque" Content="Attaque" HorizontalAlignment="Center" Height="50" Width="200" Margin="50,350,0,0" VerticalAlignment="Top" FontSize="18" Click="BoutonAttaque_Click"/>

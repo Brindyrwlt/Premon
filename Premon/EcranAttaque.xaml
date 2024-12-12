@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Premon"
         mc:Ignorable="d"
-        Title="EcranAttaque" Height="250" Width="400">
+        Title="EcranAttaque" Height="250" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Button x:Name="BoutonAttaque1" Content="Attaque 1" IsEnabled="False" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="33" Width="150" MouseEnter="BoutonAttaque1_MouseEnter" MouseLeave="BoutonAttaque1_MouseLeave"/>
         <Button x:Name="BoutonAttaque2" Content="Attaque 2" IsEnabled="False" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="33" Width="150" MouseEnter="BoutonAttaque2_MouseEnter" MouseLeave="BoutonAttaque2_MouseLeave"/>
