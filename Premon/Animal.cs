@@ -60,4 +60,11 @@ namespace Premon
         AIGUISAGE
 
     }
+
+    enum Animaux
+    {
+
+        Mammouth
+
+    }
 }

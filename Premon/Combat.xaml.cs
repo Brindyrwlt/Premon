@@ -24,6 +24,13 @@ namespace Premon
             InitializeComponent();
         }
 
+        internal static void InitAnimaux(Animal animalJoueur)
+        {
+
+            
+
+        }
+
         private void BoutonFuite_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;

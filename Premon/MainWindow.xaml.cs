@@ -19,25 +19,37 @@ namespace Premon
     public partial class MainWindow : Window
     {
 
-        // Paramètres -------
+        // Paramètres ---------------------------------------
 
+        // Mouvement
         private static readonly int PAS_DEPLACEMENT = 50;
-        private static DispatcherTimer intervalleDeplacement;
         private static readonly int INTERVALLE_DEPLACEMENT = 200;
+
+        // Probabilité
         private static readonly double POURCENTAGE_RENCONTRE_BUISSON = 0.2;
+
+        // Variables système  --------------------------------
+
+        // Mouvement
+        private static DispatcherTimer intervalleDeplacement;
         private static bool? gauche = null;
         private static bool? haut = null;
         private static bool aAppuye = false;
-        private Random random = new Random();
 
-        // 100 HP pour la base
-        private Animal[] premons =
+        // Inventaire
+        private static List<Animal> animauxPossedes = new List<Animal>();
+
+        // Autre
+        private Random random = new Random();
+        /*private Animal[] animaux = // 100 HP pour la base
         {
 
             new Animal("Mammouth", 200, "Mammouth.png", Attaques.COUP_DE_PIED),
             //new Animal("Bouquetin", 80, Attaques.EMPALEMENT, Attaques.AIGUISAGE)
 
-        };
+        };*/
+
+        private Dictionary<Animaux, Animal> animaux = new Dictionary<Animaux, Animal>();
 
         private List<Rectangle> buissons = new List<Rectangle>();
         private List<Rectangle> obstacles = new List<Rectangle>();
@@ -47,6 +59,9 @@ namespace Premon
             InitializeComponent();
             InitIntervalleDeplacement();
             InitBuissons();
+            InitAnimaux();
+
+            animauxPossedes.Add(animaux[Animaux.Mammouth]);
         }
 
         private void InitBuissons()
@@ -73,6 +88,13 @@ namespace Premon
             obstacles.Add(Eau_5);
             obstacles.Add(Pierre_1);
             obstacles.Add(Pierre_2);
+        }
+
+        private void InitAnimaux()
+        {
+
+            animaux.Add(Animaux.Mammouth, new Animal("Mammouth", 200, "Mammouth.png", Attaques.COUP_DE_PIED));
+
         }
 
         private void Jeu(object? sender, EventArgs e)
