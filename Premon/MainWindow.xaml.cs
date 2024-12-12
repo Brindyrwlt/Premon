@@ -20,7 +20,7 @@ namespace Premon
     {
         private static readonly int PAS_DEPLACEMENT = 50;
         private static DispatcherTimer intervalleDeplacement;
-        private static readonly int INTERVALLE_DEPLACEMENT = 100;
+        private static readonly int INTERVALLE_DEPLACEMENT = 200;
         private static readonly double POURCENTAGE_RENCONTRE_BUISSON = 0.2;
         private static bool? gauche = null;
         private static bool? haut = null;
@@ -37,6 +37,7 @@ namespace Premon
         };
 
         private List<Rectangle> buissons = new List<Rectangle>();
+        private List<Rectangle> obstacles = new List<Rectangle>();
 
         public MainWindow()
         {
@@ -49,7 +50,26 @@ namespace Premon
         {
             
             buissons.Add(Buisson_1);
-        
+            buissons.Add(Buisson_2);
+            buissons.Add(Buisson_3);
+            buissons.Add(Buisson_4);
+            buissons.Add(Buisson_5);
+            buissons.Add(Buisson_6);
+            buissons.Add(Buisson_7);
+            buissons.Add(Buisson_8);
+            buissons.Add(Buisson_9);
+
+        }
+
+        private void InitObstacles()
+        {
+            obstacles.Add(Eau_1);
+            obstacles.Add(Eau_2);
+            obstacles.Add(Eau_3);
+            obstacles.Add(Eau_4);
+            obstacles.Add(Eau_5);
+            obstacles.Add(Pierre_1);
+            obstacles.Add(Pierre_2);
         }
 
         private void Jeu(object? sender, EventArgs e)

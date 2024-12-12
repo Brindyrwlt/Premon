@@ -14,11 +14,11 @@
     mc:Ignorable="d">
     <Canvas x:Name="monCanvas">
         <Canvas.Background>
-            <ImageBrush ImageSource="/scene1.png"/>
+            <ImageBrush ImageSource="/scene1.png" />
         </Canvas.Background>
         <Rectangle
             x:Name="Personnage"
-            Canvas.Left="0"
+            Canvas.Left="50"
             Canvas.Top="0"
             Width="50"
             Height="50"
@@ -26,18 +26,200 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Panel.ZIndex="1"
-            Stroke="Black" >
+            Stroke="Black">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="/Personnage_devant.png"/>
+                <ImageBrush ImageSource="/Personnage_devant.png" />
             </Rectangle.Fill>
         </Rectangle>
 
         <Rectangle
             x:Name="Buisson_1"
-            Canvas.Left="209"
-            Canvas.Top="155"
-            Width="200"
-            Height="200"
+            Canvas.Top="260"
+            Width="100"
+            Height="315"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
             Stroke="Green" />
+
+        <Rectangle
+            x:Name="Buisson_2"
+            Canvas.Left="100"
+            Canvas.Top="365"
+            Width="50"
+            Height="155"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Stroke="Green" />
+        <Rectangle
+            x:Name="Buisson_3"
+            Canvas.Left="203"
+            Canvas.Top="0"
+            Width="100"
+            Height="210"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stroke="Green" />
+
+        <Rectangle
+            x:Name="Buisson_4"
+            Canvas.Left="303"
+            Canvas.Top="0"
+            Width="50"
+            Height="155"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Stroke="Green" />
+
+        <Rectangle
+            x:Name="Buisson_5"
+            Canvas.Left="353"
+            Canvas.Top="0"
+            Width="50"
+            Height="105"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Stroke="Green" />
+
+        <Rectangle
+            x:Name="Buisson_6"
+            Canvas.Left="1014"
+            Canvas.Top="102"
+            Width="100"
+            Height="265"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stroke="Green" />
+
+        <Rectangle
+            x:Name="Buisson_7"
+            Canvas.Left="1112"
+            Canvas.Top="208"
+            Width="104"
+            Height="105"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Stroke="Green" />
+
+        <Rectangle
+            x:Name="Buisson_8"
+            Canvas.Left="914"
+            Canvas.Top="102"
+            Width="100"
+            Height="108"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stroke="Green" />
+
+        <Rectangle
+            x:Name="Buisson_9"
+            Canvas.Left="964"
+            Canvas.Top="210"
+            Width="50"
+            Height="50"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Stroke="Green" />
+
+        <Rectangle
+            x:Name="Eau_1"
+            Canvas.Left="444"
+            Canvas.Top="214"
+            Width="280"
+            Height="196"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Stroke="Blue" />
+
+        <Rectangle
+            x:Name="Eau_2"
+            Canvas.Left="724"
+            Canvas.Top="234"
+            Width="29"
+            Height="176"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stroke="Blue" />
+
+        <Rectangle
+            x:Name="Eau_3"
+            Canvas.Left="753"
+            Canvas.Top="273"
+            Width="53"
+            Height="137"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Stroke="Blue" />
+
+        <Rectangle
+            x:Name="Eau_4"
+            Canvas.Left="410"
+            Canvas.Top="234"
+            Width="34"
+            Height="176"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Stroke="Blue" />
+
+        <Rectangle
+            x:Name="Eau_5"
+            Canvas.Left="412"
+            Canvas.Top="410"
+            Width="91"
+            Height="48"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Stroke="Blue" />
+
+        <Rectangle
+            x:Name="Pierre_1"
+            Canvas.Left="503"
+            Canvas.Top="410"
+            Width="105"
+            Height="55"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stroke="Brown" />
+
+        <Rectangle
+            x:Name="Pierre_2"
+            Canvas.Left="1014"
+            Canvas.Top="518"
+            Width="50"
+            Height="55"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            RenderTransformOrigin="1.18,2.725"
+            Stroke="Brown" />
+
+        <Rectangle
+            x:Name="Arbre_1"
+            Canvas.Top="0"
+            Width="50"
+            Height="150"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            RenderTransformOrigin="1.18,2.725"
+            Stroke="DarkGreen" />
+
+        <Rectangle
+            x:Name="Arbre_2"
+            Canvas.Left="1114"
+            Canvas.Top="0"
+            Width="100"
+            Height="210"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            RenderTransformOrigin="1.18,2.725"
+            Stroke="DarkGreen" />
+
+        <Rectangle
+            x:Name="Arbre_3"
+            Canvas.Left="820"
+            Canvas.Top="2"
+            Width="295"
+            Height="103"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Stroke="DarkGreen" />
     </Canvas>
 </Window>
