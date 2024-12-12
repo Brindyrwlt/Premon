@@ -16,6 +16,7 @@
     <None Remove="Personnage_droite_1.png" />
     <None Remove="Personnage_gauche_1.png" />
     <None Remove="scene1.png" />
+    <None Remove="Textures\Animal\Bouquetin.png" />
     <None Remove="Textures\Animal\Mammouth.png" />
     <None Remove="Textures\Decoration\Arbre\Arbre_1.png" />
     <None Remove="Textures\Decoration\Arbre\Arbre_2.png" />
@@ -77,7 +78,8 @@
 
   <ItemGroup>
     <Resource Include="scene1.png" />
-    <Resource Include="Textures\Animal\mammouth.png" />
+    <Resource Include="Textures\Animal\Bouquetin.png" />
+    <Resource Include="Textures\Animal\Mammouth.png" />
     <Resource Include="Textures\Decoration\Arbre\Arbre_1.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
