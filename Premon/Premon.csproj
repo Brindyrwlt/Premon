@@ -182,18 +182,6 @@
     <Resource Include="Textures\Mur\Mur_8.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Textures\Personnage\Personnage_derriere.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Textures\Personnage\Personnage_devant.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Textures\Personnage\Personnage_droite.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Textures\Personnage\Personnage_gauche.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Textures\Sol\Chemin.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
