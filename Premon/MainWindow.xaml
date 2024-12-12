@@ -29,7 +29,7 @@
             VerticalAlignment="Top"
             Panel.ZIndex="1">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="/Personnage_devant.png" />
+                <ImageBrush ImageSource="/Personnage_devant_1.png" />
             </Rectangle.Fill>
         </Rectangle>
 

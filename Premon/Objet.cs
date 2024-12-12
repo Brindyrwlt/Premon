@@ -9,10 +9,10 @@ namespace Premon
 {
     internal class Objet
     {
-        public static string Nom;
-        public static int Quantite = 0;
+        public string Nom;
+        public int Quantite = 0;
         public BitmapImage Image;
-        private static readonly int maxQuantite = 5;
+        private readonly int maxQuantite = 5;
 
         public Objet(string nom, int quantite) 
         {

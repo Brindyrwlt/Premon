@@ -28,6 +28,9 @@ namespace Premon
         // Probabilité
         private static readonly double POURCENTAGE_RENCONTRE_BUISSON = 0.2;
 
+        // Image
+        private static BitmapImage imgPersonnage;
+
         // Variables système  --------------------------------
 
         // Mouvement
@@ -62,8 +65,14 @@ namespace Premon
             InitBuissons();
             InitObstacles();
             InitAnimaux();
+            InitBitmap();
 
             animauxPossedes.Add(animaux[Animaux.Mammouth]);
+        }
+
+        private void InitBitmap()
+        {
+            imgPersonnage = new BitmapImage(new Uri($"pack://application:,,,/Textures/Personnage/Personnage_devant/Personnage_devant_1.png"));
         }
 
         private void InitBuissons()
