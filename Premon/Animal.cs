@@ -15,18 +15,18 @@ namespace Premon
         public readonly int HPMax;
         public int HP;
         public string Nom;
-        public Attaques[] attaques;
-        public BitmapImage image;
+        public Attaques[] Attaques;
+        public BitmapImage Image;
         private double multiplicateur = 1.0;
         private Dictionary<Attaques, string> descriptionsAttaques = new Dictionary<Attaques, string>();
 
-        public Animal(string nom, int hpMax, string nomImage, params Attaques[] attaques)
+        public Animal(string nom, int hpMax, params Attaques[] attaques)
         {
 
             Nom = nom;
             HPMax = hpMax;
             HP = HPMax;
-            image = new BitmapImage(new Uri($"pack://application:,,,/Textures/Animal/{nomImage}"));
+            Image = new BitmapImage(new Uri($"pack://application:,,,/Textures/Animal/{nom}.png"));
 
         }
 
@@ -36,7 +36,7 @@ namespace Premon
             switch(attaque)
             {
 
-                case Attaques.EMPALEMENT:
+                case Premon.Attaques.EMPALEMENT:
                     break;
 
             }
