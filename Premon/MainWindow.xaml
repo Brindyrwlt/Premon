@@ -37,9 +37,9 @@
         <!--  Buissons en bas à gauche  -->
         <Rectangle
             x:Name="Buisson_1"
-            Canvas.Top="260"
+            Canvas.Top="250"
             Width="100"
-            Height="315"
+            Height="300"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Stroke="Green" />
@@ -47,40 +47,40 @@
         <Rectangle
             x:Name="Buisson_2"
             Canvas.Left="100"
-            Canvas.Top="365"
+            Canvas.Top="350"
             Width="50"
-            Height="155"
+            Height="150"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center"
+            VerticalAlignment="Top"
             Stroke="Green" />
 
         <!--  Buissons en haut à gauche  -->
         <Rectangle
             x:Name="Buisson_3"
-            Canvas.Left="203"
+            Canvas.Left="200"
             Canvas.Top="0"
             Width="100"
-            Height="210"
+            Height="200"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Stroke="Green" />
 
         <Rectangle
             x:Name="Buisson_4"
-            Canvas.Left="303"
+            Canvas.Left="300"
             Canvas.Top="0"
             Width="50"
-            Height="155"
+            Height="150"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Stroke="Green" />
 
         <Rectangle
             x:Name="Buisson_5"
-            Canvas.Left="353"
+            Canvas.Left="350"
             Canvas.Top="0"
             Width="50"
-            Height="105"
+            Height="100"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             Stroke="Green" />
@@ -88,38 +88,38 @@
         <!--  Buissons en haut à droite  -->
         <Rectangle
             x:Name="Buisson_6"
-            Canvas.Left="1014"
-            Canvas.Top="102"
+            Canvas.Left="1000"
+            Canvas.Top="100"
             Width="100"
-            Height="265"
+            Height="250"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Stroke="Green" />
 
         <Rectangle
             x:Name="Buisson_7"
-            Canvas.Left="1112"
-            Canvas.Top="208"
-            Width="104"
-            Height="105"
+            Canvas.Left="1100"
+            Canvas.Top="200"
+            Width="100"
+            Height="100"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             Stroke="Green" />
 
         <Rectangle
             x:Name="Buisson_8"
-            Canvas.Left="914"
-            Canvas.Top="102"
+            Canvas.Left="900"
+            Canvas.Top="100"
             Width="100"
-            Height="108"
+            Height="100"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Stroke="Green" />
 
         <Rectangle
             x:Name="Buisson_9"
-            Canvas.Left="964"
-            Canvas.Top="210"
+            Canvas.Left="950"
+            Canvas.Top="200"
             Width="50"
             Height="50"
             HorizontalAlignment="Center"
@@ -129,40 +129,40 @@
         <!--  L'EAU  -->
         <Rectangle
             x:Name="Eau_1"
-            Canvas.Left="444"
-            Canvas.Top="214"
-            Width="280"
-            Height="196"
+            Canvas.Left="450"
+            Canvas.Top="200"
+            Width="250"
+            Height="200"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Stroke="Blue" />
 
         <Rectangle
             x:Name="Eau_2"
-            Canvas.Left="724"
-            Canvas.Top="234"
-            Width="29"
-            Height="176"
+            Canvas.Left="700"
+            Canvas.Top="200"
+            Width="50"
+            Height="200"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Stroke="Blue" />
 
         <Rectangle
             x:Name="Eau_3"
-            Canvas.Left="753"
-            Canvas.Top="273"
-            Width="53"
-            Height="137"
+            Canvas.Left="750"
+            Canvas.Top="300"
+            Width="50"
+            Height="150"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             Stroke="Blue" />
 
         <Rectangle
             x:Name="Eau_4"
-            Canvas.Left="410"
-            Canvas.Top="234"
-            Width="34"
-            Height="176"
+            Canvas.Left="400"
+            Canvas.Top="250"
+            Width="50"
+            Height="200"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             Stroke="Blue" />
