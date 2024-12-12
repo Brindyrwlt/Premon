@@ -90,6 +90,10 @@ namespace Premon
             obstacles.Add(Eau_5);
             obstacles.Add(Pierre_1);
             obstacles.Add(Pierre_2);
+            obstacles.Add(Arbre_1);
+            obstacles.Add(Arbre_2);
+            obstacles.Add(Arbre_3);
+            obstacles.Add(Arbre_4);
             obstacles.Add(Butte_1);
         }
 
@@ -111,7 +115,7 @@ namespace Premon
         private void RencontreBuisson()
         {
 
-            System.Drawing.Rectangle player = new System.Drawing.Rectangle
+            System.Drawing.Rectangle perso = new System.Drawing.Rectangle
                 (
                 
                     (int) Canvas.GetLeft(Personnage),
@@ -134,7 +138,7 @@ namespace Premon
 
                 );
 
-                if(player.IntersectsWith(buissonRect))
+                if(perso.IntersectsWith(buissonRect))
                 {
 #if DEBUG
                     Console.WriteLine("Intersection");
@@ -179,7 +183,44 @@ namespace Premon
 
         }
 
-        private void fenetre_KeyDown(object sender, KeyEventArgs e)
+        private void CollisionObstacles(double ancienneGauche, double ancienHaut)
+        {
+            System.Drawing.Rectangle perso = new System.Drawing.Rectangle
+                (
+
+                    (int)Canvas.GetLeft(Personnage),
+                    (int)Canvas.GetTop(Personnage),
+                    (int)Personnage.Width,
+                    (int)Personnage.Height
+
+                );
+
+            foreach (Rectangle obstacle in obstacles)
+            {
+
+                System.Drawing.Rectangle obstacleRect = new System.Drawing.Rectangle
+                (
+
+                    (int)Canvas.GetLeft(obstacle),
+                    (int)Canvas.GetTop(obstacle),
+                    (int)obstacle.Width,
+                    (int)obstacle.Height
+
+                );
+
+                if (perso.IntersectsWith(obstacleRect))
+                {
+#if DEBUG
+                    Console.WriteLine("Collision avec obstacle");
+#endif
+                    Canvas.SetLeft(Personnage, ancienneGauche);
+                    Canvas.SetTop(Personnage, ancienHaut);
+                    break;
+                }
+            }
+        }
+
+            private void fenetre_KeyDown(object sender, KeyEventArgs e)
         {
 
             switch (e.Key)
@@ -241,6 +282,9 @@ namespace Premon
             double gauchePerso = Canvas.GetLeft(Personnage);
             double hautPerso = Canvas.GetTop(Personnage);
 
+            double ancienneGauche = gauchePerso;
+            double ancienHaut = hautPerso;
+
             if (gauche != null)
                 gauchePerso += gauche == false ? PAS_DEPLACEMENT : -PAS_DEPLACEMENT;
 
@@ -257,6 +301,8 @@ namespace Premon
 
             if (hautPerso >= 0 && hautPerso < ActualHeight - Personnage.Height)
                 Canvas.SetTop(Personnage, hautPerso);
+
+            CollisionObstacles(ancienneGauche, ancienHaut);
 
         }
     }
