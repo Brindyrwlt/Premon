@@ -280,15 +280,16 @@ namespace Premon
         private void DeplacementPerso()
         {
 
+            // Coordonnées du personnage
             double gauchePerso = Canvas.GetLeft(Personnage);
             double hautPerso = Canvas.GetTop(Personnage);
 
             double ancienneGauche = gauchePerso;
             double ancienHaut = hautPerso;
 
+            // Modificationd de la position en fonction de la touche appuyée
             if (gauche != null)
                 gauchePerso += gauche == false ? PAS_DEPLACEMENT : -PAS_DEPLACEMENT;
-
             if (haut != null)
                 hautPerso += haut == false ? PAS_DEPLACEMENT : -PAS_DEPLACEMENT;
 
@@ -297,12 +298,13 @@ namespace Premon
                 $"Haut : {hautPerso}");
 #endif
 
+            // Déplacement du personnage selon les changements si les changements sont possibles
             if(gauchePerso >= 0 && gauchePerso < ActualWidth - Personnage.Width)
                 Canvas.SetLeft(Personnage, gauchePerso);
-
             if (hautPerso >= 0 && hautPerso < ActualHeight - Personnage.Height)
                 Canvas.SetTop(Personnage, hautPerso);
 
+            // Retour en arrière si collision
             CollisionObstacles(ancienneGauche, ancienHaut);
 
         }
