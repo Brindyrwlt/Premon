@@ -21,7 +21,7 @@ namespace Premon
         private double multiplicateur = 1.0;
         private Dictionary<Attaques, string> descriptionsAttaques = new Dictionary<Attaques, string>();
 
-        public Animal(string nom, int hpMax, int chanceComplementaire = 1, params Attaques[] attaques)
+        public Animal(string nom, int hpMax, int chanceComplementaire, params Attaques[] attaques)
         {
 
             Nom = nom;
@@ -66,7 +66,7 @@ namespace Premon
     enum Animaux
     {
 
-        Mammouth
-
+        Mammouth,
+        Bouquetin
     }
 }

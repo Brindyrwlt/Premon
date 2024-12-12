@@ -24,10 +24,11 @@ namespace Premon
             InitializeComponent();
         }
 
-        internal void InitAnimaux(Animal animalJoueur)
+        internal void InitAnimaux(Animal animalJoueur, Animal animalSauvage)
         {
 
             ImageAnimalJoueur.Source = animalJoueur.Image;
+            ImageAnimalSauvage.Source = animalSauvage.Image;
 
         }
 
