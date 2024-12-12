@@ -12,6 +12,6 @@
         <Button x:Name="BoutonObjets" Content="Objets" HorizontalAlignment="Center" Height="50" Width="200" Margin="300,350,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Button x:Name="BoutonFuite" Content="Fuite" HorizontalAlignment="Center" Height="50" Width="200" Margin="550,350,0,0" VerticalAlignment="Top" FontSize="18" Click="BoutonFuite_Click"/>
         <Image x:Name="ImageAnimalJoueur"  Height="200" Canvas.Left="50" Canvas.Top="117" Width="200"/>
-        <Image x:Name="ImageAnimaSauvage"  Height="200" Canvas.Left="536" Canvas.Top="29" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Image x:Name="ImageAnimalSauvage"  Height="200" Canvas.Left="536" Canvas.Top="29" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top"/>
     </Canvas>
 </Window>

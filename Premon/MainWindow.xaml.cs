@@ -100,7 +100,8 @@ namespace Premon
         private void InitAnimaux()
         {
 
-            animaux.Add(Animaux.Mammouth, new Animal("Mammouth", 200, Attaques.COUP_DE_PIED));
+            animaux.Add(Animaux.Mammouth, new Animal("Mammouth", 200, 1, Attaques.COUP_DE_PIED));
+            animaux.Add(Animaux.Bouquetin, new Animal("Bouquetin", 80, 1, Attaques.EMPALEMENT, Attaques.AIGUISAGE));
 
         }
 
@@ -149,29 +150,7 @@ namespace Premon
                     Console.WriteLine("Intersection");
 #endif
                     if (random.NextDouble() < POURCENTAGE_RENCONTRE_BUISSON)
-                    {
-
-                        animalChoisi = false;
-
-                        while (!animalChoisi)
-                        {
-
-                            Animal animal = animaux[(Animaux) random.Next(0, Animaux.GetValues(typeof(Animaux)).Length)];
-
-                            if(random.Next(0, (int) (1 / animal.ChanceComplementaire) - 1) == 0)
-                            {
-
-
-
-                            }
-
-                            
-
-                        }
-
                         DebutCombat();
-
-                    }
 
                 }
 
@@ -179,12 +158,26 @@ namespace Premon
             
         }
 
-        private static void DebutCombat()
+        private void DebutCombat()
         {
 
-            Combat combat = new Combat();
-            combat.InitAnimaux(animauxPossedes[0]);
+            Animal animalSauvage;
+            animalChoisi = false;
+
+            do
+            {
+
+                animalSauvage = animaux[(Animaux) random.Next(0, Animaux.GetValues(typeof(Animaux)).Length)];
+
+                if (random.Next(0, animalSauvage.ChanceComplementaire - 1) == 0)
+                    animalChoisi = true;
+
+            } while (!animalChoisi);
+
+            Combat combat = new Combat(); 
+            combat.InitAnimaux(animauxPossedes[0], animalSauvage);
             combat.ShowDialog();
+
 
         }
 
