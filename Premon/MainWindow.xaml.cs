@@ -18,6 +18,9 @@ namespace Premon
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        // Paramètres -------
+
         private static readonly int PAS_DEPLACEMENT = 50;
         private static DispatcherTimer intervalleDeplacement;
         private static readonly int INTERVALLE_DEPLACEMENT = 100;
@@ -31,8 +34,8 @@ namespace Premon
         private Animal[] premons =
         {
 
-            new Animal("Mammouth", 200, Attaques.COUP_DE_PIED),
-            new Animal("Bouquetin", 80, Attaques.EMPALEMENT, Attaques.AIGUISAGE)
+            new Animal("Mammouth", 200, "Mammouth.png", Attaques.COUP_DE_PIED),
+            //new Animal("Bouquetin", 80, Attaques.EMPALEMENT, Attaques.AIGUISAGE)
 
         };
 

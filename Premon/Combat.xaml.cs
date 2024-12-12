@@ -24,7 +24,7 @@ namespace Premon
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BoutonFuite_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
         }
