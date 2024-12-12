@@ -11,6 +11,7 @@
     Height="589"
     KeyDown="fenetre_KeyDown"
     KeyUp="fenetre_KeyUp"
+    ResizeMode="NoResize"
     mc:Ignorable="d">
     <Canvas x:Name="monCanvas">
         <Canvas.Background>
