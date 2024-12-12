@@ -16,6 +16,8 @@
         <Canvas.Background>
             <ImageBrush ImageSource="/scene1.png" />
         </Canvas.Background>
+
+        <!--  Personnage  -->
         <Rectangle
             x:Name="Personnage"
             Canvas.Left="50"
@@ -32,6 +34,7 @@
             </Rectangle.Fill>
         </Rectangle>
 
+        <!--  Buissons en bas à gauche  -->
         <Rectangle
             x:Name="Buisson_1"
             Canvas.Top="260"
@@ -50,6 +53,8 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Stroke="Green" />
+
+        <!--  Buissons en haut à gauche  -->
         <Rectangle
             x:Name="Buisson_3"
             Canvas.Left="203"
@@ -80,6 +85,7 @@
             VerticalAlignment="Center"
             Stroke="Green" />
 
+        <!--  Buissons en haut à droite  -->
         <Rectangle
             x:Name="Buisson_6"
             Canvas.Left="1014"
@@ -120,6 +126,7 @@
             VerticalAlignment="Center"
             Stroke="Green" />
 
+        <!--  L'EAU  -->
         <Rectangle
             x:Name="Eau_1"
             Canvas.Left="444"
@@ -170,6 +177,7 @@
             VerticalAlignment="Top"
             Stroke="Blue" />
 
+        <!--  2 Pierres à coter de l'eau  -->
         <Rectangle
             x:Name="Pierre_1"
             Canvas.Left="503"
@@ -180,6 +188,7 @@
             VerticalAlignment="Top"
             Stroke="Brown" />
 
+        <!--  Pierre en bas à droite  -->
         <Rectangle
             x:Name="Pierre_2"
             Canvas.Left="1014"
@@ -188,9 +197,9 @@
             Height="55"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            RenderTransformOrigin="1.18,2.725"
             Stroke="Brown" />
 
+        <!--  2 Petits arbres en haut à gauche  -->
         <Rectangle
             x:Name="Arbre_1"
             Canvas.Top="0"
@@ -198,28 +207,38 @@
             Height="150"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            RenderTransformOrigin="1.18,2.725"
             Stroke="DarkGreen" />
 
+        <!--  2 Grand arbres en haut tout à droite  -->
         <Rectangle
             x:Name="Arbre_2"
             Canvas.Left="1114"
             Canvas.Top="0"
-            Width="100"
+            Width="102"
             Height="210"
             HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            RenderTransformOrigin="1.18,2.725"
+            VerticalAlignment="Center"
             Stroke="DarkGreen" />
 
+        <!--  3 Grand arbres en haut à droite  -->
         <Rectangle
             x:Name="Arbre_3"
-            Canvas.Left="820"
-            Canvas.Top="2"
-            Width="295"
-            Height="103"
-            HorizontalAlignment="Left"
+            Canvas.Left="810"
+            Canvas.Top="-2"
+            Width="305"
+            Height="106"
+            HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Stroke="DarkGreen" />
+
+        <!--  Petit tron d'arbre en haut a droite  -->
+        <Rectangle
+            x:Name="Arbre_4"
+            Canvas.Left="860"
+            Canvas.Top="100"
+            Width="55"
+            Height="55"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center" />
     </Canvas>
 </Window>
