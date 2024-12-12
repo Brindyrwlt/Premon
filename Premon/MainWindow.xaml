@@ -10,8 +10,12 @@
     Width="1216"
     Height="589"
     KeyDown="fenetre_KeyDown"
-    mc:Ignorable="d" KeyUp="fenetre_KeyUp">
+    KeyUp="fenetre_KeyUp"
+    mc:Ignorable="d">
     <Canvas x:Name="monCanvas">
+        <Canvas.Background>
+            <ImageBrush ImageSource="/Textures/Scene/scene1.png" />
+        </Canvas.Background>
         <Rectangle
             x:Name="Personnage"
             Canvas.Left="0"
@@ -26,8 +30,10 @@
 
         <Rectangle
             x:Name="Buisson_1"
+            Canvas.Left="209"
+            Canvas.Top="155"
             Width="200"
-            Height="200" Canvas.Left="209" Canvas.Top="155"
-            Stroke="Green"/>
+            Height="200"
+            Stroke="Green" />
     </Canvas>
 </Window>
