@@ -17,15 +17,17 @@ namespace Premon
         public string Nom;
         public Attaques[] Attaques;
         public BitmapImage Image;
+        public int ChanceComplementaire = 1;
         private double multiplicateur = 1.0;
         private Dictionary<Attaques, string> descriptionsAttaques = new Dictionary<Attaques, string>();
 
-        public Animal(string nom, int hpMax, params Attaques[] attaques)
+        public Animal(string nom, int hpMax, int chanceComplementaire = 1, params Attaques[] attaques)
         {
 
             Nom = nom;
             HPMax = hpMax;
             HP = HPMax;
+            ChanceComplementaire = chanceComplementaire;
             Image = new BitmapImage(new Uri($"pack://application:,,,/Textures/Animal/{nom}.png"));
 
         }
