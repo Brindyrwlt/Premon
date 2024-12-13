@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,6 +22,7 @@ namespace Premon
     {
 
         internal Attaques[] attaques;
+        internal Attaques attaqueChoisie;
         internal Dictionary<Button, int> boutons = new Dictionary<Button, int>();
 
         public EcranAttaque()
@@ -75,6 +77,14 @@ namespace Premon
 
         }
 
+        private void Attaque(object button)
+        {
+
+            attaqueChoisie = attaques[boutons[(Button) button]];
+            DialogResult = true;
+
+        }
+
         private void BoutonRetour_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
@@ -103,5 +113,17 @@ namespace Premon
 
         private void BoutonAttaque4_MouseLeave(object sender, MouseEventArgs e)
             => ChangeDescription();
+
+        private void BoutonAttaque1_Click(object sender, RoutedEventArgs e)
+            => Attaque(sender);
+
+        private void BoutonAttaque2_Click(object sender, RoutedEventArgs e)
+            => Attaque(sender);
+
+        private void BoutonAttaque3_Click(object sender, RoutedEventArgs e)
+            => Attaque(sender);
+
+        private void BoutonAttaque4_Click(object sender, RoutedEventArgs e)
+            => Attaque(sender);
     }
 }

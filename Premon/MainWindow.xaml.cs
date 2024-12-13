@@ -46,13 +46,6 @@ namespace Premon
 
         // Autre
         private Random random = new Random();
-        /*private Animal[] animaux = // 100 HP pour la base
-        {
-
-            new Animal("Mammouth", 200, "Mammouth.png", Attaques.COUP_DE_PIED),
-            //new Animal("Bouquetin", 80, Attaques.EMPALEMENT, Attaques.AIGUISAGE)
-
-        };*/
 
         private Dictionary<Animaux, Animal> animaux = new Dictionary<Animaux, Animal>();
         internal static Dictionary<Attaques, string> descriptionsAttaques = new Dictionary<Attaques, string>();
@@ -71,13 +64,20 @@ namespace Premon
             InitBitmap();
             InitDescriptions();
             imgPerso.ImageSource = imgPersonnageDevant;
-            animauxPossedes.Add(animaux[Animaux.Mammouth]);
+            animauxPossedes.Add(CreerAnimal(Animaux.Mammouth));
+        }
+
+        private Animal CreerAnimal(Animaux animal)
+        {
+
+            return (Animal) animaux[animal].Clone();
+
         }
 
         private void InitDescriptions()
         {
 
-            descriptionsAttaques[Attaques.COUP_DE_PIED] = "Le premon charge vers l'avant et lance un gros coup de pied infligeant 20 degâts.";
+            descriptionsAttaques[Attaques.COUP_DE_PIED] = $"Le premon charge vers l'avant et lance un gros coup de pied infligeant {Animal.DEGAT_COUP_DE_PIED} degâts.";
 
         }
 
@@ -190,7 +190,7 @@ namespace Premon
             do
             {
 
-                animalSauvage = animaux[(Animaux) random.Next(0, Animaux.GetValues(typeof(Animaux)).Length)];
+                animalSauvage = CreerAnimal((Animaux) random.Next(0, Animaux.GetValues(typeof(Animaux)).Length));
 
                 if (random.Next(0, animalSauvage.ChanceComplementaire - 1) == 0)
                     animalChoisi = true;
