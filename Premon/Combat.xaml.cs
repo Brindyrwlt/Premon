@@ -36,6 +36,7 @@ namespace Premon
             ImageAnimalJoueur.Source = animalJoueur.Image;
             ImageAnimalSauvage.Source = animalSauvage.Image;
 
+            //Console.WriteLine(animalJoueur.Attaques.ToString());
         }
 
         private void BoutonFuite_Click(object sender, RoutedEventArgs e)

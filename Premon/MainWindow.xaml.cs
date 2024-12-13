@@ -191,6 +191,7 @@ namespace Premon
 
             Combat combat = new Combat(); 
             combat.InitAnimaux(animauxPossedes[0], animalSauvage);
+            Console.WriteLine(animauxPossedes[0].Attaques.ToString());
             combat.ShowDialog();
 
 

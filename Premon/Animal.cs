@@ -28,6 +28,7 @@ namespace Premon
             HPMax = hpMax;
             HP = HPMax;
             ChanceComplementaire = chanceComplementaire;
+            Attaques = attaques;
             Image = new BitmapImage(new Uri($"pack://application:,,,/Textures/Animal/{nom}.png"));
 
         }
