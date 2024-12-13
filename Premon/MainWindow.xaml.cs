@@ -21,12 +21,13 @@ namespace Premon
         private static readonly int INTERVALLE_DEPLACEMENT = 200;
 
         // Probabilité
-        private static readonly double POURCENTAGE_RENCONTRE_BUISSON = 0.2;
+        private static readonly double POURCENTAGE_RENCONTRE_BUISSON = 0.1;
 
         // Images
         private static BitmapImage imgPersonnageDroite;
         private static BitmapImage imgPersonnageGauche;
         private static BitmapImage imgPersonnageDevant;
+        private static BitmapImage imgPersonnageDevantBuisson;
         private static BitmapImage imgPersonnageDerriere;
         
         private static ImageBrush imgPerso = new();
@@ -79,6 +80,7 @@ namespace Premon
             imgPersonnageDroite = new BitmapImage(new Uri($"pack://application:,,,/Textures/Personnage/Personnage_droite/Personnage_droite_1.png"));
             imgPersonnageDerriere = new BitmapImage(new Uri($"pack://application:,,,/Textures/Personnage/Personnage_derriere/Personnage_derriere_1.png"));
             imgPersonnageGauche = new BitmapImage(new Uri($"pack://application:,,,/Textures/Personnage/Personnage_gauche/Personnage_gauche_1.png"));
+            imgPersonnageDevantBuisson = new BitmapImage(new Uri($"pack://application:,,,/Textures/Personnage/Personnage_devant/Personnage_devant_1_buisson.png"));
         }
 
         private void InitBuissons()
@@ -164,6 +166,7 @@ namespace Premon
 #if DEBUG
                     Console.WriteLine("Intersection");
 #endif
+
                     if (random.NextDouble() < POURCENTAGE_RENCONTRE_BUISSON)
                         DebutCombat();
 
@@ -227,6 +230,8 @@ namespace Premon
 #if DEBUG
                     Console.WriteLine("Collision avec obstacle");
 #endif
+                    imgPerso.ImageSource = imgPersonnageDevantBuisson;
+                    Personnage.Fill = imgPerso;
                     Canvas.SetLeft(Personnage, ancienneGauche);
                     Canvas.SetTop(Personnage, ancienHaut);
                     break;
