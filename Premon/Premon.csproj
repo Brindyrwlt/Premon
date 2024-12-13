@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fond_sac_a_dos.png" />
     <None Remove="Personnage_derriere_1.png" />
     <None Remove="Personnage_devant-1.png.png" />
     <None Remove="Personnage_devant.png" />
@@ -63,6 +64,7 @@
     <None Remove="Textures\Personnage\Personnage_gauche.png" />
     <None Remove="Textures\Personnage\Personnage_gauche\Personnage_gauche_1.png" />
     <None Remove="Textures\Personnage\Personnage_gauche\Personnage_gauche_1_buisson.png" />
+    <None Remove="Textures\SacADos\Sac_a_dos.png" />
     <None Remove="Textures\Sol\Chemin.png" />
     <None Remove="Textures\Sol\Chemin_1.png" />
     <None Remove="Textures\Sol\Chemin_2.png" />
@@ -80,6 +82,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fond_sac_a_dos.png" />
     <Resource Include="scene1.png" />
     <Resource Include="Textures\Animal\Bouquetin.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
@@ -211,6 +214,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Textures\Personnage\Personnage_gauche\Personnage_gauche_1_buisson.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\SacADos\Sac_a_dos.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Textures\Sol\Chemin.png">
