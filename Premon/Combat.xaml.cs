@@ -36,18 +36,17 @@ namespace Premon
             ImageAnimalJoueur.Source = animalJoueur.Image;
             ImageAnimalSauvage.Source = animalSauvage.Image;
 
-            //Console.WriteLine(animalJoueur.Attaques.ToString());
+            Console.WriteLine(animalJoueur.Attaques.ToString());
         }
 
         private void BoutonFuite_Click(object sender, RoutedEventArgs e)
-        {
-            DialogResult = false;
-        }
-
+            => DialogResult = false;
+        
         private void BoutonAttaque_Click(object sender, RoutedEventArgs e)
         {
             EcranAttaque ecranAttaque = new EcranAttaque();
             ecranAttaque.attaques = animalJoueur.Attaques;
+            ecranAttaque.InitBoutons();
             ecranAttaque.ShowDialog();
         }
     }

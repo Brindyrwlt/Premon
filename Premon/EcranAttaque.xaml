@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Premon"
         mc:Ignorable="d"
-        Title="EcranAttaque" Height="250" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="EcranAttaque" Height="275" Width="425" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Button x:Name="BoutonAttaque1" Content="Attaque 1" IsEnabled="False" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="33" Width="150" MouseEnter="BoutonAttaque1_MouseEnter" MouseLeave="BoutonAttaque1_MouseLeave"/>
         <Button x:Name="BoutonAttaque2" Content="Attaque 2" IsEnabled="False" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="33" Width="150" MouseEnter="BoutonAttaque2_MouseEnter" MouseLeave="BoutonAttaque2_MouseLeave"/>
         <Button x:Name="BoutonAttaque3" Content="Attaque 3" IsEnabled="False" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Height="33" Width="150" MouseEnter="BoutonAttaque3_MouseEnter" MouseLeave="BoutonAttaque3_MouseLeave"/>
         <Button x:Name="BoutonAttaque4" Content="Attaque 4" IsEnabled="False" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Height="33" Width="150" MouseEnter="BoutonAttaque4_MouseEnter" MouseLeave="BoutonAttaque4_MouseLeave"/>
         <Button x:Name="BoutonRetour" Content="Retour" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top" Height="21" Width="47" Click="BoutonRetour_Click"/>
-        <Label x:Name="NomAttaque" Content="Sélectionnez une attaque" HorizontalAlignment="Left" Margin="217,20,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="NomAttaque" Content="Sélectionnez une attaque" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="217,20,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="DescriptionAttaque" HorizontalAlignment="Left" Margin="187,69,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="134" Width="203"/>
 
     </Grid>
