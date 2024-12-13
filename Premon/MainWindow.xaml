@@ -12,7 +12,8 @@
     KeyDown="fenetre_KeyDown"
     KeyUp="fenetre_KeyUp"
     ResizeMode="NoResize"
-    mc:Ignorable="d" WindowStartupLocation="CenterScreen">
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
     <Canvas x:Name="monCanvas">
         <Canvas.Background>
             <ImageBrush ImageSource="/scene1.png" />
@@ -21,8 +22,8 @@
         <!--  Personnage  -->
         <Rectangle
             x:Name="Personnage"
-            Canvas.Left="50"
-            Canvas.Top="0"
+            Canvas.Left="250"
+            Canvas.Top="250"
             Width="50"
             Height="50"
             Margin="0,0,0,0"
