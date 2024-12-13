@@ -50,6 +50,7 @@ namespace Premon
         };*/
 
         private Dictionary<Animaux, Animal> animaux = new Dictionary<Animaux, Animal>();
+        internal static Dictionary<Attaques, string> descriptionsAttaques = new Dictionary<Attaques, string>();
 
         private List<Rectangle> buissons = new List<Rectangle>();
         private List<Rectangle> obstacles = new List<Rectangle>();
@@ -63,8 +64,16 @@ namespace Premon
             InitObjets();
             InitAnimaux();
             InitBitmap();
+            InitDescriptions();
 
             animauxPossedes.Add(animaux[Animaux.Mammouth]);
+        }
+
+        private void InitDescriptions()
+        {
+
+            descriptionsAttaques[Attaques.COUP_DE_PIED] = "Le premon charge vers l'avant et lance un gros coup de pied infligeant 20 degâts.";
+
         }
 
         private void InitBitmap()

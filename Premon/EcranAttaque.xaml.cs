@@ -27,11 +27,11 @@ namespace Premon
         {
 
             InitializeComponent();
-            InitBoutons();
+            //InitBoutons();
 
         }
-        
-        private void InitBoutons()
+
+        internal void InitBoutons()
         {
 
             boutons[BoutonAttaque1] = 0;
@@ -57,10 +57,21 @@ namespace Premon
         private void ChangeDescription(int nombreBouton = 0)
         {
 
+            if(nombreBouton != 0)
+            {
+
+                Attaques attaque = attaques[nombreBouton - 1];
+                NomAttaque.Content = attaque;
+                DescriptionAttaque.Text = MainWindow.descriptionsAttaques[attaque];
+
+            } else
+            {
+
+                NomAttaque.Content = "Sélectionnez une attaque";
+                DescriptionAttaque.Text = "";
+
+            }
             
-            Attaques attaque = attaques[nombreBouton];
-            NomAttaque.Content = nombreBouton != 0 ? attaque.ToString() : "Sélectionnez une attaque";
-            DescriptionAttaque.Text = nombreBouton != 0 ? Animal.descriptionsAttaques[attaque] : "";
 
         }
 
