@@ -22,9 +22,11 @@ namespace Premon
         // Probabilité
         private static readonly double POURCENTAGE_RENCONTRE_BUISSON = 0.2;
 
-        // Image
-        private static BitmapImage imgPersonnage;
-
+        // Images
+        private static BitmapImage imgPersonnageDroite;
+        private static BitmapImage imgPersonnageGauche;
+        private static BitmapImage imgPersonnageDevant;
+        private static BitmapImage imgPersonnageDerriere;
         // Variables système  --------------------------------
 
         // Mouvement
@@ -58,6 +60,7 @@ namespace Premon
             InitIntervalleDeplacement();
             InitBuissons();
             InitObstacles();
+            InitObjets();
             InitAnimaux();
             InitBitmap();
 
@@ -66,7 +69,10 @@ namespace Premon
 
         private void InitBitmap()
         {
-            imgPersonnage = new BitmapImage(new Uri($"pack://application:,,,/Textures/Personnage/Personnage_devant/Personnage_devant_1.png"));
+            imgPersonnageDevant = new BitmapImage(new Uri($"pack://application:,,,/Textures/Personnage/Personnage_devant/Personnage_devant_1.png"));
+            imgPersonnageDroite = new BitmapImage(new Uri($"pack://application:,,,/Textures/Personnage/Personnage_droite/Personnage_droite_1.png"));
+            imgPersonnageDerriere = new BitmapImage(new Uri($"pack://application:,,,/Textures/Personnage/Personnage_derriere/Personnage_derriere_1.png"));
+            imgPersonnageGauche = new BitmapImage(new Uri($"pack://application:,,,/Textures/Personnage/Personnage_gauche/Personnage_gauche_1.png"));
         }
 
         private void InitBuissons()
@@ -287,11 +293,17 @@ namespace Premon
             double ancienneGauche = gauchePerso;
             double ancienHaut = hautPerso;
 
-            // Modificationd de la position en fonction de la touche appuyée
+            // Modification de la position en fonction de la touche appuyée
             if (gauche != null)
+            {
                 gauchePerso += gauche == false ? PAS_DEPLACEMENT : -PAS_DEPLACEMENT;
+           /*     Personnage.Fill = imgPersonnageDroite;*/
+            }
             if (haut != null)
+            {
                 hautPerso += haut == false ? PAS_DEPLACEMENT : -PAS_DEPLACEMENT;
+
+            }
 
 #if DEBUG
             Console.WriteLine($"Gauche : {gauchePerso}\n" +
