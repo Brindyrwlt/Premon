@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 
 namespace Premon
 {
-    internal class Animal
+    internal class Animal : ICloneable
     {
 
         public readonly int HPMax;
@@ -19,6 +19,11 @@ namespace Premon
         public BitmapImage Image;
         public int ChanceComplementaire = 1;
         private double multiplicateur = 1.0;
+
+        // Multiplicateur d'attaques
+
+        // Coup de pied
+        internal static readonly int DEGAT_COUP_DE_PIED = 25;
 
         public Animal(string nom, int hpMax, int chanceComplementaire, params Attaques[] attaques)
         {
@@ -32,8 +37,11 @@ namespace Premon
 
         }
 
-        public void Attaque(Attaques attaque, Animal cible)
+        public void Attaque(Attaques attaque, Animal? cible = null)
         {
+
+            if (!Attaques.Contains(attaque))
+                throw new ArgumentException("Le Premon ne possède pas l'attaque spécifiée.");
 
             switch(attaque)
             {
@@ -42,6 +50,7 @@ namespace Premon
                     break;
 
                 case Premon.Attaques.COUP_DE_PIED:
+                    cible.HP -= DEGAT_COUP_DE_PIED;
                     break;
 
                 case Premon.Attaques.AIGUISAGE:
@@ -51,15 +60,10 @@ namespace Premon
 
         }
 
-        /*public static void InitDescriptionAttaques()
+        public object Clone()
         {
-
-            descriptionsAttaques.Add(Premon.Attaques.COUP_DE_PIED, "Le premon charge vers l'avant et lance un gros coup de pied infligeant 20 degâts");
-            descriptionsAttaques.Add(Premon.Attaques.EMPALEMENT, "Le premon utilise ses cornes pour transpercer son ennemi infligeant 40 degâts");
-            descriptionsAttaques.Add(Premon.Attaques.AIGUISAGE, "Le premon aiguise ses pointes, augmentation de 10% de la prochaine attaque");
-
-        }*/
-        
+            return this.MemberwiseClone();
+        }
     }
 
     enum Attaques

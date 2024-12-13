@@ -26,6 +26,7 @@ namespace Premon
         public Combat()
         {
             InitializeComponent();
+            
         }
 
         internal void InitAnimaux(Animal animalJoueur, Animal animalSauvage)
@@ -35,8 +36,19 @@ namespace Premon
             this.animalSauvage = animalSauvage;
             ImageAnimalJoueur.Source = animalJoueur.Image;
             ImageAnimalSauvage.Source = animalSauvage.Image;
+            ActualiserHP();
 
+#if DEBUG
             Console.WriteLine(animalJoueur.Attaques.ToString());
+#endif
+        }
+
+        private void ActualiserHP()
+        {
+
+            HPJoueur.Content = $"HP : {animalJoueur.HP}";
+            HPEnnemi.Content = $"HP : {animalSauvage.HP}";
+
         }
 
         private void BoutonFuite_Click(object sender, RoutedEventArgs e)
@@ -48,6 +60,15 @@ namespace Premon
             ecranAttaque.attaques = animalJoueur.Attaques;
             ecranAttaque.InitBoutons();
             ecranAttaque.ShowDialog();
+
+            if(ecranAttaque.DialogResult == true)
+            {
+
+                animalJoueur.Attaque(ecranAttaque.attaqueChoisie, animalSauvage);
+                ActualiserHP();
+
+            }
+
         }
     }
 }
