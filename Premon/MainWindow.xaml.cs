@@ -49,7 +49,7 @@ namespace Premon
         private static List<Animal> animauxPossedes = new List<Animal>();
 
         // Autre
-        private Random random = new Random();
+        private Random aleatoire = new Random();
 
         private Dictionary<Animaux, Animal> animaux = new Dictionary<Animaux, Animal>();
         internal static Dictionary<Attaques, string> descriptionsAttaques = new Dictionary<Attaques, string>();
@@ -204,7 +204,7 @@ namespace Premon
                             imgPerso.ImageSource = imgPersonnageDerriereBuisson;
                     }
                     Personnage.Fill = imgPerso;
-                    if (random.NextDouble() < POURCENTAGE_RENCONTRE_BUISSON)
+                    if (aleatoire.NextDouble() < POURCENTAGE_RENCONTRE_BUISSON)
                         DebutCombat();
 
                 }
@@ -224,9 +224,9 @@ namespace Premon
             do
             {
 
-                animalSauvage = CreerAnimal((Animaux) random.Next(0, Animaux.GetValues(typeof(Animaux)).Length));
+                animalSauvage = CreerAnimal((Animaux) aleatoire.Next(0, Animaux.GetValues(typeof(Animaux)).Length));
 
-                if (random.Next(0, animalSauvage.ChanceComplementaire - 1) == 0)
+                if (aleatoire.Next(0, animalSauvage.ChanceComplementaire - 1) == 0)
                     animalChoisi = true;
 
             } while (!animalChoisi);
@@ -275,7 +275,7 @@ namespace Premon
             }
         }
 
-            private void fenetre_KeyDown(object sender, KeyEventArgs e)
+        private void fenetre_KeyDown(object sender, KeyEventArgs e)
         {
 
             switch (e.Key)
@@ -300,6 +300,9 @@ namespace Premon
                     haut = false;
                     break;
 
+                case Key.E:
+                    
+                    break;
             }
 
             if (aAppuye == false)

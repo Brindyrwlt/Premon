@@ -19,9 +19,22 @@ namespace Premon
     /// </summary>
     public partial class InventaireObjet : Window
     {
+        private List<Objet> InventaireObjets = new List<Objet>();
+
         public InventaireObjet()
         {
             InitializeComponent();
         }
+
+        private void AffichageInventaire(List<Objet> InventaireObjets)
+        {
+            for (int i = 1; i < InventaireObjets.Count; i++)
+            {
+                
+            }
+        }
+
+
+
     }
 }

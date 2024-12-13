@@ -12,7 +12,6 @@ namespace Premon
         public string Nom;
         public int Quantite = 0;
         public BitmapImage Image;
-        private readonly int maxQuantite = 5;
 
         public Objet(string nom, int quantite) 
         {
@@ -27,7 +26,6 @@ namespace Premon
     enum Objets
     {
         MORCEAU_DE_VIANDE,
-        GRAINE,
-        CARTE
+        GRAINE
     }
 }

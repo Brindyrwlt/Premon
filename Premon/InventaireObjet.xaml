@@ -14,6 +14,174 @@
     <Window.Background>
         <ImageBrush ImageSource="/Fond_sac_a_dos.png" />
     </Window.Background>
-    <Canvas x:Name="Inventaire" />
+    <Canvas x:Name="Inventaire">
+        <TextBlock
+            x:Name="txtbInventaire"
+            Canvas.Left="35"
+            Canvas.Top="50"
+            Width="240"
+            Height="40"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontFamily="Arial"
+            FontSize="20"
+            FontWeight="Bold"
+            IsEnabled="False"
+            Text="INVENTAIRE"
+            TextAlignment="Center"
+            TextWrapping="Wrap" />
+        <Rectangle
+            x:Name="objetInv1"
+            Canvas.Left="320"
+            Canvas.Top="55"
+            Width="100"
+            Height="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stroke="Black" />
+        <Label
+            x:Name="labObjet1"
+            Canvas.Left="320"
+            Canvas.Top="155"
+            Width="100"
+            Height="25"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Content="Objet 1"
+            FontFamily="Arial" />
+        <Rectangle
+            x:Name="objetInv2"
+            Canvas.Left="425"
+            Canvas.Top="55"
+            Width="100"
+            Height="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stroke="Black" />
+        <Label
+            x:Name="labObjet2"
+            Canvas.Left="425"
+            Canvas.Top="155"
+            Width="100"
+            Height="25"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Content="Objet 2"
+            FontFamily="Arial" />
+        <Rectangle
+            x:Name="objetInv3"
+            Canvas.Left="530"
+            Canvas.Top="55"
+            Width="100"
+            Height="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stroke="Black" />
+        <Label
+            x:Name="labObjet3"
+            Canvas.Left="530"
+            Canvas.Top="155"
+            Width="100"
+            Height="25"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Content="Objet 3"
+            FontFamily="Arial" />
+        <Rectangle
+            x:Name="objetInv4"
+            Canvas.Left="635"
+            Canvas.Top="55"
+            Width="100"
+            Height="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stroke="Black" />
+        <Label
+            x:Name="labObjet4"
+            Canvas.Left="635"
+            Canvas.Top="156"
+            Width="100"
+            Height="26"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Content="Objet 4"
+            FontFamily="Arial" />
+        <Rectangle
+            x:Name="objetInv5"
+            Canvas.Left="320"
+            Canvas.Top="200"
+            Width="100"
+            Height="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stroke="Black" />
+        <Label
+            x:Name="labObjet5"
+            Canvas.Left="320"
+            Canvas.Top="300"
+            Width="100"
+            Height="25"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Content="Objet 5"
+            FontFamily="Arial" />
+        <Rectangle
+            x:Name="objetInv6"
+            Canvas.Left="425"
+            Canvas.Top="200"
+            Width="100"
+            Height="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stroke="Black" />
+        <Label
+            x:Name="labObjet6"
+            Canvas.Left="425"
+            Canvas.Top="300"
+            Width="100"
+            Height="25"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Content="Objet 6"
+            FontFamily="Arial" />
+        <Rectangle
+            x:Name="objetInv7"
+            Canvas.Left="530"
+            Canvas.Top="200"
+            Width="100"
+            Height="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stroke="Black" />
+        <Label
+            x:Name="labObjet7"
+            Canvas.Left="530"
+            Canvas.Top="300"
+            Width="100"
+            Height="25"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Content="Objet 7"
+            FontFamily="Arial" />
+        <Rectangle
+            x:Name="objetInv8"
+            Canvas.Left="635"
+            Canvas.Top="200"
+            Width="100"
+            Height="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stroke="Black" />
+        <Label
+            x:Name="labObjet8"
+            Canvas.Left="635"
+            Canvas.Top="300"
+            Width="100"
+            Height="26"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Content="Objet 8"
+            FontFamily="Arial" />
+    </Canvas>
 
 </Window>
