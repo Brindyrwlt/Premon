@@ -4,6 +4,7 @@ using System.Windows.Input;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Windows.Media.Imaging;
+using System.Windows.Media;
 
 namespace Premon
 {
@@ -27,6 +28,10 @@ namespace Premon
         private static BitmapImage imgPersonnageGauche;
         private static BitmapImage imgPersonnageDevant;
         private static BitmapImage imgPersonnageDerriere;
+        
+        private static ImageBrush imgPerso = new();
+        
+
         // Variables système  --------------------------------
 
         // Mouvement
@@ -63,6 +68,7 @@ namespace Premon
             InitObjets();
             InitAnimaux();
             InitBitmap();
+            imgPerso.ImageSource = imgPersonnageDevant;
 
             animauxPossedes.Add(animaux[Animaux.Mammouth]);
         }
@@ -293,18 +299,27 @@ namespace Premon
             double ancienneGauche = gauchePerso;
             double ancienHaut = hautPerso;
 
+            Personnage.Fill = imgPerso;
+
             // Modification de la position en fonction de la touche appuyée
             if (gauche != null)
             {
                 gauchePerso += gauche == false ? PAS_DEPLACEMENT : -PAS_DEPLACEMENT;
-           /*     Personnage.Fill = imgPersonnageDroite;*/
+                if (gauche == false)
+                    imgPerso.ImageSource = imgPersonnageDroite;
+                else
+                    imgPerso.ImageSource = imgPersonnageGauche;
             }
             if (haut != null)
             {
                 hautPerso += haut == false ? PAS_DEPLACEMENT : -PAS_DEPLACEMENT;
-
+                if (haut == false)
+                    imgPerso.ImageSource = imgPersonnageDevant;
+                else
+                    imgPerso.ImageSource = imgPersonnageDerriere;
             }
 
+            Personnage.Fill = imgPerso;
 #if DEBUG
             Console.WriteLine($"Gauche : {gauchePerso}\n" +
                 $"Haut : {hautPerso}");
