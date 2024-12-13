@@ -27,9 +27,12 @@ namespace Premon
         private static BitmapImage imgPersonnageDroite;
         private static BitmapImage imgPersonnageGauche;
         private static BitmapImage imgPersonnageDevant;
-        private static BitmapImage imgPersonnageDevantBuisson;
         private static BitmapImage imgPersonnageDerriere;
-        
+        private static BitmapImage imgPersonnageDevantBuisson;
+        private static BitmapImage imgPersonnageDerriereBuisson;
+        private static BitmapImage imgPersonnageDroiteBuisson;
+        private static BitmapImage imgPersonnageGaucheBuisson;
+
         private static ImageBrush imgPerso = new();
         
 
@@ -98,6 +101,9 @@ namespace Premon
             imgPersonnageDerriere = new BitmapImage(new Uri($"pack://application:,,,/Textures/Personnage/Personnage_derriere/Personnage_derriere_1.png"));
             imgPersonnageGauche = new BitmapImage(new Uri($"pack://application:,,,/Textures/Personnage/Personnage_gauche/Personnage_gauche_1.png"));
             imgPersonnageDevantBuisson = new BitmapImage(new Uri($"pack://application:,,,/Textures/Personnage/Personnage_devant/Personnage_devant_1_buisson.png"));
+            imgPersonnageDerriereBuisson = new BitmapImage(new Uri($"pack://application:,,,/Textures/Personnage/Personnage_derriere/Personnage_derriere_1_buisson.png"));
+            imgPersonnageDroiteBuisson = new BitmapImage(new Uri($"pack://application:,,,/Textures/Personnage/Personnage_droite/Personnage_droite_1_buisson.png"));
+            imgPersonnageGaucheBuisson = new BitmapImage(new Uri($"pack://application:,,,/Textures/Personnage/Personnage_gauche/Personnage_gauche_1_buisson.png"));
         }
 
         private void InitBuissons()
@@ -183,7 +189,21 @@ namespace Premon
 #if DEBUG
                     Console.WriteLine("Intersection");
 #endif
-
+                    if (gauche != null)
+                    {
+                        if (gauche == false)
+                            imgPerso.ImageSource = imgPersonnageDroiteBuisson;
+                        else
+                            imgPerso.ImageSource = imgPersonnageGaucheBuisson;
+                    }
+                    if (haut != null)
+                    {
+                        if (haut == false)
+                            imgPerso.ImageSource = imgPersonnageDevantBuisson;
+                        else
+                            imgPerso.ImageSource = imgPersonnageDerriereBuisson;
+                    }
+                    Personnage.Fill = imgPerso;
                     if (random.NextDouble() < POURCENTAGE_RENCONTRE_BUISSON)
                         DebutCombat();
 
@@ -248,8 +268,6 @@ namespace Premon
 #if DEBUG
                     Console.WriteLine("Collision avec obstacle");
 #endif
-                    imgPerso.ImageSource = imgPersonnageDevantBuisson;
-                    Personnage.Fill = imgPerso;
                     Canvas.SetLeft(Personnage, ancienneGauche);
                     Canvas.SetTop(Personnage, ancienHaut);
                     break;
