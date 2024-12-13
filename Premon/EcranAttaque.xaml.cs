@@ -29,7 +29,6 @@ namespace Premon
         {
 
             InitializeComponent();
-            //InitBoutons();
 
         }
 
@@ -48,7 +47,12 @@ namespace Premon
                 {
 
                     bouton.Key.IsEnabled = true;
-                    bouton.Key.Content = attaques[bouton.Value];
+                    bouton.Key.Content = MainWindow.FormatageNomAttaque(attaques[bouton.Value]);
+
+                } else
+                {
+
+                    bouton.Key.Visibility = Visibility.Hidden;
 
                 }
 
@@ -63,7 +67,7 @@ namespace Premon
             {
 
                 Attaques attaque = attaques[nombreBouton - 1];
-                NomAttaque.Content = attaque;
+                NomAttaque.Content = MainWindow.FormatageNomAttaque(attaque);
                 DescriptionAttaque.Text = MainWindow.descriptionsAttaques[attaque];
 
             } else

@@ -68,6 +68,15 @@ namespace Premon
             animauxPossedes.Add(CreerAnimal(Animaux.Mammouth));
         }
 
+        internal static string FormatageNomAttaque(Attaques attaque) 
+        {
+
+            string nomAttaque = attaque.ToString().Replace("_", " ").ToLower();
+            nomAttaque = nomAttaque[0].ToString().ToUpper()[0] + nomAttaque.Substring(1);
+            return nomAttaque;
+
+        }
+
         private Animal CreerAnimal(Animaux animal)
         {
 
@@ -78,7 +87,7 @@ namespace Premon
         private void InitDescriptions()
         {
 
-            descriptionsAttaques[Attaques.COUP_DE_PIED] = $"Le premon charge vers l'avant et lance un gros coup de pied infligeant {Animal.DEGAT_COUP_DE_PIED} degâts.";
+            descriptionsAttaques[Attaques.COUP_DE_PIED] = $"L'animal charge vers l'ennemi et lui lance un gros coup de pied, infligeant {Animal.DEGAT_COUP_DE_PIED} dégâts.";
 
         }
 
@@ -187,6 +196,8 @@ namespace Premon
         private void DebutCombat()
         {
 
+            gauche = null;
+            haut = null;
             Animal animalSauvage;
             animalChoisi = false;
 
@@ -204,7 +215,6 @@ namespace Premon
             combat.InitAnimaux(animauxPossedes[0], animalSauvage);
             Console.WriteLine(animauxPossedes[0].Attaques.ToString());
             combat.ShowDialog();
-
 
         }
 

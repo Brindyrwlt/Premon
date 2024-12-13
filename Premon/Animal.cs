@@ -43,18 +43,23 @@ namespace Premon
             if (!Attaques.Contains(attaque))
                 throw new ArgumentException("Le Premon ne possède pas l'attaque spécifiée.");
 
-            switch(attaque)
+            if(cible != null)
             {
 
-                case Premon.Attaques.EMPALEMENT:
-                    break;
+                switch (attaque)
+                {
 
-                case Premon.Attaques.COUP_DE_PIED:
-                    cible.HP -= DEGAT_COUP_DE_PIED;
-                    break;
+                    case Premon.Attaques.EMPALEMENT:
+                        break;
 
-                case Premon.Attaques.AIGUISAGE:
-                    break;
+                    case Premon.Attaques.COUP_DE_PIED:
+                        cible.HP -= DEGAT_COUP_DE_PIED;
+                        break;
+
+                    case Premon.Attaques.AIGUISAGE:
+                        break;
+
+                }
 
             }
 

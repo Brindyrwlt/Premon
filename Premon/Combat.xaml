@@ -15,5 +15,6 @@
         <Image x:Name="ImageAnimalSauvage"  Height="200" Canvas.Left="536" Canvas.Top="29" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label x:Name="HPJoueur" Content="HP : 100" Canvas.Left="182" Canvas.Top="261" FontSize="36" Background="Gainsboro"/>
         <Label x:Name="HPEnnemi" Content="HP : 100" Canvas.Left="450" Canvas.Top="159" FontSize="36" Background="Gainsboro" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label x:Name="TexteAction" Content="" Canvas.Left="450" Canvas.Top="294" FontSize="18"/>
     </Canvas>
 </Window>
