@@ -16,7 +16,7 @@
     mc:Ignorable="d">
     <Canvas x:Name="monCanvas">
         <Canvas.Background>
-            <ImageBrush ImageSource="/scene1.png" />
+            <ImageBrush ImageSource="Textures/Scene/scene1.png" />
         </Canvas.Background>
 
         <!--  Personnage  -->
@@ -234,5 +234,11 @@
             Height="50"
             HorizontalAlignment="Left"
             VerticalAlignment="Center" />
+
+        <Rectangle x:Name="IconeSauvegarde" Height="80" Canvas.Left="1090" Canvas.Top="470" Width="80" MouseDown="IconeSauvegarde_MouseDown">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Textures/Icones/Sauvegarde.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
     </Canvas>
 </Window>

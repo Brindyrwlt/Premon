@@ -380,5 +380,11 @@ namespace Premon
             CollisionObstacles(ancienneGauche, ancienHaut);
 
         }
+
+        private void IconeSauvegarde_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+
+        }
     }
 }

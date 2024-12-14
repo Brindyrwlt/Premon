@@ -15,7 +15,6 @@
     <None Remove="Personnage_devant.png" />
     <None Remove="Personnage_droite_1.png" />
     <None Remove="Personnage_gauche_1.png" />
-    <None Remove="scene1.png" />
     <None Remove="Textures\Animal\Bouquetin.png" />
     <None Remove="Textures\Animal\Mammouth.png" />
     <None Remove="Textures\Decoration\Arbre\Arbre_1.png" />
@@ -44,6 +43,7 @@
     <None Remove="Textures\Eau\Eau_7.png" />
     <None Remove="Textures\Eau\Eau_8.png" />
     <None Remove="Textures\Eau\Eau_9.png" />
+    <None Remove="Textures\Icones\Sauvegarde.png" />
     <None Remove="Textures\Mur\Mur_1.png" />
     <None Remove="Textures\Mur\Mur_2.png" />
     <None Remove="Textures\Mur\Mur_3.png" />
@@ -65,6 +65,7 @@
     <None Remove="Textures\Personnage\Personnage_gauche\Personnage_gauche_1.png" />
     <None Remove="Textures\Personnage\Personnage_gauche\Personnage_gauche_1_buisson.png" />
     <None Remove="Textures\SacADos\Sac_a_dos.png" />
+    <None Remove="Textures\Scene\scene1.png" />
     <None Remove="Textures\Sol\Chemin.png" />
     <None Remove="Textures\Sol\Chemin_1.png" />
     <None Remove="Textures\Sol\Chemin_2.png" />
@@ -83,7 +84,6 @@
 
   <ItemGroup>
     <Resource Include="Fond_sac_a_dos.png" />
-    <Resource Include="scene1.png" />
     <Resource Include="Textures\Animal\Bouquetin.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -168,6 +168,9 @@
     <Resource Include="Textures\Eau\Eau_9.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Textures\Icones\Sauvegarde.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Textures\Mur\Mur_1.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -219,6 +222,9 @@
     <Resource Include="Textures\SacADos\Sac_a_dos.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Textures\Scene\scene1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Textures\Sol\Chemin.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
