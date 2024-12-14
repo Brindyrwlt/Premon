@@ -1,5 +1,7 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace Premon
 {
@@ -11,11 +13,70 @@ namespace Premon
 
         Animal animalJoueur;
         Animal animalSauvage;
+        Attaques attaqueChoisie;
+
+        private static readonly double TEMPS_ATTAQUE_JOUEUR = 0.5;
+        private static readonly double TEMPS_ATTAQUE_ENNEMI = 1.5;
+
+        private static DispatcherTimer minuterieActionEnnemi;
+        private static bool ennemiAttaque = false;
+        Random random = new Random();
 
         public Combat()
         {
+
             InitializeComponent();
+            InitTimer();
             
+        }
+
+        private void InitTimer()
+        {
+
+            minuterieActionEnnemi = new DispatcherTimer();
+            //minuterieActionEnnemi.Interval = TimeSpan.FromSeconds(1);
+            minuterieActionEnnemi.Tick += ActionEnnemi;
+
+        }
+
+        private void BoutonsActifs(bool actifs)
+        {
+
+            BoutonAttaque.IsEnabled = actifs;
+            BoutonFuite.IsEnabled = actifs;
+            BoutonObjets.IsEnabled = actifs;
+
+        } 
+
+        private void ActionEnnemi(object? sender, EventArgs e)
+        {
+
+            if (ennemiAttaque)
+            {
+
+                Attaques attaqueChoisie = animalSauvage.Attaques[random.Next(0, animalSauvage.Attaques.Length)];
+
+                animalSauvage.Attaque(attaqueChoisie, animalJoueur);
+                TexteAction.Content = $"{animalSauvage.Nom} sauvage a utilisé {MainWindow.FormatageNomAttaque(attaqueChoisie)}.";
+                minuterieActionEnnemi.Stop();
+                ActualiserHP();
+                ennemiAttaque = false;
+                BoutonsActifs(true);
+
+            }
+            else
+            {
+
+                ennemiAttaque = true;
+                animalJoueur.Attaque(attaqueChoisie, animalSauvage);
+                ActualiserHP();
+                TexteAction.Content = $"{animalJoueur.Nom} a utilisé {MainWindow.FormatageNomAttaque(attaqueChoisie)}.";
+                minuterieActionEnnemi.Interval = TimeSpan.FromSeconds(TEMPS_ATTAQUE_ENNEMI);
+
+            }
+
+            
+
         }
 
         internal void InitAnimaux(Animal animalJoueur, Animal animalSauvage)
@@ -55,11 +116,10 @@ namespace Premon
             if(ecranAttaque.DialogResult == true)
             {
 
-                Attaques attaqueChoisie = ecranAttaque.attaqueChoisie;
-
-                animalJoueur.Attaque(attaqueChoisie, animalSauvage);
-                ActualiserHP();
-                TexteAction.Content = $"{animalJoueur.Nom} a utilisé {MainWindow.FormatageNomAttaque(attaqueChoisie)}.";
+                attaqueChoisie = ecranAttaque.attaqueChoisie;
+                minuterieActionEnnemi.Interval = TimeSpan.FromSeconds(TEMPS_ATTAQUE_JOUEUR);
+                minuterieActionEnnemi.Start();
+                BoutonsActifs(false);
 
             }
 

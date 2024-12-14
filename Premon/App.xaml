@@ -4,6 +4,35 @@
              xmlns:local="clr-namespace:Premon"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <LinearGradientBrush x:Key="DegradeRouge">
+            <GradientStop Color="#AC2020" Offset="0"/>
+            <GradientStop Color="#D95858" Offset="0.5"/>
+            <GradientStop Color="#AC2020" Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="DegradeRougeInverse">
+            <GradientStop Color="#D95858" Offset="0"/>
+            <GradientStop Color="#AC2020" Offset="0.5"/>
+            <GradientStop Color="#D95858" Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="DegradeVert">
+            <GradientStop Color="#3F7D44" Offset="0"/>
+            <GradientStop Color="#68A86D" Offset="0.5"/>
+            <GradientStop Color="#3F7D44" Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="DegradeVertInverse">
+            <GradientStop Color="#68A86D" Offset="0"/>
+            <GradientStop Color="#3F7D44" Offset="0.5"/>
+            <GradientStop Color="#68A86D" Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="DegradeBleu">
+            <GradientStop Color="#293D57" Offset="0"/>
+            <GradientStop Color="#45638B" Offset="0.5"/>
+            <GradientStop Color="#293D57" Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="DegradeBleuInverse">
+            <GradientStop Color="#45638B" Offset="0"/>
+            <GradientStop Color="#293D57" Offset="0.5"/>
+            <GradientStop Color="#45638B" Offset="1"/>
+        </LinearGradientBrush>
     </Application.Resources>
 </Application>
