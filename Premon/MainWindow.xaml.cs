@@ -5,6 +5,8 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
+using System.IO;
+using System.Text.Json;
 
 namespace Premon
 {
@@ -46,7 +48,7 @@ namespace Premon
         private static bool animalChoisi;
 
         // Inventaire
-        private List<Animal> animauxPossedes = new List<Animal>();
+        Inventaire inventaire; 
 
         // Autre
         private Random aleatoire = new Random();
@@ -67,8 +69,9 @@ namespace Premon
             InitAnimaux();
             InitBitmap();
             InitDescriptions();
+            Inventaire.InitInventaire(out inventaire);
             imgPerso.ImageSource = imgPersonnageDevant;
-            animauxPossedes.Add(CreerAnimal(Animaux.Mammouth));
+            inventaire.animauxPossedes.Add(CreerAnimal(Animaux.Mammouth));
         }
 
         internal static string FormatageNomAttaque(Attaques attaque) 
@@ -232,8 +235,8 @@ namespace Premon
             } while (!animalChoisi);
 
             Combat combat = new Combat(); 
-            combat.InitAnimaux(animauxPossedes[0], animalSauvage);
-            Console.WriteLine(animauxPossedes[0].Attaques.ToString());
+            combat.InitAnimaux(inventaire.animauxPossedes[0], animalSauvage);
+            Console.WriteLine(inventaire.animauxPossedes[0].Attaques.ToString());
             combat.ShowDialog();
 
         }
@@ -384,7 +387,9 @@ namespace Premon
         private void IconeSauvegarde_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
+            Inventaire.SauvegardeInventaire(inventaire);
 
         }
+
     }
 }

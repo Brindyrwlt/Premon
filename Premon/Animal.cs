@@ -13,11 +13,11 @@ namespace Premon
     {
 
         public readonly int HPMax;
-        public int HP;
-        public string Nom;
-        public Attaques[] Attaques;
-        public BitmapImage Image;
-        public int ChanceComplementaire = 1;
+        public int HP { get; set; }
+        public string Nom { get; set; }
+        internal Attaques[] Attaques;
+        internal BitmapImage Image;
+        internal int ChanceComplementaire = 1;
         private double multiplicateur = 1.0;
 
         // Multiplicateur d'attaques

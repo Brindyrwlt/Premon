@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using System.IO;
 using System.Text.Json;
-using System.Text.Json.Serialization.Metadata;
-using System.Threading.Tasks;
 
 namespace Premon
 {
@@ -14,8 +8,8 @@ namespace Premon
 
         private static string cheminFichier = "inventaire.json";
 
-        internal List<Animal> animauxPossedes;
-        internal List<Objet> objetsPossedes;
+        public List<Animal> animauxPossedes { get; set; }
+        public List<Objet> objetsPossedes { get; set; }
 
         public Inventaire()
         {
@@ -25,10 +19,14 @@ namespace Premon
 
         }
 
-        internal static Inventaire? InitInventaire()
+        internal static void InitInventaire(out Inventaire inventaire)
         {
-            
-            Inventaire? inventaire = new();
+
+            inventaire = new();
+            inventaire.animauxPossedes = new List<Animal>();
+            inventaire.objetsPossedes = new List<Objet>();
+
+            Inventaire inventaireIntermediaire = new();
 
             if (File.Exists(cheminFichier))
             {
@@ -40,11 +38,24 @@ namespace Premon
 
             }
 
-            return inventaire;
+            if (inventaireIntermediaire.animauxPossedes != null)
+            {
+
+                inventaire = inventaireIntermediaire;
+
+            }
+
         }
 
         internal static void SauvegardeInventaire(Inventaire inventaire)
-            => File.WriteAllText(cheminFichier, JsonSerializer.Serialize(inventaire));
+        {
+
+            string text = JsonSerializer.Serialize(inventaire);
+
+            File.WriteAllText(cheminFichier, JsonSerializer.Serialize(inventaire));
+            Console.WriteLine(JsonSerializer.Serialize(inventaire));
+
+        }
 
     }
 }
