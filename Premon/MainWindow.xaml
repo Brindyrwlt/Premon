@@ -22,8 +22,8 @@
         <!--  Personnage  -->
         <Rectangle
             x:Name="Personnage"
-            Canvas.Left="250"
-            Canvas.Top="250"
+            Canvas.Left="100"
+            Canvas.Top="50"
             Width="50"
             Height="50"
             Margin="0,0,0,0"

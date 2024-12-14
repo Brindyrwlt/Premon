@@ -46,7 +46,7 @@ namespace Premon
         private static bool animalChoisi;
 
         // Inventaire
-        private static List<Animal> animauxPossedes = new List<Animal>();
+        private List<Animal> animauxPossedes = new List<Animal>();
 
         // Autre
         private Random aleatoire = new Random();
