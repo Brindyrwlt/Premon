@@ -68,9 +68,12 @@ namespace Premon
             InitBitmap();
             Animal.InitAnimaux();
             Animal.InitDescriptions();
+            Objet.InitObjets();
             Inventaire.InitInventaire(out animauxPossedes, out objetsPossedes);
             imgPerso.ImageSource = imgPersonnageDevant;
-            animauxPossedes.Add(Animal.CreerAnimal(Animaux.Mammouth));
+            animauxPossedes.Add(Animal.CreerAnimal(Animaux.Mammouth));/*
+            objetsPossedes.Add(Objet.CreerObjet(Objets.Morceau_de_viande));*/
+            Objet.AjouterObjet(objetsPossedes, Objet.CreerObjet(Objets.Morceau_de_viande));
 
         }
 
@@ -369,6 +372,15 @@ namespace Premon
 
             Inventaire.SauvegardeInventaire(animauxPossedes, objetsPossedes);
 
+        }
+
+        private void IconeInventaire_MouseDown(object sender, MouseButtonEventArgs e) 
+        { 
+        
+            InventaireObjet inventaireObjet = new InventaireObjet();
+            inventaireObjet.AffichageInventaire(objetsPossedes);
+            inventaireObjet.ShowDialog();
+            
         }
 
     }

@@ -240,5 +240,10 @@
                 <ImageBrush ImageSource="Textures/Icones/Sauvegarde.png"/>
             </Rectangle.Fill>
         </Rectangle>
+        <Rectangle x:Name="IconeInventaire" Height="80" Canvas.Left="50" Canvas.Top="467" Width="80" MouseDown="IconeInventaire_MouseDown" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Textures/SacADos/Sac_a_dos_sans_ombre.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
     </Canvas>
 </Window>

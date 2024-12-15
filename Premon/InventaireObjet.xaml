@@ -31,7 +31,7 @@
             TextAlignment="Center"
             TextWrapping="Wrap" />
         <Rectangle
-            x:Name="objetInv1"
+            x:Name="ObjetInv1"
             Canvas.Left="320"
             Canvas.Top="55"
             Width="100"
@@ -40,7 +40,7 @@
             VerticalAlignment="Top"
             Stroke="Black" />
         <Label
-            x:Name="labObjet1"
+            x:Name="LabObjet1"
             Canvas.Left="320"
             Canvas.Top="155"
             Width="100"
@@ -50,7 +50,7 @@
             Content="Objet 1"
             FontFamily="Arial" />
         <Rectangle
-            x:Name="objetInv2"
+            x:Name="ObjetInv2"
             Canvas.Left="425"
             Canvas.Top="55"
             Width="100"
@@ -59,7 +59,7 @@
             VerticalAlignment="Top"
             Stroke="Black" />
         <Label
-            x:Name="labObjet2"
+            x:Name="LabObjet2"
             Canvas.Left="425"
             Canvas.Top="155"
             Width="100"
@@ -69,7 +69,7 @@
             Content="Objet 2"
             FontFamily="Arial" />
         <Rectangle
-            x:Name="objetInv3"
+            x:Name="ObjetInv3"
             Canvas.Left="530"
             Canvas.Top="55"
             Width="100"
@@ -78,7 +78,7 @@
             VerticalAlignment="Top"
             Stroke="Black" />
         <Label
-            x:Name="labObjet3"
+            x:Name="LabObjet3"
             Canvas.Left="530"
             Canvas.Top="155"
             Width="100"
@@ -88,7 +88,7 @@
             Content="Objet 3"
             FontFamily="Arial" />
         <Rectangle
-            x:Name="objetInv4"
+            x:Name="ObjetInv4"
             Canvas.Left="635"
             Canvas.Top="55"
             Width="100"
@@ -97,7 +97,7 @@
             VerticalAlignment="Top"
             Stroke="Black" />
         <Label
-            x:Name="labObjet4"
+            x:Name="LabObjet4"
             Canvas.Left="635"
             Canvas.Top="156"
             Width="100"
@@ -107,7 +107,7 @@
             Content="Objet 4"
             FontFamily="Arial" />
         <Rectangle
-            x:Name="objetInv5"
+            x:Name="ObjetInv5"
             Canvas.Left="320"
             Canvas.Top="200"
             Width="100"
@@ -116,7 +116,7 @@
             VerticalAlignment="Top"
             Stroke="Black" />
         <Label
-            x:Name="labObjet5"
+            x:Name="LabObjet5"
             Canvas.Left="320"
             Canvas.Top="300"
             Width="100"
@@ -126,7 +126,7 @@
             Content="Objet 5"
             FontFamily="Arial" />
         <Rectangle
-            x:Name="objetInv6"
+            x:Name="ObjetInv6"
             Canvas.Left="425"
             Canvas.Top="200"
             Width="100"
@@ -135,7 +135,7 @@
             VerticalAlignment="Top"
             Stroke="Black" />
         <Label
-            x:Name="labObjet6"
+            x:Name="LabObjet6"
             Canvas.Left="425"
             Canvas.Top="300"
             Width="100"
@@ -145,7 +145,7 @@
             Content="Objet 6"
             FontFamily="Arial" />
         <Rectangle
-            x:Name="objetInv7"
+            x:Name="ObjetInv7"
             Canvas.Left="530"
             Canvas.Top="200"
             Width="100"
@@ -154,7 +154,7 @@
             VerticalAlignment="Top"
             Stroke="Black" />
         <Label
-            x:Name="labObjet7"
+            x:Name="LabObjet7"
             Canvas.Left="530"
             Canvas.Top="300"
             Width="100"
@@ -164,7 +164,7 @@
             Content="Objet 7"
             FontFamily="Arial" />
         <Rectangle
-            x:Name="objetInv8"
+            x:Name="ObjetInv8"
             Canvas.Left="635"
             Canvas.Top="200"
             Width="100"
@@ -173,7 +173,7 @@
             VerticalAlignment="Top"
             Stroke="Black" />
         <Label
-            x:Name="labObjet8"
+            x:Name="LabObjet8"
             Canvas.Left="635"
             Canvas.Top="300"
             Width="100"
@@ -182,6 +182,14 @@
             VerticalAlignment="Top"
             Content="Objet 8"
             FontFamily="Arial" />
+        <Label x:Name="QuantiteObjet1" Content="Quantité" Canvas.Left="320" Canvas.Top="120" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label x:Name="QuantiteObjet2" Content="Quantité" Canvas.Left="425" Canvas.Top="120" FontSize="16" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label x:Name="QuantiteObjet3" Content="Quantité" Canvas.Left="530" Canvas.Top="120" FontSize="16" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label x:Name="QuantiteObjet4" Content="Quantité" Canvas.Left="635" Canvas.Top="120" FontSize="16" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label x:Name="QuantiteObjet5" Content="Quantité" Canvas.Left="320" Canvas.Top="265" FontSize="16" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label x:Name="QuantiteObjet6" Content="Quantité" Canvas.Left="425" Canvas.Top="265" FontSize="16" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label x:Name="QuantiteObjet7" Content="Quantité" Canvas.Left="530" Canvas.Top="265" FontSize="16" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label x:Name="QuantiteObjet8" Content="Quantité" Canvas.Left="635" Canvas.Top="265" FontSize="16" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Canvas>
 
 </Window>

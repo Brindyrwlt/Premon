@@ -19,7 +19,7 @@ namespace Premon
         internal Attaques[] AttaquesAnimal;
         internal BitmapImage Image;
         internal int ChanceComplementaire = 1;
-        private double multiplicateur = 1.0;
+        private double multiplicateur = 1;
 
         private static Dictionary<Animaux, Animal> animaux = new Dictionary<Animaux, Animal>();
         internal static Dictionary<Attaques, string> descriptionsAttaques = new Dictionary<Attaques, string>();
@@ -29,7 +29,7 @@ namespace Premon
         // Coup de pied
         internal static readonly int DEGAT_COUP_DE_PIED = 25;
 
-        public Animal(Animaux typeAnimal, string nom, int hpMax, int chanceComplementaire, params Attaques[] attaques)
+        public Animal(Animaux typeAnimal, string nom, string nomImage, int hpMax, int chanceComplementaire, params Attaques[] attaques)
         {
 
             TypeAnimal = typeAnimal;
@@ -38,7 +38,7 @@ namespace Premon
             HP = HPMax;
             ChanceComplementaire = chanceComplementaire;
             AttaquesAnimal = attaques;
-            Image = new BitmapImage(new Uri($"pack://application:,,,/Textures/Animal/{nom}.png"));
+            Image = new BitmapImage(new Uri($"pack://application:,,,/Textures/Animal/{nomImage}"));
 
         }
 
@@ -103,8 +103,8 @@ namespace Premon
         internal static void InitAnimaux()
         {
 
-            animaux.Add(Animaux.Mammouth, new Animal(Animaux.Mammouth, "Mammouth", 200, 1, Attaques.COUP_DE_PIED));
-            animaux.Add(Animaux.Bouquetin, new Animal(Animaux.Bouquetin, "Bouquetin", 80, 1, Attaques.EMPALEMENT, Attaques.AIGUISAGE));
+            animaux.Add(Animaux.Mammouth, new Animal(Animaux.Mammouth, "Mammouth", "Mammouth.png", 200, 1, Attaques.COUP_DE_PIED));
+            animaux.Add(Animaux.Bouquetin, new Animal(Animaux.Bouquetin, "Bouquetin", "Bouquetin.png", 80, 1, Attaques.EMPALEMENT, Attaques.AIGUISAGE));
 
         }
 

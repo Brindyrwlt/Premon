@@ -65,6 +65,7 @@
     <None Remove="Textures\Personnage\Personnage_gauche\Personnage_gauche_1.png" />
     <None Remove="Textures\Personnage\Personnage_gauche\Personnage_gauche_1_buisson.png" />
     <None Remove="Textures\SacADos\Sac_a_dos.png" />
+    <None Remove="Textures\SacADos\Sac_a_dos_sans_ombre.png" />
     <None Remove="Textures\Scene\scene1.png" />
     <None Remove="Textures\Sol\Chemin.png" />
     <None Remove="Textures\Sol\Chemin_1.png" />
@@ -195,6 +196,9 @@
     <Resource Include="Textures\Mur\Mur_8.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Textures\Objets\Morceau_de_viande.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Textures\Personnage\Personnage_derriere\Personnage_derriere_1.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -225,6 +229,9 @@
     <Content Include="Textures\Scene\scene1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Textures\SacADos\Sac_a_dos_sans_ombre.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Textures\Sol\Chemin.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
