@@ -12,27 +12,32 @@ namespace Premon
     internal class Animal : ICloneable
     {
 
+        internal readonly Animaux TypeAnimal;
         public readonly int HPMax;
         public int HP { get; set; }
         public string Nom { get; set; }
-        internal Attaques[] Attaques;
+        internal Attaques[] AttaquesAnimal;
         internal BitmapImage Image;
         internal int ChanceComplementaire = 1;
         private double multiplicateur = 1.0;
+
+        private static Dictionary<Animaux, Animal> animaux = new Dictionary<Animaux, Animal>();
+        internal static Dictionary<Attaques, string> descriptionsAttaques = new Dictionary<Attaques, string>();
 
         // Multiplicateur d'attaques
 
         // Coup de pied
         internal static readonly int DEGAT_COUP_DE_PIED = 25;
 
-        public Animal(string nom, int hpMax, int chanceComplementaire, params Attaques[] attaques)
+        public Animal(Animaux typeAnimal, string nom, int hpMax, int chanceComplementaire, params Attaques[] attaques)
         {
 
+            TypeAnimal = typeAnimal;
             Nom = nom;
             HPMax = hpMax;
             HP = HPMax;
             ChanceComplementaire = chanceComplementaire;
-            Attaques = attaques;
+            AttaquesAnimal = attaques;
             Image = new BitmapImage(new Uri($"pack://application:,,,/Textures/Animal/{nom}.png"));
 
         }
@@ -40,7 +45,7 @@ namespace Premon
         public void Attaque(Attaques attaque, Animal? cible = null)
         {
 
-            if (!Attaques.Contains(attaque))
+            if (!AttaquesAnimal.Contains(attaque))
                 throw new ArgumentException("Le Premon ne possède pas l'attaque spécifiée.");
 
             if(cible != null)
@@ -49,14 +54,14 @@ namespace Premon
                 switch (attaque)
                 {
 
-                    case Premon.Attaques.EMPALEMENT:
+                    case Attaques.EMPALEMENT:
                         break;
 
-                    case Premon.Attaques.COUP_DE_PIED:
+                    case Attaques.COUP_DE_PIED:
                         cible.HP -= DEGAT_COUP_DE_PIED;
                         break;
 
-                    case Premon.Attaques.AIGUISAGE:
+                    case Attaques.AIGUISAGE:
                         break;
 
                 }
@@ -67,8 +72,42 @@ namespace Premon
 
         public object Clone()
         {
-            return this.MemberwiseClone();
+            return MemberwiseClone();
         }
+
+        internal static Animal CreerAnimal(Animaux animal)
+        {
+
+            return (Animal) animaux[animal].Clone();
+
+        }
+
+        internal static Animal CreerAnimal(Animaux animal, string nom, int hp)
+        {
+
+            Animal animalCree = (Animal) animaux[animal].Clone();
+            animalCree.Nom = nom;
+            animalCree.HP = hp;
+
+            return animalCree;
+
+        }
+
+        internal static void InitDescriptions()
+        {
+
+            descriptionsAttaques[Attaques.COUP_DE_PIED] = $"L'animal charge vers l'ennemi et lui lance un gros coup de pied, infligeant {Animal.DEGAT_COUP_DE_PIED} dégâts.";
+
+        }
+
+        internal static void InitAnimaux()
+        {
+
+            animaux.Add(Animaux.Mammouth, new Animal(Animaux.Mammouth, "Mammouth", 200, 1, Attaques.COUP_DE_PIED));
+            animaux.Add(Animaux.Bouquetin, new Animal(Animaux.Bouquetin, "Bouquetin", 80, 1, Attaques.EMPALEMENT, Attaques.AIGUISAGE));
+
+        }
+
     }
 
     enum Attaques

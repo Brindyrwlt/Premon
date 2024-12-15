@@ -68,7 +68,7 @@ namespace Premon
 
                 Attaques attaque = attaques[nombreBouton - 1];
                 NomAttaque.Content = MainWindow.FormatageNomAttaque(attaque);
-                DescriptionAttaque.Text = MainWindow.descriptionsAttaques[attaque];
+                DescriptionAttaque.Text = Animal.descriptionsAttaques[attaque];
 
             } else
             {

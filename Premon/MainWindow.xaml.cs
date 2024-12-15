@@ -36,7 +36,6 @@ namespace Premon
         private static BitmapImage imgPersonnageGaucheBuisson;
 
         private static ImageBrush imgPerso = new();
-        
 
         // Variables système  --------------------------------
 
@@ -48,52 +47,39 @@ namespace Premon
         private static bool animalChoisi;
 
         // Inventaire
-        Inventaire inventaire; 
+        private static List<Animal> animauxPossedes;
+        private static List<Objet> objetsPossedes;
+
 
         // Autre
         private Random aleatoire = new Random();
-
-        private Dictionary<Animaux, Animal> animaux = new Dictionary<Animaux, Animal>();
-        internal static Dictionary<Attaques, string> descriptionsAttaques = new Dictionary<Attaques, string>();
 
         private List<Rectangle> buissons = new List<Rectangle>();
         private List<Rectangle> obstacles = new List<Rectangle>();
 
         public MainWindow()
         {
+
             InitializeComponent();
             InitIntervalleDeplacement();
             InitBuissons();
             InitObstacles();
             InitObjets();
-            InitAnimaux();
             InitBitmap();
-            InitDescriptions();
-            Inventaire.InitInventaire(out inventaire);
+            Animal.InitAnimaux();
+            Animal.InitDescriptions();
+            Inventaire.InitInventaire(out animauxPossedes, out objetsPossedes);
             imgPerso.ImageSource = imgPersonnageDevant;
-            inventaire.animauxPossedes.Add(CreerAnimal(Animaux.Mammouth));
+            animauxPossedes.Add(Animal.CreerAnimal(Animaux.Mammouth));
+
         }
 
-        internal static string FormatageNomAttaque(Attaques attaque) 
+        internal static string FormatageNomAttaque(Attaques attaque)
         {
 
             string nomAttaque = attaque.ToString().Replace("_", " ").ToLower();
             nomAttaque = nomAttaque[0].ToString().ToUpper()[0] + nomAttaque.Substring(1);
             return nomAttaque;
-
-        }
-
-        private Animal CreerAnimal(Animaux animal)
-        {
-
-            return (Animal) animaux[animal].Clone();
-
-        }
-
-        private void InitDescriptions()
-        {
-
-            descriptionsAttaques[Attaques.COUP_DE_PIED] = $"L'animal charge vers l'ennemi et lui lance un gros coup de pied, infligeant {Animal.DEGAT_COUP_DE_PIED} dégâts.";
 
         }
 
@@ -140,13 +126,7 @@ namespace Premon
             obstacles.Add(Butte_1);
         }
 
-        private void InitAnimaux()
-        {
-
-            animaux.Add(Animaux.Mammouth, new Animal("Mammouth", 200, 1, Attaques.COUP_DE_PIED));
-            animaux.Add(Animaux.Bouquetin, new Animal("Bouquetin", 80, 1, Attaques.EMPALEMENT, Attaques.AIGUISAGE));
-
-        }
+        
 
         private void InitObjets()
         {
@@ -227,7 +207,7 @@ namespace Premon
             do
             {
 
-                animalSauvage = CreerAnimal((Animaux) aleatoire.Next(0, Animaux.GetValues(typeof(Animaux)).Length));
+                animalSauvage = Animal.CreerAnimal((Animaux) aleatoire.Next(0, Animaux.GetValues(typeof(Animaux)).Length));
 
                 if (aleatoire.Next(0, animalSauvage.ChanceComplementaire - 1) == 0)
                     animalChoisi = true;
@@ -235,8 +215,8 @@ namespace Premon
             } while (!animalChoisi);
 
             Combat combat = new Combat(); 
-            combat.InitAnimaux(inventaire.animauxPossedes[0], animalSauvage);
-            Console.WriteLine(inventaire.animauxPossedes[0].Attaques.ToString());
+            combat.InitAnimaux(animauxPossedes[0], animalSauvage);
+            //Console.WriteLine(animauxPossedes[0].Attaques.ToString());
             combat.ShowDialog();
 
         }
@@ -387,7 +367,7 @@ namespace Premon
         private void IconeSauvegarde_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            Inventaire.SauvegardeInventaire(inventaire);
+            Inventaire.SauvegardeInventaire(animauxPossedes, objetsPossedes);
 
         }
 

@@ -54,7 +54,7 @@ namespace Premon
             if (ennemiAttaque)
             {
 
-                Attaques attaqueChoisie = animalSauvage.Attaques[random.Next(0, animalSauvage.Attaques.Length)];
+                Attaques attaqueChoisie = animalSauvage.AttaquesAnimal[random.Next(0, animalSauvage.AttaquesAnimal.Length)];
 
                 animalSauvage.Attaque(attaqueChoisie, animalJoueur);
                 TexteAction.Content = $"{animalSauvage.Nom} sauvage a utilisé {MainWindow.FormatageNomAttaque(attaqueChoisie)}.";
@@ -89,7 +89,7 @@ namespace Premon
             ActualiserHP();
 
 #if DEBUG
-            Console.WriteLine(animalJoueur.Attaques.ToString());
+            Console.WriteLine(animalJoueur.AttaquesAnimal.ToString());
 #endif
         }
 
@@ -109,7 +109,7 @@ namespace Premon
         private void BoutonAttaque_Click(object sender, RoutedEventArgs e)
         {
             EcranAttaque ecranAttaque = new EcranAttaque();
-            ecranAttaque.attaques = animalJoueur.Attaques;
+            ecranAttaque.attaques = animalJoueur.AttaquesAnimal;
             ecranAttaque.InitBoutons();
             ecranAttaque.ShowDialog();
 

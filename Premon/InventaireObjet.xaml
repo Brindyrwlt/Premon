@@ -24,10 +24,10 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             FontFamily="Arial"
-            FontSize="20"
+            FontSize="24"
             FontWeight="Bold"
             IsEnabled="False"
-            Text="INVENTAIRE"
+            Text="Inventaire"
             TextAlignment="Center"
             TextWrapping="Wrap" />
         <Rectangle
