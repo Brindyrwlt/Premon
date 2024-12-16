@@ -142,8 +142,6 @@ namespace Premon
 
         internal static void InitDescriptions()
         {
-            if (descriptionsAttaques.Count != Animal.nombreAttaques)
-                throw new Exception("Une ou plus attaques n'ont pas de descriptions");
             descriptionsAttaques[Attaques.COUP_DE_PIED] = $"L'animal fonce vers l'ennemi et lui lance un gros coup de pied, infligeant {Animal.DEGAT_COUP_DE_PIED} dégâts.";
             descriptionsAttaques[Attaques.EMPALEMENT] = $"L'animal utilise sa corne pour transperser son ennemi, infligeant {Animal.DEGAT_EMPALEMENT} dégats.";
             descriptionsAttaques[Attaques.COUP_DE_GRIFFE] = $"L'animal jette sa patte vers l'avant et griffe son ennemi, infligeant {Animal.DEGAT_COUP_DE_GRIFFE} dégats.";
@@ -153,6 +151,9 @@ namespace Premon
             descriptionsAttaques[Attaques.MORSURE] = $"L'animal ouvre sa gueule et mord son ennemi, infligeant {Animal.DEGAT_MORSURE} dégats.";
             descriptionsAttaques[Attaques.AIGUISAGE] = $"L'animal aiguise ses crocs et griffes, augmentant les dégats infligés.";
             descriptionsAttaques[Attaques.PROTECTION] = $"L'animal se protège avec sa peau épaisse ou sa carapace, diminuant les dégats reçus.";
+
+            if (descriptionsAttaques.Count != Animal.nombreAttaques)
+                throw new Exception("Une ou plus attaques n'ont pas de descriptions");
 
 
         }
@@ -187,7 +188,7 @@ namespace Premon
     {
 
         Mammouth,
-        Bouquetin,
+        Bouquetin/*,
         Smilodon,
         Megaceros,
         Diprotodon,
@@ -196,6 +197,6 @@ namespace Premon
         Lion_des_cavernes,
         Rhinoceros_laineux,
         Megalonix,
-        Glyptodon
+        Glyptodon*/
     }
 }
