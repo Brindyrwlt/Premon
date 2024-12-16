@@ -198,13 +198,19 @@ namespace Premon
             gauche = null;
             haut = null;
             Animal animalSauvage;
+            bool animalTrouve = false;
 
             /* 
              * Quand l'animal est sélectionné aléatoirement, si la chance complémentaire est supérieure à 1,
              * le tirage a une chance de se réeffectuer
              */
-            do animalSauvage = Animal.CreerAnimal((Animaux) aleatoire.Next(0, Animal.nombreAnimaux));
-            while (aleatoire.Next(0, animalSauvage.ChanceComplementaire - 1) == 0);
+            do
+            {
+
+                animalSauvage = Animal.CreerAnimal((Animaux) aleatoire.Next(0, Animal.nombreAnimaux));          
+
+            }
+            while (!(aleatoire.Next(0, animalSauvage.ChanceComplementaire - 1) == 0));
 
             Combat combat = new Combat(); 
             combat.InitAnimaux(animauxPossedes[0], animalSauvage);

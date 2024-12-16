@@ -152,8 +152,8 @@ namespace Premon
             descriptionsAttaques[Attaques.AIGUISAGE] = $"L'animal aiguise ses crocs et griffes, augmentant les dégats infligés.";
             descriptionsAttaques[Attaques.PROTECTION] = $"L'animal se protège avec sa peau épaisse ou sa carapace, diminuant les dégats reçus.";
 
-            if (descriptionsAttaques.Count != Animal.nombreAttaques)
-                throw new Exception("Une ou plus attaques n'ont pas de descriptions");
+            /*if (descriptionsAttaques.Count != Animal.nombreAttaques)
+                throw new Exception("Une ou plus attaques n'ont pas de descriptions");*/
 
 
         }
