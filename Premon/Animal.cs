@@ -105,11 +105,13 @@ namespace Premon
                         break;
 
                     case Attaques.AIGUISAGE:
-                        multiplicateur *= 1.2;
+                        if (multiplicateur > 1.5)
+                            multiplicateur *= 1.2;
                         break;
 
                     case Attaques.PROTECTION:
-                        multiplicateurDegatRecu *= 0.8;
+                        if (multiplicateurDegatRecu > 0.5)
+                            multiplicateurDegatRecu *= 0.8;
                         break;
 
                 }
@@ -153,8 +155,8 @@ namespace Premon
             descriptionsAttaques[Attaques.AIGUISAGE] = $"L'animal aiguise ses crocs et griffes, augmentant les dégats infligés.";
             descriptionsAttaques[Attaques.PROTECTION] = $"L'animal se protège avec sa peau épaisse ou sa carapace, diminuant les dégats reçus.";
 
-            /*if (descriptionsAttaques.Count != Animal.nombreAttaques)
-                throw new Exception("Une ou plus attaques n'ont pas de descriptions");*/
+            if (descriptionsAttaques.Count != Animal.nombreAttaques)
+                throw new Exception("Une ou plus attaques n'ont pas de descriptions");
 
 
         }
