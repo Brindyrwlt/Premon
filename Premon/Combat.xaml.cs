@@ -155,6 +155,13 @@ namespace Premon
 
         }
 
+        private void BoutonObjets_Click(object sender, RoutedEventArgs e)
+        {
+
+
+
+        }
+
         private void BoutonFuite_Click(object sender, RoutedEventArgs e)
             => DialogResult = false;
         

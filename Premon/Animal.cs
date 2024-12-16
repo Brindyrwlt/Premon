@@ -51,6 +51,7 @@ namespace Premon
             Nom = nom;
             HPMax = hpMax;
             HP = HPMax;
+            Butin = butin;
             ChanceComplementaire = chanceComplementaire;
             AttaquesAnimal = attaques;
             Image = new BitmapImage(new Uri($"pack://application:,,,/Textures/Animal/{nomImage}"));
