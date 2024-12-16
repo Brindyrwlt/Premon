@@ -169,8 +169,16 @@ namespace Premon
         private void BoutonObjets_Click(object sender, RoutedEventArgs e)
         {
 
+            InventaireObjet inventaireObjet = new();
+            inventaireObjet.AffichageInventaire(MainWindow.objetsPossedes);
+            inventaireObjet.ShowDialog();
+
+            if (DialogResult == true)
+            {
 
 
+
+            }
         }
 
         private void BoutonFuite_Click(object sender, RoutedEventArgs e)

@@ -47,8 +47,8 @@ namespace Premon
         private static bool animalChoisi;
 
         // Inventaire
-        private static List<Animal> animauxPossedes;
-        private static List<Objet> objetsPossedes;
+        internal static List<Animal> animauxPossedes;
+        internal static List<Objet> objetsPossedes;
 
 
         // Autre

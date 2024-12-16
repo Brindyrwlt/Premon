@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
@@ -16,6 +17,9 @@ namespace Premon
         internal BitmapImage Image;
 
         internal static Dictionary<Objets, Objet> objets = new Dictionary<Objets, Objet>();
+        internal static Random random = new();
+
+        private static readonly double CHANCE_CAPTURE_VIANDE = 0.90;
 
         public Objet(Objets typeObjet, string nom, string nomImage, int quantite = 1)
         {
@@ -92,6 +96,28 @@ namespace Premon
 
         }
 
+        internal static TypeAction? ActionObjet(Objet objet, Animal animalJoueur, Animal animalSauvage)
+        {
+
+            switch(objet.TypeObjet)
+            {
+
+                case Objets.Morceau_de_viande:
+                    if(random.Next(0, (int) (100 - CHANCE_CAPTURE_VIANDE * 100) * (animalSauvage.HP / 50)) == 0)
+                    {
+
+                        MainWindow.animauxPossedes.Add(animalSauvage);
+                        return TypeAction.Capture;
+
+                    }
+                    break;
+
+            }
+
+            return null;
+
+        }
+             
         public object Clone()
         {
             return MemberwiseClone();
@@ -102,5 +128,13 @@ namespace Premon
     {
         Morceau_de_viande,
         Graine
+    }
+
+    enum TypeAction
+    {
+
+        Capture,
+        Soin
+
     }
 }

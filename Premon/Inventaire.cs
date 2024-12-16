@@ -12,7 +12,7 @@ namespace Premon
         public List<Objet> objetsPossedes { get; set; }*/
 
         public List<string> NomAnimaux { get; set; }
-        public List<Animaux> Animaux {  get; set; }
+        public List<Animaux> AnimauxPossedes {  get; set; }
         public List<int> HPAnimaux { get; set; }
 
         public List<Objets> Objets { get; set; }
@@ -22,7 +22,7 @@ namespace Premon
         {
 
             NomAnimaux = new List<string>();
-            Animaux = new List<Animaux>();
+            AnimauxPossedes = new List<Animaux>();
             HPAnimaux = new List<int>();
 
             Objets = new List<Objets>();
@@ -46,8 +46,8 @@ namespace Premon
                 { 
 
                     inventaire = JsonSerializer.Deserialize<Inventaire>(lectureFichier.ReadToEnd());
-                    for (int i = 0; i < inventaire.Animaux.Count; i++)
-                        animaux.Add(Animal.CreerAnimal(inventaire.Animaux[i], inventaire.NomAnimaux[i], inventaire.HPAnimaux[i]));
+                    for (int i = 0; i < inventaire.AnimauxPossedes.Count; i++)
+                        animaux.Add(Animal.CreerAnimal(inventaire.AnimauxPossedes[i], inventaire.NomAnimaux[i], inventaire.HPAnimaux[i]));
                     for (int i = 0; i < inventaire.Objets.Count; i++)
                         objets.Add(Objet.CreerObjet(inventaire.Objets[i], inventaire.QuantiteObjets[i]));
                     Console.WriteLine("Restauration effectuée");
@@ -56,6 +56,9 @@ namespace Premon
                 lectureFichier.Close();
 
             }
+
+            if(animaux.Count == 0)
+                animaux.Add(Animal.CreerAnimal(Animaux.Mammouth));
 
         }
 
@@ -67,7 +70,7 @@ namespace Premon
             foreach (Animal animal in animaux)
             {
 
-                inventaire.Animaux.Add(animal.TypeAnimal);
+                inventaire.AnimauxPossedes.Add(animal.TypeAnimal);
                 inventaire.NomAnimaux.Add(animal.Nom);
                 inventaire.HPAnimaux.Add(animal.HP);
 
