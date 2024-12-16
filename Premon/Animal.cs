@@ -27,7 +27,13 @@ namespace Premon
         // Multiplicateur d'attaques
 
         // Coup de pied
+        internal static readonly int DEGAT_EMPALEMENT = 40;
+        internal static readonly int DEGAT_COUP_DE_GRIFFE = 35;
         internal static readonly int DEGAT_COUP_DE_PIED = 25;
+        internal static readonly int DEGAT_ATTAQUE_FURTIVE = 20;
+        internal static readonly int DEGAT_MORSURE = 20;
+        internal static readonly int DEGAT_ECRASEMENT = 15;
+        internal static readonly int DEGAT_CHARGE = 10;
 
         public Animal(Animaux typeAnimal, string nom, string nomImage, int hpMax, int chanceComplementaire, params Attaques[] attaques)
         {
@@ -96,7 +102,12 @@ namespace Premon
         internal static void InitDescriptions()
         {
 
-            descriptionsAttaques[Attaques.COUP_DE_PIED] = $"L'animal charge vers l'ennemi et lui lance un gros coup de pied, infligeant {Animal.DEGAT_COUP_DE_PIED} dégâts.";
+            descriptionsAttaques[Attaques.COUP_DE_PIED] = $"L'animal fonce vers l'ennemi et lui lance un gros coup de pied, infligeant {Animal.DEGAT_COUP_DE_PIED} dégâts.";
+            descriptionsAttaques[Attaques.EMPALEMENT] = $"L'animal utilise sa corne pour transperser son ennemi, infligeant {Animal.DEGAT_EMPALEMENT} dégats.";
+            descriptionsAttaques[Attaques.COUP_DE_GRIFFE] = $"L'animal jette sa patte vers l'avant et griffe son ennemi, infligeant {Animal.DEGAT_COUP_DE_GRIFFE} dégats.";
+            descriptionsAttaques[Attaques.CHARGE] = $"L'animal charge son ennemi pour le faire tomber, infligeant {Animal.DEGAT_CHARGE} dégats.";
+            descriptionsAttaques[Attaques.ATTAQUE_FURTIVE] = $"Cacher derriere son ennemi, l'animal bondit en surprenant son ennemi, infligeant {Animal.DEGAT_ATTAQUE_FURTIVE} dégats.";
+            descriptionsAttaques[Attaques.ECRASEMENT] = $"L'animal lève ses pattes avants puis met tout son poids en retombant, écrasant son ennemi, infligeant {Animal.DEGAT_ECRASEMENT} dégats.";
 
         }
 
@@ -105,6 +116,7 @@ namespace Premon
 
             animaux.Add(Animaux.Mammouth, new Animal(Animaux.Mammouth, "Mammouth", "Mammouth.png", 200, 1, Attaques.COUP_DE_PIED));
             animaux.Add(Animaux.Bouquetin, new Animal(Animaux.Bouquetin, "Bouquetin", "Bouquetin.png", 80, 1, Attaques.EMPALEMENT, Attaques.AIGUISAGE));
+
 
         }
 
@@ -115,7 +127,13 @@ namespace Premon
 
         COUP_DE_PIED,
         EMPALEMENT,
-        AIGUISAGE
+        COUP_DE_GRIFFE,
+        CHARGE,
+        ATTAQUE_FURTIVE,
+        ECRASEMENT,
+        MORSURE,
+        AIGUISAGE,
+        PROTECTION
 
     }
 
@@ -123,6 +141,15 @@ namespace Premon
     {
 
         Mammouth,
-        Bouquetin
+        Bouquetin,
+        Smilodon,
+        Megaceros,
+        Diprotodon,
+        Deinotherium,
+        Gastronis,
+        Lion_des_cavernes,
+        Rhinoceros_laineux,
+        Megalonix,
+        Glyptodon
     }
 }
