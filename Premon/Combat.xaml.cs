@@ -20,7 +20,7 @@ namespace Premon
         private static DispatcherTimer minuterieActionEnnemi;
         private static bool ennemiAttaque = false;
         Random random = new Random();
-        int combatFini = 0;
+        internal int combatFini = 0;
 
         public Combat()
         {

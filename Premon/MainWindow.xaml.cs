@@ -114,6 +114,7 @@ namespace Premon
 
         private void InitObstacles()
         {
+
             obstacles.Add(Eau_1);
             obstacles.Add(Eau_2);
             obstacles.Add(Eau_3);
@@ -126,6 +127,7 @@ namespace Premon
             obstacles.Add(Arbre_3);
             obstacles.Add(Arbre_4);
             obstacles.Add(Butte_1);
+
         }
 
         private void Jeu(object? sender, EventArgs e)
@@ -196,22 +198,26 @@ namespace Premon
             gauche = null;
             haut = null;
             Animal animalSauvage;
-            animalChoisi = false;
 
-            do
-            {
-
-                animalSauvage = Animal.CreerAnimal((Animaux) aleatoire.Next(0, Animaux.GetValues(typeof(Animaux)).Length));
-
-                if (aleatoire.Next(0, animalSauvage.ChanceComplementaire - 1) == 0)
-                    animalChoisi = true;
-
-            } while (!animalChoisi);
+            /* 
+             * Quand l'animal est sélectionné aléatoirement, si la chance complémentaire est supérieure à 1,
+             * le tirage a une chance de se réeffectuer
+             */
+            do animalSauvage = Animal.CreerAnimal((Animaux) aleatoire.Next(0, Animal.nombreAnimaux);
+            while (aleatoire.Next(0, animalSauvage.ChanceComplementaire - 1) == 0);
 
             Combat combat = new Combat(); 
             combat.InitAnimaux(animauxPossedes[0], animalSauvage);
-            //Console.WriteLine(animauxPossedes[0].Attaques.ToString());
             combat.ShowDialog();
+
+            switch(combat.combatFini)
+            {
+
+                case 4:
+                    Objet.AjouterObjet(objetsPossedes, animalSauvage.Butin);
+                    break;
+
+            }
 
         }
 

@@ -49,7 +49,7 @@ namespace Premon
 
             bool aEteAjoute = false;
 
-            foreach(Objet objet in objetsPossedes)
+            foreach (Objet objet in objetsPossedes)
             {
 
                 if (objet.TypeObjet == objetAjoute.TypeObjet)
@@ -63,8 +63,32 @@ namespace Premon
 
             }
 
-            if(!aEteAjoute)
+            if (!aEteAjoute)
                 objetsPossedes.Add(objetAjoute);
+
+        }
+
+        internal static void AjouterObjet(List<Objet> objetsPossedes, Objet[] objetsAjoute)
+        {
+
+            bool aEteAjoute = false;
+
+            foreach(Objet objetAAjouter in objetsAjoute)
+            foreach (Objet objet in objetsPossedes)
+            {
+
+                if (objet.TypeObjet == objetAAjouter.TypeObjet)
+                {
+
+                    objet.Quantite += objetAAjouter.Quantite;
+                    aEteAjoute = true;
+                    break;
+
+                }
+
+                    if (!aEteAjoute)
+                        objetsPossedes.Add(objetAAjouter);
+            }
 
         }
 
