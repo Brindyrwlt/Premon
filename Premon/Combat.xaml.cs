@@ -73,28 +73,37 @@ namespace Premon
                 animalSauvage.Attaque(attaqueChoisie, animalJoueur);
                 TexteAction.Content = $"{animalSauvage.Nom} sauvage a utilisé {MainWindow.FormatageNomAttaque(attaqueChoisie)}.";
                 combatFini = CombatFini();
-                ActualiserHP();
 
                 if (combatFini == 0)
                 {
 
+                    
                     ennemiAttaque = false;
                     BoutonsActifs(true);
                     minuterieActionEnnemi.Stop();
 
                 }
+                else
+                    animalJoueur.HP = 0;
+
+                ActualiserHP();
 
             }
             else if (combatFini == 0)
             {
 
                 animalJoueur.Attaque(attaqueChoisie, animalSauvage);
-                ActualiserHP();
+                
                 ennemiAttaque = true;
                 TexteAction.Content = $"{animalJoueur.Nom} a utilisé {MainWindow.FormatageNomAttaque(attaqueChoisie)}.";
                 minuterieActionEnnemi.Interval = TimeSpan.FromSeconds(TEMPS_ATTAQUE_ENNEMI);
                 combatFini = CombatFini();
 
+                if (combatFini != 0)
+                    animalSauvage.HP = 0;
+
+                ActualiserHP();
+ 
             }
             else
             {
@@ -104,12 +113,14 @@ namespace Premon
 
                     case 1:
                         animalSauvage.HP = 0;
+                        ActualiserHP();
                         TexteAction.Content = $"{animalJoueur.Nom} a gagné !";
                         combatFini = 4;
                         break;
 
                     case 2:
                         animalJoueur.HP = 0;
+                        ActualiserHP();
                         TexteAction.Content = $"{animalSauvage.Nom} a gagné !";
                         combatFini = 5;
                         break;
@@ -117,6 +128,7 @@ namespace Premon
                     case 3:
                         animalJoueur.HP = 0;
                         animalSauvage.HP = 0;
+                        ActualiserHP();
                         TexteAction.Content = "Les deux animaux sont morts !";
                         combatFini = 6;
                         break;
@@ -127,7 +139,6 @@ namespace Premon
                         break;
                 }
 
-                ActualiserHP();
             }
         }
 
