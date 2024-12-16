@@ -68,13 +68,41 @@ namespace Premon
                 {
 
                     case Attaques.EMPALEMENT:
+                        cible.HP -= (int) (DEGAT_EMPALEMENT * multiplicateur);
+                        multiplicateur = 1.0;
                         break;
 
                     case Attaques.COUP_DE_PIED:
-                        cible.HP -= DEGAT_COUP_DE_PIED;
+                        cible.HP -= (int)(DEGAT_COUP_DE_PIED * multiplicateur);
+                        multiplicateur = 1.0;
+                        break;
+
+                    case Attaques.COUP_DE_GRIFFE:
+                        cible.HP -= (int)(DEGAT_COUP_DE_GRIFFE * multiplicateur);
+                        multiplicateur = 1.0;
+                        break;
+
+                    case Attaques.CHARGE:
+                        cible.HP -= (int)(DEGAT_CHARGE * multiplicateur);
+                        break;
+
+                    case Attaques.ATTAQUE_FURTIVE:
+                        cible.HP -= (int)(DEGAT_ATTAQUE_FURTIVE * multiplicateur);
+                        multiplicateur *= 1.1;
+                        break;
+
+                    case Attaques.ATTAQUE_FURTIVE:
+                        cible.HP -= (int)(DEGAT_ATTAQUE_FURTIVE * multiplicateur);
+                        multiplicateur *= 1.1;
+                        break;
+
+                    case Attaques.ATTAQUE_FURTIVE:
+                        cible.HP -= (int)(DEGAT_ATTAQUE_FURTIVE * multiplicateur);
+                        multiplicateur *= 1.1;
                         break;
 
                     case Attaques.AIGUISAGE:
+                        multiplicateur *= 1.2;
                         break;
 
                 }
@@ -108,7 +136,7 @@ namespace Premon
 
         internal static void InitDescriptions()
         {
-
+            if (descriptionsAttaques.Count != Animal.nombreAnimaux)
             descriptionsAttaques[Attaques.COUP_DE_PIED] = $"L'animal fonce vers l'ennemi et lui lance un gros coup de pied, infligeant {Animal.DEGAT_COUP_DE_PIED} dégâts.";
             descriptionsAttaques[Attaques.EMPALEMENT] = $"L'animal utilise sa corne pour transperser son ennemi, infligeant {Animal.DEGAT_EMPALEMENT} dégats.";
             descriptionsAttaques[Attaques.COUP_DE_GRIFFE] = $"L'animal jette sa patte vers l'avant et griffe son ennemi, infligeant {Animal.DEGAT_COUP_DE_GRIFFE} dégats.";
