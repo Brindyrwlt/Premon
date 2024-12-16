@@ -29,7 +29,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Button x:Name="BoutonObjets" Content="Objets" HorizontalAlignment="Center" Height="50" Width="200" Margin="300,350,0,0" VerticalAlignment="Top" FontSize="18">
+        <Button x:Name="BoutonObjets" Content="Objets" HorizontalAlignment="Center" Height="50" Width="200" Margin="300,350,0,0" VerticalAlignment="Top" FontSize="18" Click="BoutonObjets_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="{StaticResource DegradeVert}" />
