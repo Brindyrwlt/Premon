@@ -25,7 +25,8 @@ namespace Premon
 
         private static Dictionary<Animaux, Animal> animaux = new Dictionary<Animaux, Animal>();
         internal static Dictionary<Attaques, string> descriptionsAttaques = new Dictionary<Attaques, string>();
-        internal static int nombreAnimaux = Animaux.GetValues(typeof(Animaux)).Length;
+        internal static int nombreAnimaux = Animaux.GetValues(typeof(Animaux)).Length ;
+        internal static int nombreAttaques = Attaques.GetValues(typeof(Attaques)).Length;
 
         // Multiplicateur d'attaques
 
@@ -141,20 +142,25 @@ namespace Premon
 
         internal static void InitDescriptions()
         {
-            if (descriptionsAttaques.Count != Animal.nombreAnimaux)
+            if (descriptionsAttaques.Count != Animal.nombreAttaques)
+                throw new Exception("Une ou plus attaques n'ont pas de descriptions");
             descriptionsAttaques[Attaques.COUP_DE_PIED] = $"L'animal fonce vers l'ennemi et lui lance un gros coup de pied, infligeant {Animal.DEGAT_COUP_DE_PIED} dégâts.";
             descriptionsAttaques[Attaques.EMPALEMENT] = $"L'animal utilise sa corne pour transperser son ennemi, infligeant {Animal.DEGAT_EMPALEMENT} dégats.";
             descriptionsAttaques[Attaques.COUP_DE_GRIFFE] = $"L'animal jette sa patte vers l'avant et griffe son ennemi, infligeant {Animal.DEGAT_COUP_DE_GRIFFE} dégats.";
             descriptionsAttaques[Attaques.CHARGE] = $"L'animal charge son ennemi pour le faire tomber, infligeant {Animal.DEGAT_CHARGE} dégats.";
             descriptionsAttaques[Attaques.ATTAQUE_FURTIVE] = $"Cacher derriere son ennemi, l'animal bondit en surprenant son ennemi, infligeant {Animal.DEGAT_ATTAQUE_FURTIVE} dégats.";
             descriptionsAttaques[Attaques.ECRASEMENT] = $"L'animal lève ses pattes avants puis met tout son poids en retombant, écrasant son ennemi, infligeant {Animal.DEGAT_ECRASEMENT} dégats.";
+            descriptionsAttaques[Attaques.MORSURE] = $"L'animal ouvre sa gueule et mord son ennemi, infligeant {Animal.DEGAT_MORSURE} dégats.";
+            descriptionsAttaques[Attaques.AIGUISAGE] = $"L'animal aiguise ses crocs et griffes, augmentant les dégats infligés.";
+            descriptionsAttaques[Attaques.PROTECTION] = $"L'animal se protège avec sa peau épaisse ou sa carapace, diminuant les dégats reçus.";
+
 
         }
 
         internal static void InitAnimaux()
         {
 
-            animaux.Add(Animaux.Mammouth, new Animal(Animaux.Mammouth, "Mammouth", "Mammouth.png", 200, 1, [Objet.CreerObjet(Objets.Morceau_de_viande)],  Attaques.COUP_DE_PIED));
+            animaux.Add(Animaux.Mammouth, new Animal(Animaux.Mammouth, "Mammouth", "Mammouth.png", 200, 1, [Objet.CreerObjet(Objets.Morceau_de_viande)],  Attaques.ECRASEMENT, Attaques.PROTECTION, Attaques.COUP_DE_PIED));
             animaux.Add(Animaux.Bouquetin, new Animal(Animaux.Bouquetin, "Bouquetin", "Bouquetin.png", 80, 1, [Objet.CreerObjet(Objets.Morceau_de_viande)],  Attaques.EMPALEMENT, Attaques.AIGUISAGE));
 
 
