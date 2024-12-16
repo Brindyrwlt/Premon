@@ -11,16 +11,16 @@ namespace Premon
     public partial class Combat : Window
     {
 
-        Animal animalJoueur;
-        Animal animalSauvage;
+        Animal animalJoueur, animalSauvage;
         Attaques attaqueChoisie;
 
-        private static readonly double TEMPS_ATTAQUE_JOUEUR = 0.5;
-        private static readonly double TEMPS_ATTAQUE_ENNEMI = 1.5;
+        private static readonly double TEMPS_ATTAQUE_JOUEUR = 0.5,
+                                       TEMPS_ATTAQUE_ENNEMI = 1.5;
 
         private static DispatcherTimer minuterieActionEnnemi;
         private static bool ennemiAttaque = false;
         Random random = new Random();
+        int combatFini = 0;
 
         public Combat()
         {
@@ -48,35 +48,87 @@ namespace Premon
 
         } 
 
+        private int CombatFini()
+        {
+
+            if (animalSauvage.HP <= 0 && animalJoueur.HP <= 0)
+                return 3;
+            if (animalJoueur.HP <= 0)
+                return 2;
+            else if (animalSauvage.HP <= 0)
+                return 1;
+            else
+                return 0;
+
+        }
+        
         private void ActionEnnemi(object? sender, EventArgs e)
         {
 
-            if (ennemiAttaque)
+            if (ennemiAttaque && combatFini == 0)
             {
 
                 Attaques attaqueChoisie = animalSauvage.AttaquesAnimal[random.Next(0, animalSauvage.AttaquesAnimal.Length)];
 
                 animalSauvage.Attaque(attaqueChoisie, animalJoueur);
                 TexteAction.Content = $"{animalSauvage.Nom} sauvage a utilisé {MainWindow.FormatageNomAttaque(attaqueChoisie)}.";
-                minuterieActionEnnemi.Stop();
+                combatFini = CombatFini();
                 ActualiserHP();
-                ennemiAttaque = false;
-                BoutonsActifs(true);
+
+                if (combatFini == 0)
+                {
+
+                    ennemiAttaque = false;
+                    BoutonsActifs(true);
+                    minuterieActionEnnemi.Stop();
+
+                }
+
+            }
+            else if (combatFini == 0)
+            {
+
+                animalJoueur.Attaque(attaqueChoisie, animalSauvage);
+                ActualiserHP();
+                ennemiAttaque = true;
+                TexteAction.Content = $"{animalJoueur.Nom} a utilisé {MainWindow.FormatageNomAttaque(attaqueChoisie)}.";
+                minuterieActionEnnemi.Interval = TimeSpan.FromSeconds(TEMPS_ATTAQUE_ENNEMI);
+                combatFini = CombatFini();
 
             }
             else
             {
 
-                ennemiAttaque = true;
-                animalJoueur.Attaque(attaqueChoisie, animalSauvage);
+                switch (combatFini)
+                {
+
+                    case 1:
+                        animalSauvage.HP = 0;
+                        TexteAction.Content = $"{animalJoueur.Nom} a gagné !";
+                        combatFini = 4;
+                        break;
+
+                    case 2:
+                        animalJoueur.HP = 0;
+                        TexteAction.Content = $"{animalSauvage.Nom} a gagné !";
+                        combatFini = 5;
+                        break;
+
+                    case 3:
+                        animalJoueur.HP = 0;
+                        animalSauvage.HP = 0;
+                        TexteAction.Content = "Les deux animaux sont morts !";
+                        combatFini = 6;
+                        break;
+
+                    default:
+                        minuterieActionEnnemi.Stop();
+                        DialogResult = true;
+                        break;
+                }
+
                 ActualiserHP();
-                TexteAction.Content = $"{animalJoueur.Nom} a utilisé {MainWindow.FormatageNomAttaque(attaqueChoisie)}.";
-                minuterieActionEnnemi.Interval = TimeSpan.FromSeconds(TEMPS_ATTAQUE_ENNEMI);
-
             }
-
-            
-
         }
 
         internal void InitAnimaux(Animal animalJoueur, Animal animalSauvage)
