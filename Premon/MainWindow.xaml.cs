@@ -64,11 +64,10 @@ namespace Premon
             InitIntervalleDeplacement();
             InitBuissons();
             InitObstacles();
-            InitObjets();
             InitBitmap();
+            Objet.InitObjets();
             Animal.InitAnimaux();
             Animal.InitDescriptions();
-            Objet.InitObjets();
             Inventaire.InitInventaire(out animauxPossedes, out objetsPossedes);
             imgPerso.ImageSource = imgPersonnageDevant;
             animauxPossedes.Add(Animal.CreerAnimal(Animaux.Mammouth));/*
@@ -129,19 +128,11 @@ namespace Premon
             obstacles.Add(Butte_1);
         }
 
-        
-
-        private void InitObjets()
-        {
-
-        }
-
         private void Jeu(object? sender, EventArgs e)
         {
 
             DeplacementPerso();
             
-    
         }
 
         private void RencontreBuisson()

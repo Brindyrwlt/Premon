@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -17,6 +18,7 @@ namespace Premon
         public int HP { get; set; }
         public string Nom { get; set; }
         internal Attaques[] AttaquesAnimal;
+        internal Objet[] Butin;
         internal BitmapImage Image;
         internal int ChanceComplementaire = 1;
         private double multiplicateur = 1;
@@ -29,8 +31,13 @@ namespace Premon
         // Coup de pied
         internal static readonly int DEGAT_COUP_DE_PIED = 25;
 
-        public Animal(Animaux typeAnimal, string nom, string nomImage, int hpMax, int chanceComplementaire, params Attaques[] attaques)
+        public Animal(Animaux typeAnimal, string nom, string nomImage, int hpMax, int chanceComplementaire, Objet[] butin, params Attaques[] attaques)
         {
+
+            if (butin.Length == 0)
+                throw new ArgumentException("L'animal doit au moins posséder un butin.");
+            if (attaques.Length == 0)
+                throw new ArgumentException("L'animal doit posséder des attaques");
 
             TypeAnimal = typeAnimal;
             Nom = nom;
@@ -103,8 +110,8 @@ namespace Premon
         internal static void InitAnimaux()
         {
 
-            animaux.Add(Animaux.Mammouth, new Animal(Animaux.Mammouth, "Mammouth", "Mammouth.png", 200, 1, Attaques.COUP_DE_PIED));
-            animaux.Add(Animaux.Bouquetin, new Animal(Animaux.Bouquetin, "Bouquetin", "Bouquetin.png", 80, 1, Attaques.EMPALEMENT, Attaques.AIGUISAGE));
+            animaux.Add(Animaux.Mammouth, new Animal(Animaux.Mammouth, "Mammouth", "Mammouth.png", 200, 1, [Objet.CreerObjet(Objets.Morceau_de_viande)],  Attaques.COUP_DE_PIED));
+            animaux.Add(Animaux.Bouquetin, new Animal(Animaux.Bouquetin, "Bouquetin", "Bouquetin.png", 80, 1, [Objet.CreerObjet(Objets.Morceau_de_viande)],  Attaques.EMPALEMENT, Attaques.AIGUISAGE));
 
         }
 
