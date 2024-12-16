@@ -21,11 +21,11 @@ namespace Premon
         internal Objet[] Butin;
         internal BitmapImage Image;
         internal int ChanceComplementaire = 1;
-        private double multiplicateur = 1;
+        private double multiplicateur = 1, multiplicateurDegatRecu = 1;
 
         private static Dictionary<Animaux, Animal> animaux = new Dictionary<Animaux, Animal>();
         internal static Dictionary<Attaques, string> descriptionsAttaques = new Dictionary<Attaques, string>();
-        internal static int nombreAnimaux = Animaux.GetValues(typeof(Animaux)).Length);
+        internal static int nombreAnimaux = Animaux.GetValues(typeof(Animaux)).Length ;
 
         // Multiplicateur d'attaques
 
@@ -69,41 +69,45 @@ namespace Premon
                 {
 
                     case Attaques.EMPALEMENT:
-                        cible.HP -= (int) (DEGAT_EMPALEMENT * multiplicateur);
+                        cible.HP -= (int) (DEGAT_EMPALEMENT * multiplicateur * cible.multiplicateurDegatRecu);
                         multiplicateur = 1.0;
                         break;
 
                     case Attaques.COUP_DE_PIED:
-                        cible.HP -= (int)(DEGAT_COUP_DE_PIED * multiplicateur);
+                        cible.HP -= (int)(DEGAT_COUP_DE_PIED * multiplicateur * cible.multiplicateurDegatRecu);
                         multiplicateur = 1.0;
                         break;
 
                     case Attaques.COUP_DE_GRIFFE:
-                        cible.HP -= (int)(DEGAT_COUP_DE_GRIFFE * multiplicateur);
+                        cible.HP -= (int)(DEGAT_COUP_DE_GRIFFE * multiplicateur * cible.multiplicateurDegatRecu);
                         multiplicateur = 1.0;
                         break;
 
                     case Attaques.CHARGE:
-                        cible.HP -= (int)(DEGAT_CHARGE * multiplicateur);
+                        cible.HP -= (int)(DEGAT_CHARGE * multiplicateur * cible.multiplicateurDegatRecu);
                         break;
 
                     case Attaques.ATTAQUE_FURTIVE:
-                        cible.HP -= (int)(DEGAT_ATTAQUE_FURTIVE * multiplicateur);
+                        cible.HP -= (int)(DEGAT_ATTAQUE_FURTIVE * multiplicateur * cible.multiplicateurDegatRecu);
                         multiplicateur *= 1.1;
                         break;
 
-                    case Attaques.ATTAQUE_FURTIVE:
-                        cible.HP -= (int)(DEGAT_ATTAQUE_FURTIVE * multiplicateur);
-                        multiplicateur *= 1.1;
+                    case Attaques.MORSURE:
+                        cible.HP -= (int)(DEGAT_MORSURE * multiplicateur * cible.multiplicateurDegatRecu);
+                        multiplicateur *= 1.05;
                         break;
 
-                    case Attaques.ATTAQUE_FURTIVE:
-                        cible.HP -= (int)(DEGAT_ATTAQUE_FURTIVE * multiplicateur);
-                        multiplicateur *= 1.1;
+                    case Attaques.ECRASEMENT:
+                        cible.HP -= (int)(DEGAT_ECRASEMENT * multiplicateur * cible.multiplicateurDegatRecu);
+                        multiplicateur *= 1.05;
                         break;
 
                     case Attaques.AIGUISAGE:
                         multiplicateur *= 1.2;
+                        break;
+
+                    case Attaques.PROTECTION:
+                        multiplicateurDegatRecu *= 0.8;
                         break;
 
                 }
