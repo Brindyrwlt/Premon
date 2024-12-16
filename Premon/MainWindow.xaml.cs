@@ -203,7 +203,7 @@ namespace Premon
              * Quand l'animal est sélectionné aléatoirement, si la chance complémentaire est supérieure à 1,
              * le tirage a une chance de se réeffectuer
              */
-            do animalSauvage = Animal.CreerAnimal((Animaux) aleatoire.Next(0, Animal.nombreAnimaux);
+            do animalSauvage = Animal.CreerAnimal((Animaux) aleatoire.Next(0, Animal.nombreAnimaux));
             while (aleatoire.Next(0, animalSauvage.ChanceComplementaire - 1) == 0);
 
             Combat combat = new Combat(); 
@@ -215,6 +215,15 @@ namespace Premon
 
                 case 4:
                     Objet.AjouterObjet(objetsPossedes, animalSauvage.Butin);
+                    break;
+
+                case 5:
+                    animauxPossedes.RemoveAt(0);
+                    break;
+
+                case 6:
+                    Objet.AjouterObjet(objetsPossedes, animalSauvage.Butin);
+                    animauxPossedes.RemoveAt(0);
                     break;
 
             }

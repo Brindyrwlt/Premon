@@ -25,7 +25,7 @@ namespace Premon
 
         private static Dictionary<Animaux, Animal> animaux = new Dictionary<Animaux, Animal>();
         internal static Dictionary<Attaques, string> descriptionsAttaques = new Dictionary<Attaques, string>();
-        internal static int nombreAnimaux = Animaux.GetValues(typeof(Animaux)).Length);
+        internal static int nombreAnimaux = Animaux.GetValues(typeof(Animaux)).Length;
 
         // Multiplicateur d'attaques
 
