@@ -340,7 +340,14 @@ namespace Premon
                     break;
 
                 case Key.E:
-                    
+                    InventaireObjet inventaireObjet = new();
+                    inventaireObjet.AffichageInventaire(objetsPossedes);
+                    inventaireObjet.ShowDialog();
+                    break;
+
+                case Key.A:
+                    EcranAnimal ecranAnimal = new();
+                    ecranAnimal.ShowDialog();
                     break;
             }
 
