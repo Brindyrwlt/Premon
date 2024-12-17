@@ -103,13 +103,16 @@ namespace Premon
             {
 
                 case Objets.Morceau_de_viande:
-                    if(random.Next(0, (int) (100 - CHANCE_CAPTURE_VIANDE * 100) * (animalSauvage.HP / 50)) == 0)
+                    if(random.Next(0, (int)((100 - CHANCE_CAPTURE_VIANDE * 100) * ((double) animalSauvage.HP / animalSauvage.HPMax))) == 0)
                     {
 
                         MainWindow.animauxPossedes.Add(animalSauvage);
-                        return TypeAction.Capture;
+                        Console.WriteLine("Animal capturé");
+                        return TypeAction.Capture;    
 
                     }
+
+                    Console.WriteLine("Action effectuée");
                     break;
 
             }
@@ -118,6 +121,20 @@ namespace Premon
 
         }
              
+        internal static void UtiliserObjet(out Objet objetUtilise, byte index)
+        {
+
+            if(index < 0 || index > MainWindow.objetsPossedes.Count - 1) 
+                throw new ArgumentOutOfRangeException("L'index fournit est plus grand que la liste d'objets");
+
+            objetUtilise = MainWindow.objetsPossedes[index];
+            MainWindow.objetsPossedes[index].Quantite--;
+
+            if(MainWindow.objetsPossedes[index].Quantite <= 0)
+                MainWindow.objetsPossedes.RemoveAt(index);
+
+        }
+
         public object Clone()
         {
             return MemberwiseClone();

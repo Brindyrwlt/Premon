@@ -1,0 +1,33 @@
+﻿<Window x:Class="Premon.EcranAnimal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Premon"
+        mc:Ignorable="d"
+        Title="EcranAnimal" Height="400" Width="800">
+    <Grid>
+
+        <ListView x:Name="ListeAnimal">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Aperçu animal" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Image Source="{Binding Image,Converter={StaticResource convertisseurImage}}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Nom animal" DisplayMemberBinding="{Binding Nom}" Width="200"/>
+                        <GridViewColumn x:Name="GrilleHP" Header="HP" DisplayMemberBinding="{Binding HP}" Width="75"/>
+                        <GridViewColumn Header="HP Max" DisplayMemberBinding="{Binding HPMax}" Width="75"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

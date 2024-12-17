@@ -211,11 +211,11 @@ namespace Premon
             }
             while (!(aleatoire.Next(0, animalSauvage.ChanceComplementaire - 1) == 0));
 
-            Combat combat = new Combat(); 
+            Combat combat = new(); 
             combat.InitAnimaux(animauxPossedes[0], animalSauvage);
             combat.ShowDialog();
 
-            switch(combat.combatFini)
+            switch(combat.etatCombat)
             {
 
                 case 4:
@@ -318,7 +318,7 @@ namespace Premon
 
         private void InitIntervalleDeplacement()
         {
-            intervalleDeplacement = new DispatcherTimer();
+            intervalleDeplacement = new();
             intervalleDeplacement.Interval = TimeSpan.FromMilliseconds(INTERVALLE_DEPLACEMENT);
             intervalleDeplacement.Tick += Jeu;
             intervalleDeplacement.Start();
@@ -362,10 +362,10 @@ namespace Premon
             }
 
             Personnage.Fill = imgPerso;
-#if DEBUG
+/*#if DEBUG
             Console.WriteLine($"Gauche : {gauchePerso}\n" +
                 $"Haut : {hautPerso}");
-#endif
+#endif*/
 
             // Déplacement du personnage selon les changements si les changements sont possibles
             if(gauchePerso >= 0 && gauchePerso < ActualWidth - Personnage.Width)
@@ -388,11 +388,18 @@ namespace Premon
         private void IconeInventaire_MouseDown(object sender, MouseButtonEventArgs e) 
         { 
         
-            InventaireObjet inventaireObjet = new InventaireObjet();
+            InventaireObjet inventaireObjet = new();
             inventaireObjet.AffichageInventaire(objetsPossedes);
             inventaireObjet.ShowDialog();
             
         }
 
+        private void IconeAnimaux_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            EcranAnimal ecranAnimal = new();
+            ecranAnimal.ShowDialog();
+
+        }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Printing;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -14,12 +15,12 @@ namespace Premon
     {
 
         internal readonly Animaux TypeAnimal;
-        public readonly int HPMax;
+        public int HPMax { get; private set; }
         public int HP { get; set; }
         public string Nom { get; set; }
         internal Attaques[] AttaquesAnimal;
         internal Objet[] Butin;
-        internal BitmapImage Image;
+        internal BitmapImage Image { get; private set; }
         internal int ChanceComplementaire = 1;
         private double multiplicateur = 1, multiplicateurDegatRecu = 1;
 
@@ -28,16 +29,40 @@ namespace Premon
         internal static int nombreAnimaux = Animaux.GetValues(typeof(Animaux)).Length ;
         internal static int nombreAttaques = Attaques.GetValues(typeof(Attaques)).Length;
 
-        // Multiplicateur d'attaques
+        // Statistiques d'attaques
+
+        // Multiplicateur de base
+        private static readonly double MULTIPLICATEUR_BASE = 1;
 
         // Coup de pied
-        internal static readonly int DEGAT_EMPALEMENT = 40;
-        internal static readonly int DEGAT_COUP_DE_GRIFFE = 35;
-        internal static readonly int DEGAT_COUP_DE_PIED = 25;
-        internal static readonly int DEGAT_ATTAQUE_FURTIVE = 20;
-        internal static readonly int DEGAT_MORSURE = 20;
-        internal static readonly int DEGAT_ECRASEMENT = 15;
-        internal static readonly int DEGAT_CHARGE = 10;
+        private static readonly int DEGAT_COUP_DE_PIED = 25;
+
+        // Empalement
+        private static readonly int DEGAT_EMPALEMENT = 40;
+
+        // Coup de griffe
+        private static readonly int DEGAT_COUP_DE_GRIFFE = 35;
+        
+        // Attaque furtive
+        private static readonly int DEGAT_ATTAQUE_FURTIVE = 20;
+        private static readonly double MULTIPLICATEUR_ATTAQUE_FURTIVE = 1.1;
+        
+        // Morsure
+        private static readonly int DEGAT_MORSURE = 20;
+        private static readonly double MULTIPLICATEUR_MORSURE = 1.05;
+        
+        // Ecrasement
+        private static readonly int DEGAT_ECRASEMENT = 15;
+        private static readonly double MULTIPLICATEUR_ECRASEMENT = 1.05;
+
+        // Aiguisage
+        private static readonly double MULTIPLICATEUR_AIGUISAGE = 1.2;
+
+        // Protection
+        private static readonly double MULTIPLICATEUR_PROTECTION = 0.8;
+
+        // Charge
+        private static readonly int DEGAT_CHARGE = 10;
 
         public Animal(Animaux typeAnimal, string nom, string nomImage, int hpMax, int chanceComplementaire, Objet[] butin, params Attaques[] attaques)
         {
@@ -72,17 +97,17 @@ namespace Premon
 
                     case Attaques.EMPALEMENT:
                         cible.HP -= (int) (DEGAT_EMPALEMENT * multiplicateur * cible.multiplicateurDegatRecu);
-                        multiplicateur = 1.0;
+                        multiplicateur = MULTIPLICATEUR_BASE;
                         break;
 
                     case Attaques.COUP_DE_PIED:
                         cible.HP -= (int)(DEGAT_COUP_DE_PIED * multiplicateur * cible.multiplicateurDegatRecu);
-                        multiplicateur = 1.0;
+                        multiplicateur = MULTIPLICATEUR_BASE;
                         break;
 
                     case Attaques.COUP_DE_GRIFFE:
                         cible.HP -= (int)(DEGAT_COUP_DE_GRIFFE * multiplicateur * cible.multiplicateurDegatRecu);
-                        multiplicateur = 1.0;
+                        multiplicateur = MULTIPLICATEUR_BASE;
                         break;
 
                     case Attaques.CHARGE:
@@ -91,27 +116,27 @@ namespace Premon
 
                     case Attaques.ATTAQUE_FURTIVE:
                         cible.HP -= (int)(DEGAT_ATTAQUE_FURTIVE * multiplicateur * cible.multiplicateurDegatRecu);
-                        multiplicateur *= 1.1;
+                        multiplicateur *= MULTIPLICATEUR_ATTAQUE_FURTIVE;
                         break;
 
                     case Attaques.MORSURE:
                         cible.HP -= (int)(DEGAT_MORSURE * multiplicateur * cible.multiplicateurDegatRecu);
-                        multiplicateur *= 1.05;
+                        multiplicateur *= MULTIPLICATEUR_MORSURE;
                         break;
 
                     case Attaques.ECRASEMENT:
                         cible.HP -= (int)(DEGAT_ECRASEMENT * multiplicateur * cible.multiplicateurDegatRecu);
-                        multiplicateur *= 1.05;
+                        multiplicateur *= MULTIPLICATEUR_ECRASEMENT;
                         break;
 
                     case Attaques.AIGUISAGE:
-                        if (multiplicateur > 1.5)
-                            multiplicateur *= 1.2;
+                        if (multiplicateur > 1.5) // A vérifier
+                            multiplicateur *= MULTIPLICATEUR_AIGUISAGE;
                         break;
 
                     case Attaques.PROTECTION:
                         if (multiplicateurDegatRecu > 0.5)
-                            multiplicateurDegatRecu *= 0.8;
+                            multiplicateurDegatRecu *= MULTIPLICATEUR_PROTECTION;
                         break;
 
                 }
