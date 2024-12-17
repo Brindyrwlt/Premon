@@ -177,5 +177,17 @@ namespace Premon
             }
 
         }
+
+        internal void EnCombat()
+        {
+
+            BoutonRetour.IsEnabled = false;
+
+        }
+
+        private void BoutonRetour_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
     }
 }

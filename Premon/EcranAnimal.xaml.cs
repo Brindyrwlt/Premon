@@ -21,16 +21,12 @@ namespace Premon
     {
 
         internal Animal animalSelectionne;
-        internal bool enCombat = false;
 
         public EcranAnimal()
         {
 
             InitializeComponent();
             ListeAnimal.ItemsSource = MainWindow.animauxPossedes;
-
-            if (!enCombat)
-                BoutonSelectionner.IsEnabled = false;
             
         }
 
@@ -63,6 +59,19 @@ namespace Premon
 
             Inventaire.SauvegardeInventaire(MainWindow.animauxPossedes, MainWindow.objetsPossedes);
 
+        }
+
+        internal void EnCombat()
+        {
+
+            BoutonSelectionner.IsEnabled = true;
+            BoutonRetour.IsEnabled = false;
+
+        }
+
+        private void BoutonRetour_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
     }
 }

@@ -19,7 +19,8 @@
             </ListView.View>
 
         </ListView>
-        <Button x:Name="BoutonSelectionner" Content="Sélectionner" Canvas.Left="380" Canvas.Top="72" Width="100" Height="30" Click="BoutonSelectionner_Click"/>
+        <Button x:Name="BoutonSelectionner" Content="Sélectionner" Canvas.Left="380" Canvas.Top="72" Width="100" Height="30" Click="BoutonSelectionner_Click" IsEnabled="False"/>
         <Button x:Name="BoutonPromouvoir" Content="Promouvoir" Canvas.Left="380" Canvas.Top="123" Width="100" Height="30" Click="BoutonPromouvoir_Click" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button x:Name="BoutonRetour" Content="Retour" Canvas.Left="380" Canvas.Top="172" Width="100" Height="30" Click="BoutonRetour_Click" HorizontalAlignment="Center" VerticalAlignment="Top"/>
     </Canvas>
 </Window>
