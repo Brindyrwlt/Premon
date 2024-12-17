@@ -20,6 +20,7 @@
     <None Remove="Textures\Animal\Deinotherium.png" />
     <None Remove="Textures\Animal\Diprotodon.png" />
     <None Remove="Textures\Animal\Gastornis.png" />
+    <None Remove="Textures\Animal\Glyptodon.png" />
     <None Remove="Textures\Animal\Lion_des_cavernes.png" />
     <None Remove="Textures\Animal\Mammouth.png" />
     <None Remove="Textures\Animal\Megaceros.png" />
@@ -109,6 +110,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Textures\Animal\Gastornis.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Animal\Glyptodon.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Textures\Animal\Lion_des_cavernes.png">
