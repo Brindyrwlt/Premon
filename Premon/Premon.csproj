@@ -17,7 +17,14 @@
     <None Remove="Personnage_droite_1.png" />
     <None Remove="Personnage_gauche_1.png" />
     <None Remove="Textures\Animal\Bouquetin.png" />
+    <None Remove="Textures\Animal\Deinotherium.png" />
+    <None Remove="Textures\Animal\Diprotodon.png" />
+    <None Remove="Textures\Animal\Gastornis.png" />
+    <None Remove="Textures\Animal\Lion_des_cavernes.png" />
     <None Remove="Textures\Animal\Mammouth.png" />
+    <None Remove="Textures\Animal\Megaceros.png" />
+    <None Remove="Textures\Animal\Rhinoceros_laineux.png" />
+    <None Remove="Textures\Animal\Smilodon.png" />
     <None Remove="Textures\Decoration\Arbre\Arbre_1.png" />
     <None Remove="Textures\Decoration\Arbre\Arbre_2.png" />
     <None Remove="Textures\Decoration\Arbre\Arbre_3.png" />
@@ -92,8 +99,29 @@
     <Resource Include="Textures\Animal\Bouquetin.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Textures\Animal\Deinotherium.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Animal\Diprotodon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Animal\Gastornis.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Animal\Lion_des_cavernes.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Textures\Animal\Mammouth.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Animal\Megaceros.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Animal\Rhinoceros_laineux.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Animal\Smilodon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Textures\Decoration\Arbre\Arbre_1.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
