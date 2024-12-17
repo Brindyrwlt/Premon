@@ -143,7 +143,7 @@ namespace Premon
             objetUtilise = MainWindow.objetsPossedes[index];
             MainWindow.objetsPossedes[index].Quantite--;
 
-            if(MainWindow.objetsPossedes[index].Quantite <= 0)
+            if (MainWindow.objetsPossedes[index].Quantite <= 0)
                 MainWindow.objetsPossedes.RemoveAt(index);
 
         }
@@ -162,9 +162,7 @@ namespace Premon
 
     enum TypeAction
     {
-
         Capture,
         Soin
-
     }
 }

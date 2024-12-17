@@ -190,6 +190,7 @@ namespace Premon
 
             InventaireObjet inventaireObjet = new();
             inventaireObjet.AffichageInventaire(MainWindow.objetsPossedes);
+            inventaireObjet.enCombat = true;
             inventaireObjet.ShowDialog();
 
             if (inventaireObjet.DialogResult == true)
@@ -224,6 +225,7 @@ namespace Premon
         {
 
             EcranAnimal ecranAnimal = new();
+            ecranAnimal.enCombat = true;
             ecranAnimal.ShowDialog();
 
             if(ecranAnimal.DialogResult == true)
