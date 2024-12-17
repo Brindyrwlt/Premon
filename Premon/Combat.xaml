@@ -1,14 +1,40 @@
-﻿<Window x:Class="Premon.Combat"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Premon"
-        mc:Ignorable="d"
-        Title="Combat" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+﻿<Window
+    x:Class="Premon.Combat"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Premon"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Combat"
+    Width="800"
+    Height="450"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Window.Background>
+        <ImageBrush ImageSource="/fond_combat.png" />
+    </Window.Background>
     <Canvas>
-        <Rectangle HorizontalAlignment="Center" Height="70" Margin="0,340,0,0" Stroke="Black" VerticalAlignment="Top" Width="800" StrokeThickness="5"/>
-        <Button x:Name="BoutonAttaque" Content="Attaque" HorizontalAlignment="Center" Height="50" Width="200" Margin="50,350,0,0" VerticalAlignment="Top" FontSize="18" Click="BoutonAttaque_Click">
+        <Rectangle
+            Canvas.Left="0"
+            Canvas.Top="340"
+            Width="800"
+            Height="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Fill="Black"
+            Opacity="0.75"
+            Stroke="Black" />
+        <Button
+            x:Name="BoutonAttaque"
+            Width="200"
+            Height="50"
+            Margin="50,350,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Click="BoutonAttaque_Click"
+            Content="Attaque"
+            FontSize="18">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="{StaticResource DegradeRouge}" />
@@ -20,7 +46,7 @@
                                 </Border>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="{StaticResource DegradeRougeInverse}" TargetName="Border" />
+                                        <Setter TargetName="Border" Property="Background" Value="{StaticResource DegradeRougeInverse}" />
                                     </Trigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
@@ -29,7 +55,16 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Button x:Name="BoutonObjets" Content="Objets" HorizontalAlignment="Center" Height="50" Width="200" Margin="300,350,0,0" VerticalAlignment="Top" FontSize="18" Click="BoutonObjets_Click">
+        <Button
+            x:Name="BoutonObjets"
+            Width="200"
+            Height="50"
+            Margin="300,350,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Click="BoutonObjets_Click"
+            Content="Objets"
+            FontSize="18">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="{StaticResource DegradeVert}" />
@@ -41,7 +76,7 @@
                                 </Border>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="{StaticResource DegradeVertInverse}" TargetName="Border" />
+                                        <Setter TargetName="Border" Property="Background" Value="{StaticResource DegradeVertInverse}" />
                                     </Trigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
@@ -50,7 +85,16 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Button x:Name="BoutonFuite" Content="Fuite" HorizontalAlignment="Center" Height="50" Width="200" Margin="550,350,0,0" VerticalAlignment="Top" FontSize="18" Click="BoutonFuite_Click">
+        <Button
+            x:Name="BoutonFuite"
+            Width="200"
+            Height="50"
+            Margin="550,350,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Click="BoutonFuite_Click"
+            Content="Fuite"
+            FontSize="18">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="{StaticResource DegradeBleu}" />
@@ -62,7 +106,7 @@
                                 </Border>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="{StaticResource DegradeBleuInverse}" TargetName="Border" />
+                                        <Setter TargetName="Border" Property="Background" Value="{StaticResource DegradeBleuInverse}" />
                                     </Trigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
@@ -71,10 +115,43 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Image x:Name="ImageAnimalJoueur"  Height="200" Canvas.Left="50" Canvas.Top="117" Width="200"/>
-        <Image x:Name="ImageAnimalSauvage"  Height="200" Canvas.Left="536" Canvas.Top="29" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="HPJoueur" Content="HP : 100" Canvas.Left="182" Canvas.Top="261" FontSize="36" Background="Gainsboro"/>
-        <Label x:Name="HPEnnemi" Content="HP : 100" Canvas.Left="450" Canvas.Top="159" FontSize="36" Background="Gainsboro" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label x:Name="TexteAction" Content="" Canvas.Left="367" Canvas.Top="294" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Image
+            x:Name="ImageAnimalJoueur"
+            Canvas.Left="50"
+            Canvas.Top="117"
+            Width="200"
+            Height="200" />
+        <Image
+            x:Name="ImageAnimalSauvage"
+            Canvas.Left="536"
+            Canvas.Top="29"
+            Width="200"
+            Height="200"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
+        <Label
+            x:Name="HPJoueur"
+            Canvas.Left="182"
+            Canvas.Top="261"
+            Background="Gainsboro"
+            Content="HP : 100"
+            FontSize="36" />
+        <Label
+            x:Name="HPEnnemi"
+            Canvas.Left="450"
+            Canvas.Top="159"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="Gainsboro"
+            Content="HP : 100"
+            FontSize="36" />
+        <Label
+            x:Name="TexteAction"
+            Canvas.Left="367"
+            Canvas.Top="294"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content=""
+            FontSize="18" />
     </Canvas>
 </Window>

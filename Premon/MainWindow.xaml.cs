@@ -70,8 +70,7 @@ namespace Premon
             Animal.InitDescriptions();
             Inventaire.InitInventaire(out animauxPossedes, out objetsPossedes);
             imgPerso.ImageSource = imgPersonnageDevant;
-            animauxPossedes.Add(Animal.CreerAnimal(Animaux.Mammouth));/*
-            objetsPossedes.Add(Objet.CreerObjet(Objets.Morceau_de_viande));*/
+            animauxPossedes.Add(Animal.CreerAnimal(Animaux.Mammouth));
             Objet.AjouterObjet(objetsPossedes, Objet.CreerObjet(Objets.Morceau_de_viande));
 
         }

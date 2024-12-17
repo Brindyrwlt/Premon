@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fond_combat.png" />
     <None Remove="Fond_sac_a_dos.png" />
     <None Remove="Personnage_derriere_1.png" />
     <None Remove="Personnage_devant-1.png.png" />
@@ -84,6 +85,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fond_combat.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Fond_sac_a_dos.png" />
     <Resource Include="Textures\Animal\Bouquetin.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
