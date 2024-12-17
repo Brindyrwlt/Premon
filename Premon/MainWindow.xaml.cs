@@ -318,21 +318,25 @@ namespace Premon
                 case Key.Q:
                 case Key.Left:
                     gauche = true;
+                    RencontreBuisson();
                     break;
 
                 case Key.D:
                 case Key.Right:
                     gauche = false;
+                    RencontreBuisson();
                     break;
 
                 case Key.Z:
                 case Key.Up:
                     haut = true;
+                    RencontreBuisson();
                     break;
 
                 case Key.S:
                 case Key.Down:
                     haut = false;
+                    RencontreBuisson();
                     break;
 
                 case Key.E:
@@ -350,7 +354,7 @@ namespace Premon
 
             }
 
-            RencontreBuisson();
+            
 
         }
 
