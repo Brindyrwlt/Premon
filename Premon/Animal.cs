@@ -195,7 +195,7 @@ namespace Premon
             animaux.Add(Animaux.Megaceros, new Animal(Animaux.Megaceros, "Megaceros", "Megaceros.png", 160, 10, [Objet.CreerObjet(Objets.Morceau_de_viande)], Attaques.ECRASEMENT));
             animaux.Add(Animaux.Diprotodon, new Animal(Animaux.Diprotodon, "Diprotodon", "Diprotodon.png", 80, 1, [Objet.CreerObjet(Objets.Morceau_de_viande)], Attaques.ECRASEMENT));
             animaux.Add(Animaux.Deinotherium, new Animal(Animaux.Deinotherium, "Deinotherium", "Deinotherium.png", 220, 4, [Objet.CreerObjet(Objets.Morceau_de_viande)], Attaques.ECRASEMENT));
-            animaux.Add(Animaux.Gastronis, new Animal(Animaux.Gastronis, "Gastronis", "Gastronis.png", 110, 2, [Objet.CreerObjet(Objets.Morceau_de_viande)], Attaques.ECRASEMENT));
+            animaux.Add(Animaux.Gastronis, new Animal(Animaux.Gastronis, "Gastronis", "Gastornis.png", 110, 2, [Objet.CreerObjet(Objets.Morceau_de_viande)], Attaques.ECRASEMENT));
             animaux.Add(Animaux.Lion_des_cavernes, new Animal(Animaux.Lion_des_cavernes, "Lion_des_cavernes", "Lion_des_cavernes.png", 100, 1, [Objet.CreerObjet(Objets.Morceau_de_viande)], Attaques.ECRASEMENT));
             animaux.Add(Animaux.Rhinoceros_laineux, new Animal(Animaux.Rhinoceros_laineux, "Rhinoceros_laineux", "Rhinoceros_laineux.png", 190, 4, [Objet.CreerObjet(Objets.Morceau_de_viande)], Attaques.ECRASEMENT));
 

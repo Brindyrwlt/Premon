@@ -4,10 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Premon"
+        xmlns:src="clr-namespace:Premon"
         mc:Ignorable="d"
         Title="EcranAnimal" Height="400" Width="800">
     <Grid>
-
         <ListView x:Name="ListeAnimal">
             <ListView.View>
                 <GridView>
@@ -16,7 +16,7 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <Grid>
-                                        <Image Source="{Binding Image,Converter={StaticResource convertisseurImage}}" />
+                                        <Image Source="{Binding Image,Converter={StaticResource convertisseurImageListe}}" />
                                     </Grid>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -28,6 +28,5 @@
                 </GridView>
             </ListView.View>
         </ListView>
-
     </Grid>
 </Window>
