@@ -358,10 +358,9 @@ namespace Premon
                 aAppuye = true;
                 DeplacementPerso();
                 intervalleDeplacement.Start();
+                RencontreBuisson();
 
             }
-
-            
 
         }
 
