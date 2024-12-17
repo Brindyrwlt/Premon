@@ -56,7 +56,7 @@ namespace Premon
 
                 animalEnTete = MainWindow.animauxPossedes[0];
                 MainWindow.animauxPossedes[0] = animalSelectionne;
-                MainWindow.animauxPossedes.Add(animalEnTete);
+                MainWindow.animauxPossedes[ListeAnimal.SelectedIndex] = animalEnTete;
                 DialogResult = true;
 
             }

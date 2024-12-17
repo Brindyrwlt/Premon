@@ -258,8 +258,11 @@ namespace Premon
             animaux.Add( // Deinotherium
                 Animaux.Deinotherium, 
                 new Animal(Animaux.Deinotherium, 
-                "Deinotherium", "Deinotherium.png", 
-                220, 4, Alimentation.Herbivore, 
+                "Deinotherium", 
+                "Deinotherium.png", 
+                220,
+                4,
+                Alimentation.Herbivore, 
                 [Objet.CreerObjet(Objets.Graine)], 
                 Attaques.ECRASEMENT));
 
@@ -288,7 +291,8 @@ namespace Premon
             animaux.Add( // Rhinocéros laineux
                 Animaux.Rhinoceros_laineux, 
                 new Animal(Animaux.Rhinoceros_laineux, 
-                "Rhinoceros laineux", "Rhinoceros_laineux.png", 
+                "Rhinoceros laineux",
+                "Rhinoceros_laineux.png", 
                 190, 
                 4, 
                 Alimentation.Herbivore, 
