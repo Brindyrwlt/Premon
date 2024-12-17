@@ -2,7 +2,6 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Premon"
-             xmlns:src="clr-namespace:Premon"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <LinearGradientBrush x:Key="DegradeRouge">
@@ -34,6 +33,16 @@
             <GradientStop Color="#45638B" Offset="0"/>
             <GradientStop Color="#293D57" Offset="0.5"/>
             <GradientStop Color="#45638B" Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="DegradeOrange">
+            <GradientStop Color="#B77647" Offset="0"/>
+            <GradientStop Color="#EE8F4A" Offset="0.5"/>
+            <GradientStop Color="#B77647" Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="DegradeOrangeInverse">
+            <GradientStop Color="#EE8F4A" Offset="0"/>
+            <GradientStop Color="#B77647" Offset="0.5"/>
+            <GradientStop Color="#EE8F4A" Offset="1"/>
         </LinearGradientBrush>
     </Application.Resources>
 </Application>

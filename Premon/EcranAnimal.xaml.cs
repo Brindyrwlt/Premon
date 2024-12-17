@@ -19,12 +19,24 @@ namespace Premon
     /// </summary>
     public partial class EcranAnimal : Window
     {
+
+        internal Animal animalSelectionne;
+
         public EcranAnimal()
         {
+
             InitializeComponent();
 
             ListeAnimal.ItemsSource = MainWindow.animauxPossedes;
             
+        }
+
+        private void BoutonSelectionner_Click(object sender, RoutedEventArgs e)
+        {
+
+            animalSelectionne = (Animal) ListeAnimal.SelectedItem;
+            DialogResult = true;
+
         }
     }
 }
