@@ -204,11 +204,12 @@ namespace Premon
                 "Mammouth.png",
                 200,
                 1,
-                Alimentation.Carnivore,
+                Alimentation.Herbivore,
                 [Objet.CreerObjet(Objets.Morceau_de_viande)],
                 Attaques.ECRASEMENT,
                 Attaques.PROTECTION,
                 Attaques.COUP_DE_PIED));
+
             animaux.Add( // Bouquetin
                 Animaux.Bouquetin,
                 new Animal(Animaux.Bouquetin,
@@ -217,16 +218,82 @@ namespace Premon
                 80,
                 1,
                 Alimentation.Herbivore,
-                [Objet.CreerObjet(Objets.Morceau_de_viande)],
+                [Objet.CreerObjet(Objets.Graine)],
                 Attaques.EMPALEMENT,
                 Attaques.AIGUISAGE));
-            animaux.Add(Animaux.Smilodon, new Animal(Animaux.Smilodon, "Smilodon", "Smilodon.png", 90, 2, Alimentation.Herbivore, [Objet.CreerObjet(Objets.Morceau_de_viande)], Attaques.ECRASEMENT));
-            animaux.Add(Animaux.Megaceros, new Animal(Animaux.Megaceros, "Megaceros", "Megaceros.png", 160, 10, Alimentation.Herbivore, [Objet.CreerObjet(Objets.Morceau_de_viande)], Attaques.ECRASEMENT));
-            animaux.Add(Animaux.Diprotodon, new Animal(Animaux.Diprotodon, "Diprotodon", "Diprotodon.png", 80, 1, Alimentation.Herbivore, [Objet.CreerObjet(Objets.Morceau_de_viande)], Attaques.ECRASEMENT));
-            animaux.Add(Animaux.Deinotherium, new Animal(Animaux.Deinotherium, "Deinotherium", "Deinotherium.png", 220, 4, Alimentation.Carnivore, [Objet.CreerObjet(Objets.Morceau_de_viande)], Attaques.ECRASEMENT));
-            animaux.Add(Animaux.Gastronis, new Animal(Animaux.Gastronis, "Gastronis", "Gastornis.png", 110, 2, Alimentation.Carnivore, [Objet.CreerObjet(Objets.Morceau_de_viande)], Attaques.ECRASEMENT));
-            animaux.Add(Animaux.Lion_des_cavernes, new Animal(Animaux.Lion_des_cavernes, "Lion_des_cavernes", "Lion_des_cavernes.png", 100, 1, Alimentation.Herbivore, [Objet.CreerObjet(Objets.Morceau_de_viande)], Attaques.ECRASEMENT));
-            animaux.Add(Animaux.Rhinoceros_laineux, new Animal(Animaux.Rhinoceros_laineux, "Rhinoceros_laineux", "Rhinoceros_laineux.png", 190, 4, Alimentation.Carnivore, [Objet.CreerObjet(Objets.Morceau_de_viande)], Attaques.ECRASEMENT));
+
+            animaux.Add(
+                Animaux.Smilodon, 
+                new Animal(Animaux.Smilodon, 
+                "Smilodon", 
+                "Smilodon.png", 
+                90, 
+                2, 
+                Alimentation.Carnivore, 
+                [Objet.CreerObjet(Objets.Morceau_de_viande)], 
+                Attaques.ECRASEMENT));
+
+            animaux.Add(
+                Animaux.Megaceros, 
+                new Animal(Animaux.Megaceros, 
+                "Megaceros", 
+                "Megaceros.png", 
+                160, 
+                10, 
+                Alimentation.Herbivore, 
+                [Objet.CreerObjet(Objets.Morceau_de_viande)], 
+                Attaques.ECRASEMENT));
+
+            animaux.Add(
+                Animaux.Diprotodon, 
+                new Animal(Animaux.Diprotodon, 
+                "Diprotodon", 
+                "Diprotodon.png", 
+                80, 
+                1, 
+                Alimentation.Herbivore, 
+                [Objet.CreerObjet(Objets.Graine)], 
+                Attaques.ECRASEMENT));
+
+            animaux.Add(
+                Animaux.Deinotherium, 
+                new Animal(Animaux.Deinotherium, 
+                "Deinotherium", "Deinotherium.png", 
+                220, 4, Alimentation.Herbivore, 
+                [Objet.CreerObjet(Objets.Graine)], 
+                Attaques.ECRASEMENT));
+
+            animaux.Add(
+                Animaux.Gastronis, 
+                new Animal(Animaux.Gastronis, 
+                "Gastronis", 
+                "Gastornis.png", 
+                110, 
+                2, 
+                Alimentation.Herbivore, 
+                [Objet.CreerObjet(Objets.Graine)], 
+                Attaques.ECRASEMENT));
+
+            animaux.Add(
+                Animaux.Lion_des_cavernes, 
+                new Animal(Animaux.Lion_des_cavernes, 
+                "Lion des cavernes", 
+                "Lion_des_cavernes.png", 
+                100, 
+                1, 
+                Alimentation.Carnivore, 
+                [Objet.CreerObjet(Objets.Morceau_de_viande)], 
+                Attaques.ECRASEMENT));
+
+            animaux.Add(
+                Animaux.Rhinoceros_laineux, 
+                new Animal(Animaux.Rhinoceros_laineux, 
+                "Rhinoceros laineux", "Rhinoceros_laineux.png", 
+                190, 
+                4, 
+                Alimentation.Herbivore, 
+                [Objet.CreerObjet(Objets.Graine)], 
+                Attaques.ECRASEMENT));
 
         }
 
