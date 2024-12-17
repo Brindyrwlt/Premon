@@ -27,9 +27,9 @@
             Stroke="Black" />
         <Button
             x:Name="BoutonAttaque"
-            Width="200"
+            Width="150"
             Height="50"
-            Margin="50,350,0,0"
+            Margin="20,350,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Click="BoutonAttaque_Click"
@@ -57,14 +57,13 @@
         </Button>
         <Button
             x:Name="BoutonObjets"
-            Width="200"
+            Width="150"
             Height="50"
-            Margin="300,350,0,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
             Click="BoutonObjets_Click"
             Content="Objets"
-            FontSize="18">
+            FontSize="18" Canvas.Left="213" Canvas.Top="350">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="{StaticResource DegradeVert}" />
@@ -87,14 +86,13 @@
         </Button>
         <Button
             x:Name="BoutonFuite"
-            Width="200"
+            Width="150"
             Height="50"
-            Margin="550,350,0,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
             Click="BoutonFuite_Click"
             Content="Fuite"
-            FontSize="18">
+            FontSize="18" Canvas.Left="598" Canvas.Top="350">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="{StaticResource DegradeBleu}" />
@@ -153,5 +151,32 @@
             VerticalAlignment="Center"
             Content=""
             FontSize="18" />
+        <Button
+            x:Name="BoutonAnimaux"
+            Width="150"
+            Height="50"
+            Click="BoutonAnimaux_Click"
+            Content="Animaux"
+            FontSize="18" Canvas.Left="400" Canvas.Top="350" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{StaticResource DegradeOrange}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Border" Property="Background" Value="{StaticResource DegradeOrangeInverse}" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
     </Canvas>
 </Window>

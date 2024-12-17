@@ -34,5 +34,15 @@
             <GradientStop Color="#293D57" Offset="0.5"/>
             <GradientStop Color="#45638B" Offset="1"/>
         </LinearGradientBrush>
+        <LinearGradientBrush x:Key="DegradeOrange">
+            <GradientStop Color="#B77647" Offset="0"/>
+            <GradientStop Color="#EE8F4A" Offset="0.5"/>
+            <GradientStop Color="#B77647" Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="DegradeOrangeInverse">
+            <GradientStop Color="#EE8F4A" Offset="0"/>
+            <GradientStop Color="#B77647" Offset="0.5"/>
+            <GradientStop Color="#EE8F4A" Offset="1"/>
+        </LinearGradientBrush>
     </Application.Resources>
 </Application>

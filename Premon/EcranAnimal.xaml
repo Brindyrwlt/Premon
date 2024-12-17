@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Premon"
         mc:Ignorable="d"
-        Title="EcranAnimal" Height="400" Width="800">
-    <Grid>
+        Title="EcranAnimal" Height="400" Width="500">
+    <Canvas>
         <ListView x:Name="ListeAnimal">
             <ListView.View>
                 <GridView>
@@ -17,6 +17,8 @@
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
+
         </ListView>
-    </Grid>
+        <Button x:Name="BoutonSelectionner" Content="Sélectionner" Canvas.Left="380" Canvas.Top="72" Width="100" Height="30" Click="BoutonSelectionner_Click"/>
+    </Canvas>
 </Window>

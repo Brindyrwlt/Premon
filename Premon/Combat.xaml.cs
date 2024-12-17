@@ -11,15 +11,15 @@ namespace Premon
     public partial class Combat : Window
     {
 
-        Animal animalJoueur, animalSauvage;
-        Attaques? attaqueChoisie;
+        private Animal animalJoueur, animalSauvage;
+        private Attaques? attaqueChoisie;
 
         private static readonly double TEMPS_ATTAQUE_JOUEUR = 0.5,
                                        TEMPS_ATTAQUE_ENNEMI = 1.5;
 
         private static DispatcherTimer minuterieActionEnnemi;
         private static bool ennemiAttaque = false;
-        Random random = new Random();
+        private Random random = new Random();
 
 
         /*
@@ -201,7 +201,7 @@ namespace Premon
                 if (action == TypeAction.Capture)
                 {
 
-                    TexteAction.Content = $"{animalSauvage} a été capturé !";
+                    TexteAction.Content = $"{animalSauvage.Nom} a été capturé !";
                     etatCombat = 10;
 
                 } else
@@ -218,10 +218,27 @@ namespace Premon
 
         private void BoutonFuite_Click(object sender, RoutedEventArgs e)
             => DialogResult = false;
-        
+
+        private void BoutonAnimaux_Click(object sender, RoutedEventArgs e)
+        {
+
+            EcranAnimal ecranAnimal = new();
+            ecranAnimal.ShowDialog();
+
+            if(ecranAnimal.DialogResult == true)
+            {
+
+                InitAnimaux(ecranAnimal.animalSelectionne, animalSauvage);
+                TexteAction.Content = $"{animalJoueur.Nom} est arrivé sur le terrain !";
+                DeclencherAttaqueJoueur(null);
+
+            }
+
+        }
+
         private void BoutonAttaque_Click(object sender, RoutedEventArgs e)
         {
-            EcranAttaque ecranAttaque = new EcranAttaque();
+            EcranAttaque ecranAttaque = new();
             ecranAttaque.attaques = animalJoueur.AttaquesAnimal;
             ecranAttaque.InitBoutons();
             ecranAttaque.ShowDialog();
@@ -230,8 +247,7 @@ namespace Premon
             {
 
                 attaqueChoisie = ecranAttaque.attaqueChoisie;
-                DeclencherAttaqueJoueur(ecranAttaque.attaqueChoisie);
-                
+                DeclencherAttaqueJoueur(attaqueChoisie);
 
             }
 
