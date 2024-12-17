@@ -35,7 +35,9 @@ namespace Premon
         {
 
             animalSelectionne = (Animal) ListeAnimal.SelectedItem;
-            DialogResult = true;
+
+            if(animalSelectionne != null )
+                DialogResult = true;
 
         }
     }
