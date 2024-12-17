@@ -21,6 +21,7 @@ namespace Premon
     {
         public EcranAnimal()
         {
+
             InitializeComponent();
 
             ListeAnimal.ItemsSource = MainWindow.animauxPossedes;
