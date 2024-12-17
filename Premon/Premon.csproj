@@ -44,6 +44,7 @@
     <None Remove="Textures\Eau\Eau_7.png" />
     <None Remove="Textures\Eau\Eau_8.png" />
     <None Remove="Textures\Eau\Eau_9.png" />
+    <None Remove="Textures\Icones\Lasso.png" />
     <None Remove="Textures\Icones\Sauvegarde.png" />
     <None Remove="Textures\Mur\Mur_1.png" />
     <None Remove="Textures\Mur\Mur_2.png" />
@@ -171,6 +172,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Textures\Eau\Eau_9.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Icones\Lasso.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Textures\Icones\Sauvegarde.png">
