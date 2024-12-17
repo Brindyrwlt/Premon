@@ -12,7 +12,7 @@ namespace Premon
     {
 
         Animal animalJoueur, animalSauvage;
-        Attaques attaqueChoisie;
+        Attaques? attaqueChoisie;
 
         private static readonly double TEMPS_ATTAQUE_JOUEUR = 0.5,
                                        TEMPS_ATTAQUE_ENNEMI = 1.5;
@@ -20,7 +20,26 @@ namespace Premon
         private static DispatcherTimer minuterieActionEnnemi;
         private static bool ennemiAttaque = false;
         Random random = new Random();
-        internal int combatFini = 0;
+
+
+        /*
+         * 
+         * Etats de la variable
+         * 
+         * Dans Combat.xaml.cs
+         * 0 : Partie en cours
+         * 1 : Si le joueur a gagné la partie
+         * 2 : Si l'ennemi a gagné la partie
+         * 3 : Si les deux ont perdu la partie
+         * 10 : Animal adverse capturé
+         * 
+         * Dans MainWindow.xaml.cs
+         * 4 : Récupère le butin laché par l'ennemi
+         * 5 : Retire l'animal du joueur utilisé
+         * 6 : Fais les deux actions ci-dessus
+         * 
+         */
+        internal byte etatCombat = 0;
 
         public Combat()
         {
@@ -48,7 +67,7 @@ namespace Premon
 
         } 
 
-        private int CombatFini()
+        private byte CombatFini()
         {
 
             if (animalSauvage.HP <= 0 && animalJoueur.HP <= 0)
@@ -65,19 +84,18 @@ namespace Premon
         private void ActionEnnemi(object? sender, EventArgs e)
         {
 
-            if (ennemiAttaque && combatFini == 0)
+            if (ennemiAttaque && etatCombat == 0)
             {
 
                 Attaques attaqueChoisie = animalSauvage.AttaquesAnimal[random.Next(0, animalSauvage.AttaquesAnimal.Length)];
 
                 animalSauvage.Attaque(attaqueChoisie, animalJoueur);
                 TexteAction.Content = $"{animalSauvage.Nom} sauvage a utilisé {MainWindow.FormatageNomAttaque(attaqueChoisie)}.";
-                combatFini = CombatFini();
+                etatCombat = CombatFini();
 
-                if (combatFini == 0)
+                if (etatCombat == 0)
                 {
 
-                    
                     ennemiAttaque = false;
                     BoutonsActifs(true);
                     minuterieActionEnnemi.Stop();
@@ -89,40 +107,41 @@ namespace Premon
                 ActualiserHP();
 
             }
-            else if (combatFini == 0)
+            else if (etatCombat == 0)
             {
 
-                animalJoueur.Attaque(attaqueChoisie, animalSauvage);
-                
+                if(attaqueChoisie != null)
+                {
+
+                    animalJoueur.Attaque((Attaques) attaqueChoisie, animalSauvage);
+                    TexteAction.Content = $"{animalJoueur.Nom} a utilisé {MainWindow.FormatageNomAttaque((Attaques) attaqueChoisie)}.";
+
+                }                   
+
                 ennemiAttaque = true;
-                TexteAction.Content = $"{animalJoueur.Nom} a utilisé {MainWindow.FormatageNomAttaque(attaqueChoisie)}.";
                 minuterieActionEnnemi.Interval = TimeSpan.FromSeconds(TEMPS_ATTAQUE_ENNEMI);
-                combatFini = CombatFini();
-
-                if (combatFini != 0)
-                    animalSauvage.HP = 0;
-
+                etatCombat = CombatFini();
                 ActualiserHP();
- 
+
             }
             else
             {
 
-                switch (combatFini)
+                switch (etatCombat)
                 {
 
                     case 1:
                         animalSauvage.HP = 0;
                         ActualiserHP();
                         TexteAction.Content = $"{animalJoueur.Nom} a gagné !";
-                        combatFini = 4;
+                        etatCombat = 4;
                         break;
 
                     case 2:
                         animalJoueur.HP = 0;
                         ActualiserHP();
                         TexteAction.Content = $"{animalSauvage.Nom} a gagné !";
-                        combatFini = 5;
+                        etatCombat = 5;
                         break;
 
                     case 3:
@@ -130,7 +149,7 @@ namespace Premon
                         animalSauvage.HP = 0;
                         ActualiserHP();
                         TexteAction.Content = "Les deux animaux sont morts !";
-                        combatFini = 6;
+                        etatCombat = 6;
                         break;
 
                     default:
@@ -173,10 +192,26 @@ namespace Premon
             inventaireObjet.AffichageInventaire(MainWindow.objetsPossedes);
             inventaireObjet.ShowDialog();
 
-            if (DialogResult == true)
+            if (inventaireObjet.DialogResult == true)
             {
 
+                TypeAction? action = Objet.ActionObjet(inventaireObjet.objetClique, animalJoueur, animalSauvage);
 
+
+                if (action == TypeAction.Capture)
+                {
+
+                    TexteAction.Content = $"{animalSauvage} a été capturé !";
+                    etatCombat = 10;
+
+                } else
+                {
+
+                    TexteAction.Content = $"La capture n'a pas fonctionné...";
+
+                }
+
+                DeclencherAttaqueJoueur(null);
 
             }
         }
@@ -195,11 +230,20 @@ namespace Premon
             {
 
                 attaqueChoisie = ecranAttaque.attaqueChoisie;
-                minuterieActionEnnemi.Interval = TimeSpan.FromSeconds(TEMPS_ATTAQUE_JOUEUR);
-                minuterieActionEnnemi.Start();
-                BoutonsActifs(false);
+                DeclencherAttaqueJoueur(ecranAttaque.attaqueChoisie);
+                
 
             }
+
+        }
+
+        private void DeclencherAttaqueJoueur(Attaques? attaque)
+        {
+
+            attaqueChoisie = attaque;
+            minuterieActionEnnemi.Interval = TimeSpan.FromSeconds(TEMPS_ATTAQUE_JOUEUR);
+            minuterieActionEnnemi.Start();
+            BoutonsActifs(false);
 
         }
     }

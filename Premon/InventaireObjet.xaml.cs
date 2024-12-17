@@ -20,9 +20,11 @@ namespace Premon
     public partial class InventaireObjet : Window
     {
 
-        internal Rectangle[] cases;
-        internal Label[] nomCases;
-        internal Label[] quantiteCases;
+        private Rectangle[] cases;
+        private Label[] nomCases;
+        private Label[] quantiteCases;
+        internal Objet objetClique;
+        private List<Objet> objetsPossedes;
 
         public InventaireObjet()
         {
@@ -43,18 +45,20 @@ namespace Premon
         private void InitQuantiteCases()
             => quantiteCases = [QuantiteObjet1, QuantiteObjet2, QuantiteObjet3, QuantiteObjet4, QuantiteObjet5, QuantiteObjet6, QuantiteObjet7, QuantiteObjet8];
 
-        internal void AffichageInventaire(List<Objet> objetsPosedes)
+        internal void AffichageInventaire(List<Objet> objetsPossedes)
         {
+
+            this.objetsPossedes = objetsPossedes;
 
             for (int i = 0; i < cases.Length; i++)
             {
 
-                if(i < objetsPosedes.Count)
+                if(i < objetsPossedes.Count)
                 {
 
-                    cases[i].Fill = new ImageBrush(objetsPosedes[i].Image);
-                    nomCases[i].Content = objetsPosedes[i].Nom;
-                    quantiteCases[i].Content = objetsPosedes[i].Quantite;
+                    cases[i].Fill = new ImageBrush(objetsPossedes[i].Image);
+                    nomCases[i].Content = objetsPossedes[i].Nom;
+                    quantiteCases[i].Content = objetsPossedes[i].Quantite;
 
                 } 
                 else
@@ -70,5 +74,68 @@ namespace Premon
 
         }
 
+        private void ObjetInv1_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            Objet.UtiliserObjet(out objetClique, 0);
+            DialogResult = true;
+
+        }
+
+        private void ObjetInv2_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            Objet.UtiliserObjet(out objetClique, 1);
+            DialogResult = true;
+
+        }
+
+        private void ObjetInv3_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            Objet.UtiliserObjet(out objetClique, 2);
+            DialogResult = true;
+
+        }
+
+        private void ObjetInv4_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            Objet.UtiliserObjet(out objetClique, 3);
+            DialogResult = true;
+
+        }
+
+        private void ObjetInv5_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            Objet.UtiliserObjet(out objetClique, 4);
+            DialogResult = true;
+
+        }
+
+        private void ObjetInv6_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            Objet.UtiliserObjet(out objetClique, 5);
+            DialogResult = true;
+
+        }
+
+        private void ObjetInv7_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            Objet.UtiliserObjet(out objetClique, 6);
+            DialogResult = true;
+
+        }
+
+        private void ObjetInv8_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            Objet.UtiliserObjet(out objetClique, 7);
+            DialogResult = true;
+
+        }
     }
 }

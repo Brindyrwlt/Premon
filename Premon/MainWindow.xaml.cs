@@ -216,7 +216,7 @@ namespace Premon
             combat.InitAnimaux(animauxPossedes[0], animalSauvage);
             combat.ShowDialog();
 
-            switch(combat.combatFini)
+            switch(combat.etatCombat)
             {
 
                 case 4:
@@ -363,10 +363,10 @@ namespace Premon
             }
 
             Personnage.Fill = imgPerso;
-#if DEBUG
+/*#if DEBUG
             Console.WriteLine($"Gauche : {gauchePerso}\n" +
                 $"Haut : {hautPerso}");
-#endif
+#endif*/
 
             // Déplacement du personnage selon les changements si les changements sont possibles
             if(gauchePerso >= 0 && gauchePerso < ActualWidth - Personnage.Width)
