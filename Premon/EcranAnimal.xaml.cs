@@ -21,13 +21,16 @@ namespace Premon
     {
 
         internal Animal animalSelectionne;
+        internal bool enCombat = false;
 
         public EcranAnimal()
         {
 
             InitializeComponent();
-
             ListeAnimal.ItemsSource = MainWindow.animauxPossedes;
+
+            if (!enCombat)
+                BoutonSelectionner.IsEnabled = false;
             
         }
 
@@ -38,6 +41,25 @@ namespace Premon
 
             if(animalSelectionne != null )
                 DialogResult = true;
+
+        }
+
+        private void BoutonPromouvoir_Click(object sender, RoutedEventArgs e)
+        {
+
+            Animal animalEnTete;
+
+            animalSelectionne = (Animal) ListeAnimal.SelectedItem;
+
+            if (animalSelectionne != null)
+            {
+
+                animalEnTete = MainWindow.animauxPossedes[0];
+                MainWindow.animauxPossedes[0] = animalSelectionne;
+                MainWindow.animauxPossedes.Add(animalEnTete);
+                DialogResult = true;
+
+            }
 
         }
     }

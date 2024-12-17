@@ -20,6 +20,7 @@ namespace Premon
         internal static Random random = new();
 
         private static readonly double CHANCE_CAPTURE_VIANDE = 0.90;
+        private static readonly double CHANCE_CAPTURE_GRAINE = 0.90;
 
         public Objet(Objets typeObjet, string nom, string nomImage, int quantite = 1)
         {
@@ -96,6 +97,21 @@ namespace Premon
 
         }
 
+        internal static bool Capture(double chanceCapture, Animal animalSauvage)
+        {
+
+            if (random.Next(0, (int) ((100 - CHANCE_CAPTURE_VIANDE * 100) * ((double) animalSauvage.HP / animalSauvage.HPMax))) == 0 && animalSauvage.AlimentationAnimal != Alimentation.Herbivore)
+            {
+
+                MainWindow.animauxPossedes.Add(animalSauvage);
+                Console.WriteLine("Animal capturé");
+                return true;
+
+            }
+
+            return false;
+        }
+
         internal static TypeAction? ActionObjet(Objet objet, Animal animalJoueur, Animal animalSauvage)
         {
 
@@ -103,16 +119,13 @@ namespace Premon
             {
 
                 case Objets.Morceau_de_viande:
-                    if(random.Next(0, (int)((100 - CHANCE_CAPTURE_VIANDE * 100) * ((double) animalSauvage.HP / animalSauvage.HPMax))) == 0)
-                    {
+                    if(Capture(CHANCE_CAPTURE_VIANDE, animalSauvage) && animalSauvage.AlimentationAnimal != Alimentation.Herbivore)
+                        return TypeAction.Capture;
+                    break;
 
-                        MainWindow.animauxPossedes.Add(animalSauvage);
-                        Console.WriteLine("Animal capturé");
-                        return TypeAction.Capture;    
-
-                    }
-
-                    Console.WriteLine("Action effectuée");
+                case Objets.Graine:
+                    if(Capture(CHANCE_CAPTURE_GRAINE, animalSauvage) && animalSauvage.AlimentationAnimal != Alimentation.Carnivore)
+                        return TypeAction.Capture;
                     break;
 
             }

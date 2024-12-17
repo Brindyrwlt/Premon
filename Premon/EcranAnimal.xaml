@@ -20,5 +20,6 @@
 
         </ListView>
         <Button x:Name="BoutonSelectionner" Content="Sélectionner" Canvas.Left="380" Canvas.Top="72" Width="100" Height="30" Click="BoutonSelectionner_Click"/>
+        <Button x:Name="BoutonPromouvoir" Content="Promouvoir" Canvas.Left="380" Canvas.Top="123" Width="100" Height="30" Click="BoutonPromouvoir_Click" HorizontalAlignment="Center" VerticalAlignment="Top"/>
     </Canvas>
 </Window>

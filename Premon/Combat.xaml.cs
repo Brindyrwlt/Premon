@@ -195,7 +195,8 @@ namespace Premon
             if (inventaireObjet.DialogResult == true)
             {
 
-                TypeAction? action = Objet.ActionObjet(inventaireObjet.objetClique, animalJoueur, animalSauvage);
+                Objet objetClique = inventaireObjet.objetClique;
+                TypeAction? action = Objet.ActionObjet(objetClique, animalJoueur, animalSauvage);
 
 
                 if (action == TypeAction.Capture)
