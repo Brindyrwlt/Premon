@@ -7,6 +7,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media;
 using System.IO;
 using System.Text.Json;
+using System.Media;
 
 namespace Premon
 {
@@ -37,6 +38,10 @@ namespace Premon
 
         private static ImageBrush imgPerso = new();
 
+        // Musiques 
+        private static MediaPlayer musiqueFond;
+        private static MediaPlayer musiqueCombat;
+
         // Variables système  --------------------------------
 
         // Mouvement
@@ -65,6 +70,7 @@ namespace Premon
             InitBuissons();
             InitObstacles();
             InitBitmap();
+            InitMusiques();
             Objet.InitObjets();
             Animal.InitAnimaux();
             Animal.InitDescriptions();
@@ -82,6 +88,20 @@ namespace Premon
             nomAttaque = nomAttaque[0].ToString().ToUpper()[0] + nomAttaque.Substring(1);
             return nomAttaque;
 
+        }
+
+        private void InitMusiques()
+        {
+            musiqueFond = new MediaPlayer();
+            musiqueFond.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "sons/Musique_fond.mp3"));
+            musiqueFond.MediaEnded += RelanceMusique;
+            musiqueFond.Volume = 0.5;
+            musiqueFond.Play();
+        }
+        private void RelanceMusique(object? sender, EventArgs e)
+        {
+            musiqueFond.Position = TimeSpan.Zero;
+            musiqueFond.Play();
         }
 
         private void InitBitmap()

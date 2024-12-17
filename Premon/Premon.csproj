@@ -317,4 +317,23 @@
     </Resource>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Musiques\Musique_combat.wav">
+      <CopyToOutputDirectory>musique = new MediaPlayer();
+musique.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory+
+"sons/musiqueFond.mp3"));
+musique.MediaEnded += RelanceMusique;
+musique.Volume = 0.5;
+musique.Play();</CopyToOutputDirectory>
+    </None>
+    <None Update="Musiques\Musique_fond.wav">
+      <CopyToOutputDirectory>musique = new MediaPlayer();
+musique.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory+
+"sons/musiqueFond.mp3"));
+musique.MediaEnded += RelanceMusique;
+musique.Volume = 0.5;
+musique.Play();</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

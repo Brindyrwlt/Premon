@@ -130,11 +130,17 @@ namespace Premon
                         break;
 
                     case Attaques.AIGUISAGE:
-                        if (multiplicateur > 1.5) // A vérifier
+#if DEBUG
+                        Console.WriteLine(multiplicateur);
+#endif
+                        if (multiplicateur < 1.5) // A vérifier
                             multiplicateur *= MULTIPLICATEUR_AIGUISAGE;
                         break;
 
                     case Attaques.PROTECTION:
+#if DEBUG
+                        Console.WriteLine(multiplicateurDegatRecu);
+#endif
                         if (multiplicateurDegatRecu > 0.5)
                             multiplicateurDegatRecu *= MULTIPLICATEUR_PROTECTION;
                         break;
