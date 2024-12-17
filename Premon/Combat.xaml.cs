@@ -54,7 +54,7 @@ namespace Premon
 
             minuterieActionEnnemi = new DispatcherTimer();
             //minuterieActionEnnemi.Interval = TimeSpan.FromSeconds(1);
-            minuterieActionEnnemi.Tick += ActionEnnemi;
+            minuterieActionEnnemi.Tick += Action;
 
         }
 
@@ -81,7 +81,7 @@ namespace Premon
 
         }
         
-        private void ActionEnnemi(object? sender, EventArgs e)
+        private void Action(object? sender, EventArgs e)
         {
 
             if (ennemiAttaque && etatCombat == 0)
@@ -105,6 +105,7 @@ namespace Premon
                     animalJoueur.HP = 0;
 
                 ActualiserHP();
+                Inventaire.SauvegardeInventaire(MainWindow.animauxPossedes, MainWindow.objetsPossedes);
 
             }
             else if (etatCombat == 0)
@@ -159,6 +160,7 @@ namespace Premon
                 }
 
             }
+
         }
 
         internal void InitAnimaux(Animal animalJoueur, Animal animalSauvage)

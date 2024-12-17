@@ -97,10 +97,10 @@ namespace Premon
 
         }
 
-        internal static bool Capture(double chanceCapture, Animal animalSauvage)
+        internal static bool Capture(double chanceCapture, Animal animalSauvage, params Alimentation[] alimentationExclue)
         {
 
-            if (random.Next(0, (int) ((100 - CHANCE_CAPTURE_VIANDE * 100) * ((double) animalSauvage.HP / animalSauvage.HPMax))) == 0 && animalSauvage.AlimentationAnimal != Alimentation.Herbivore)
+            if (random.Next(0, (int) ((100 - CHANCE_CAPTURE_VIANDE * 100) * ((double) animalSauvage.HP / animalSauvage.HPMax))) == 0 && !alimentationExclue.Contains(animalSauvage.AlimentationAnimal))
             {
 
                 MainWindow.animauxPossedes.Add(animalSauvage);
@@ -119,12 +119,12 @@ namespace Premon
             {
 
                 case Objets.Morceau_de_viande:
-                    if(Capture(CHANCE_CAPTURE_VIANDE, animalSauvage) && animalSauvage.AlimentationAnimal != Alimentation.Herbivore)
+                    if(Capture(CHANCE_CAPTURE_VIANDE, animalSauvage, Alimentation.Herbivore))
                         return TypeAction.Capture;
                     break;
 
                 case Objets.Graine:
-                    if(Capture(CHANCE_CAPTURE_GRAINE, animalSauvage) && animalSauvage.AlimentationAnimal != Alimentation.Carnivore)
+                    if(Capture(CHANCE_CAPTURE_GRAINE, animalSauvage, Alimentation.Carnivore))
                         return TypeAction.Capture;
                     break;
 

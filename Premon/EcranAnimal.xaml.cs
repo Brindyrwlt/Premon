@@ -61,6 +61,8 @@ namespace Premon
 
             }
 
+            Inventaire.SauvegardeInventaire(MainWindow.animauxPossedes, MainWindow.objetsPossedes);
+
         }
     }
 }

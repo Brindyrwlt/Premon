@@ -65,6 +65,8 @@ namespace Premon
         public MainWindow()
         {
 
+            EcranAccueil ecranAccueil = new();
+            ecranAccueil.ShowDialog();
             InitializeComponent();
             InitIntervalleDeplacement();
             InitBuissons();
@@ -267,6 +269,8 @@ namespace Premon
 
             }
 
+            Inventaire.SauvegardeInventaire(animauxPossedes, objetsPossedes);
+
         }
 
         private void CollisionObstacles(double ancienneGauche, double ancienHaut)
@@ -409,13 +413,6 @@ namespace Premon
 
             // Retour en arrière si collision
             CollisionObstacles(ancienneGauche, ancienHaut);
-
-        }
-
-        private void IconeSauvegarde_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-            Inventaire.SauvegardeInventaire(animauxPossedes, objetsPossedes);
 
         }
 

@@ -222,7 +222,7 @@ namespace Premon
                 Attaques.EMPALEMENT,
                 Attaques.AIGUISAGE));
 
-            animaux.Add(
+            animaux.Add( // Smilodon
                 Animaux.Smilodon, 
                 new Animal(Animaux.Smilodon, 
                 "Smilodon", 
@@ -233,7 +233,7 @@ namespace Premon
                 [Objet.CreerObjet(Objets.Morceau_de_viande)], 
                 Attaques.ECRASEMENT));
 
-            animaux.Add(
+            animaux.Add( // Megaceros
                 Animaux.Megaceros, 
                 new Animal(Animaux.Megaceros, 
                 "Megaceros", 
@@ -244,7 +244,7 @@ namespace Premon
                 [Objet.CreerObjet(Objets.Morceau_de_viande)], 
                 Attaques.ECRASEMENT));
 
-            animaux.Add(
+            animaux.Add( // Diprotodon
                 Animaux.Diprotodon, 
                 new Animal(Animaux.Diprotodon, 
                 "Diprotodon", 
@@ -255,7 +255,7 @@ namespace Premon
                 [Objet.CreerObjet(Objets.Graine)], 
                 Attaques.ECRASEMENT));
 
-            animaux.Add(
+            animaux.Add( // Deinotherium
                 Animaux.Deinotherium, 
                 new Animal(Animaux.Deinotherium, 
                 "Deinotherium", "Deinotherium.png", 
@@ -263,7 +263,7 @@ namespace Premon
                 [Objet.CreerObjet(Objets.Graine)], 
                 Attaques.ECRASEMENT));
 
-            animaux.Add(
+            animaux.Add( // Gastronis
                 Animaux.Gastronis, 
                 new Animal(Animaux.Gastronis, 
                 "Gastronis", 
@@ -274,7 +274,7 @@ namespace Premon
                 [Objet.CreerObjet(Objets.Graine)], 
                 Attaques.ECRASEMENT));
 
-            animaux.Add(
+            animaux.Add( // Lion des cavernes
                 Animaux.Lion_des_cavernes, 
                 new Animal(Animaux.Lion_des_cavernes, 
                 "Lion des cavernes", 
@@ -285,7 +285,7 @@ namespace Premon
                 [Objet.CreerObjet(Objets.Morceau_de_viande)], 
                 Attaques.ECRASEMENT));
 
-            animaux.Add(
+            animaux.Add( // Rhinocéros laineux
                 Animaux.Rhinoceros_laineux, 
                 new Animal(Animaux.Rhinoceros_laineux, 
                 "Rhinoceros laineux", "Rhinoceros_laineux.png", 
