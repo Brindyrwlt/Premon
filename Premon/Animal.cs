@@ -295,6 +295,26 @@ namespace Premon
                 [Objet.CreerObjet(Objets.Graine)], 
                 Attaques.ECRASEMENT));
 
+            animaux.Add(
+                Animaux.Megalonyx,
+                new Animal(Animaux.Megalonyx,
+                "Megalonyx", "Megalonyx.png",
+                130,
+                2,
+                Alimentation.Omnivore,
+                [Objet.CreerObjet(Objets.Morceau_de_viande)],
+                Attaques.ECRASEMENT));
+
+            animaux.Add(
+                Animaux.Glyptodon,
+                new Animal(Animaux.Glyptodon,
+                "Glyptodon", "Glyptodon.png",
+                150,
+                3,
+                Alimentation.Herbivore,
+                [Objet.CreerObjet(Objets.Graine)],
+                Attaques.ECRASEMENT));
+
         }
 
     }
@@ -325,9 +345,9 @@ namespace Premon
         Deinotherium,
         Gastronis,
         Lion_des_cavernes,
-        Rhinoceros_laineux
-        /*Megalonix,
-        Glyptodon*/
+        Rhinoceros_laineux,
+        Megalonyx,
+        Glyptodon
     }
 
     enum Alimentation

@@ -40,6 +40,7 @@ namespace Premon
 
         // Musiques 
         private static MediaPlayer musiqueFond;
+        private static MediaPlayer musiqueForet;
         private static MediaPlayer musiqueCombat;
 
         // Variables système  --------------------------------
@@ -94,21 +95,28 @@ namespace Premon
         private void InitMusiqueFond()
         {
             musiqueFond = new MediaPlayer();
-            musiqueFond.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "sons/Musique_fond.mp3"));
+            musiqueForet = new MediaPlayer();
+            musiqueFond.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/Musique_fond.mp3"));
+            musiqueForet.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/Bruit_foret.mp3"));
             musiqueFond.MediaEnded += RelanceMusiqueFond;
+            musiqueForet.MediaEnded += RelanceMusiqueFond;
             musiqueFond.Volume = 0.5;
+            musiqueForet.Volume = 0.5;
             musiqueFond.Play();
+            musiqueForet.Play();
         }
         private void RelanceMusiqueFond(object? sender, EventArgs e)
         {
             musiqueFond.Position = TimeSpan.Zero;
+            musiqueForet.Position = TimeSpan.Zero;
             musiqueFond.Play();
+            musiqueForet.Play();
         }
 
         private void InitMusiqueComabt()
         {
             musiqueCombat = new MediaPlayer();
-            musiqueCombat.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "sons/Musique_combat.mp3"));
+            musiqueCombat.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/Musique_combat.mp3"));
             musiqueCombat.MediaEnded += RelanceMusiqueCombat;
             musiqueCombat.Volume = 0.5;
         }
@@ -217,7 +225,11 @@ namespace Premon
                     }
                     Personnage.Fill = imgPerso;
                     if (aleatoire.NextDouble() < POURCENTAGE_RENCONTRE_BUISSON)
+                    {
                         DebutCombat();
+                        musiqueFond.Play();
+                        musiqueCombat.Stop();
+                    }
 
                 }
 
