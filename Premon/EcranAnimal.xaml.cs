@@ -26,7 +26,6 @@ namespace Premon
         {
 
             InitializeComponent();
-
             ListeAnimal.ItemsSource = MainWindow.animauxPossedes;
             
         }
@@ -39,6 +38,40 @@ namespace Premon
             if(animalSelectionne != null )
                 DialogResult = true;
 
+        }
+
+        private void BoutonPromouvoir_Click(object sender, RoutedEventArgs e)
+        {
+
+            Animal animalEnTete;
+
+            animalSelectionne = (Animal) ListeAnimal.SelectedItem;
+
+            if (animalSelectionne != null)
+            {
+
+                animalEnTete = MainWindow.animauxPossedes[0];
+                MainWindow.animauxPossedes[0] = animalSelectionne;
+                MainWindow.animauxPossedes[ListeAnimal.SelectedIndex] = animalEnTete;
+                DialogResult = true;
+
+            }
+
+            Inventaire.SauvegardeInventaire(MainWindow.animauxPossedes, MainWindow.objetsPossedes);
+
+        }
+
+        internal void EnCombat()
+        {
+
+            BoutonSelectionner.IsEnabled = true;
+            BoutonRetour.IsEnabled = false;
+
+        }
+
+        private void BoutonRetour_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
     }
 }

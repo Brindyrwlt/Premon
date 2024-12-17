@@ -234,12 +234,6 @@
             Height="50"
             HorizontalAlignment="Left"
             VerticalAlignment="Center" />
-
-        <Rectangle x:Name="IconeSauvegarde" Height="80" Canvas.Left="1090" Canvas.Top="470" Width="80" MouseDown="IconeSauvegarde_MouseDown">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="Textures/Icones/Sauvegarde.png"/>
-            </Rectangle.Fill>
-        </Rectangle>
         <Rectangle x:Name="IconeAnimaux" Height="80" Width="80" Canvas.Top="470" Canvas.Left="30" HorizontalAlignment="Left" VerticalAlignment="Center" MouseDown="IconeAnimaux_MouseDown">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Textures/Icones/Lasso.png"/>

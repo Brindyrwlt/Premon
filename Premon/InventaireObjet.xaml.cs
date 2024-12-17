@@ -25,6 +25,7 @@ namespace Premon
         private Label[] quantiteCases;
         internal Objet objetClique;
         private List<Objet> objetsPossedes;
+        internal bool enCombat;
 
         public InventaireObjet()
         {
@@ -76,66 +77,117 @@ namespace Premon
 
         private void ObjetInv1_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            if(enCombat)
+            {
 
-            Objet.UtiliserObjet(out objetClique, 0);
-            DialogResult = true;
+                Objet.UtiliserObjet(out objetClique, 0);
+                DialogResult = true;
+
+            }
 
         }
 
         private void ObjetInv2_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            Objet.UtiliserObjet(out objetClique, 1);
-            DialogResult = true;
+            if (enCombat)
+            {
+
+                Objet.UtiliserObjet(out objetClique, 1);
+                DialogResult = true;
+
+            }
 
         }
 
         private void ObjetInv3_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            Objet.UtiliserObjet(out objetClique, 2);
-            DialogResult = true;
+            if (enCombat)
+            {
+
+                Objet.UtiliserObjet(out objetClique, 2);
+                DialogResult = true;
+
+            }
 
         }
 
         private void ObjetInv4_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            Objet.UtiliserObjet(out objetClique, 3);
-            DialogResult = true;
+            if (enCombat)
+            {
+
+                Objet.UtiliserObjet(out objetClique, 3);
+                DialogResult = true;
+
+            }
 
         }
 
         private void ObjetInv5_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            Objet.UtiliserObjet(out objetClique, 4);
-            DialogResult = true;
+            if (enCombat)
+            {
+
+                Objet.UtiliserObjet(out objetClique, 4);
+                DialogResult = true;
+
+            }
 
         }
 
         private void ObjetInv6_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            Objet.UtiliserObjet(out objetClique, 5);
-            DialogResult = true;
+            if (enCombat)
+            {
+
+                Objet.UtiliserObjet(out objetClique, 5);
+                DialogResult = true;
+
+            }
 
         }
 
         private void ObjetInv7_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            Objet.UtiliserObjet(out objetClique, 6);
-            DialogResult = true;
+            if (enCombat)
+            {
+
+                Objet.UtiliserObjet(out objetClique, 6);
+                DialogResult = true;
+
+            }
 
         }
 
         private void ObjetInv8_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            Objet.UtiliserObjet(out objetClique, 7);
-            DialogResult = true;
+            if (enCombat)
+            {
 
+                Objet.UtiliserObjet(out objetClique, 7);
+                DialogResult = true;
+
+            }
+
+        }
+
+        internal void EnCombat()
+        {
+
+            BoutonRetour.IsEnabled = false;
+
+        }
+
+        private void BoutonRetour_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
     }
 }

@@ -65,6 +65,8 @@ namespace Premon
         public MainWindow()
         {
 
+            EcranAccueil ecranAccueil = new();
+            ecranAccueil.ShowDialog();
             InitializeComponent();
             InitIntervalleDeplacement();
             InitBuissons();
@@ -77,8 +79,6 @@ namespace Premon
             Animal.InitDescriptions();
             Inventaire.InitInventaire(out animauxPossedes, out objetsPossedes);
             imgPerso.ImageSource = imgPersonnageDevant;
-            animauxPossedes.Add(Animal.CreerAnimal(Animaux.Mammouth));
-            Objet.AjouterObjet(objetsPossedes, Objet.CreerObjet(Objets.Morceau_de_viande));
 
         }
 
@@ -269,6 +269,8 @@ namespace Premon
 
             }
 
+            Inventaire.SauvegardeInventaire(animauxPossedes, objetsPossedes);
+
         }
 
         private void CollisionObstacles(double ancienneGauche, double ancienHaut)
@@ -316,25 +318,36 @@ namespace Premon
                 case Key.Q:
                 case Key.Left:
                     gauche = true;
+                    RencontreBuisson();
                     break;
 
                 case Key.D:
                 case Key.Right:
                     gauche = false;
+                    RencontreBuisson();
                     break;
 
                 case Key.Z:
                 case Key.Up:
                     haut = true;
+                    RencontreBuisson();
                     break;
 
                 case Key.S:
                 case Key.Down:
                     haut = false;
+                    RencontreBuisson();
                     break;
 
                 case Key.E:
-                    
+                    InventaireObjet inventaireObjet = new();
+                    inventaireObjet.AffichageInventaire(objetsPossedes);
+                    inventaireObjet.ShowDialog();
+                    break;
+
+                case Key.A:
+                    EcranAnimal ecranAnimal = new();
+                    ecranAnimal.ShowDialog();
                     break;
             }
 
@@ -345,10 +358,9 @@ namespace Premon
                 aAppuye = true;
                 DeplacementPerso();
                 intervalleDeplacement.Start();
+                RencontreBuisson();
 
             }
-
-            RencontreBuisson();
 
         }
 
@@ -411,13 +423,6 @@ namespace Premon
 
             // Retour en arrière si collision
             CollisionObstacles(ancienneGauche, ancienHaut);
-
-        }
-
-        private void IconeSauvegarde_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-            Inventaire.SauvegardeInventaire(animauxPossedes, objetsPossedes);
 
         }
 

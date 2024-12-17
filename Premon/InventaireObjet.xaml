@@ -190,6 +190,7 @@
         <Label x:Name="QuantiteObjet6" Content="Quantité" Canvas.Left="425" Canvas.Top="265" FontSize="16" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Label x:Name="QuantiteObjet7" Content="Quantité" Canvas.Left="530" Canvas.Top="265" FontSize="16" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Label x:Name="QuantiteObjet8" Content="Quantité" Canvas.Left="635" Canvas.Top="265" FontSize="16" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="BoutonRetour" Content="Retour" Height="20" Width="47" HorizontalAlignment="Center" Canvas.Left="20" Canvas.Top="330" VerticalAlignment="Top" Click="BoutonRetour_Click"/>
     </Canvas>
 
 </Window>
