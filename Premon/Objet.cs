@@ -35,7 +35,7 @@ namespace Premon
         {
 
             objets.Add(Objets.Morceau_de_viande, new(Objets.Morceau_de_viande, "Viande", "Morceau_de_viande.png"));
-            objets.Add(Objets.Graine, new(Objets.Graine, "Graine", "Graine.png"));
+            objets.Add(Objets.Graine, new(Objets.Graine, "Graine", "Graines.png"));
 
         }
 
