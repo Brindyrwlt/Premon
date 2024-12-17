@@ -61,6 +61,7 @@
     <None Remove="Textures\Mur\Mur_6.png" />
     <None Remove="Textures\Mur\Mur_7.png" />
     <None Remove="Textures\Mur\Mur_8.png" />
+    <None Remove="Textures\Objets\Graines.png" />
     <None Remove="Textures\Personnage\Personnage_derriere.png" />
     <None Remove="Textures\Personnage\Personnage_derriere\Personnage_derriere_1.png" />
     <None Remove="Textures\Personnage\Personnage_derriere\Personnage_derriere_1_buisson.png" />
@@ -90,6 +91,10 @@
     <None Remove="Textures\Trou\Trou_6.png" />
     <None Remove="Textures\Trou\Trou_7.png" />
     <None Remove="Textures\Trou\Trou_8.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Textures\Objets\Graines.png" />
   </ItemGroup>
 
   <ItemGroup>
