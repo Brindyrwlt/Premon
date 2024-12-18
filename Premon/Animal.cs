@@ -23,7 +23,7 @@ namespace Premon
         internal Alimentation AlimentationAnimal;
         internal BitmapImage Image { get; private set; }
         internal int ChanceComplementaire = 1;
-        private double multiplicateur = 1, multiplicateurDegatRecu = 1;
+        internal double multiplicateur = 1, multiplicateurDegatRecu = 1;
 
         private static Dictionary<Animaux, Animal> animaux = new Dictionary<Animaux, Animal>();
         internal static Dictionary<Attaques, string> descriptionsAttaques = new Dictionary<Attaques, string>();
@@ -205,7 +205,7 @@ namespace Premon
                 200,
                 1,
                 Alimentation.Herbivore,
-                [Objet.CreerObjet(Objets.Morceau_de_viande)],
+                [Objet.CreerObjet(Objets.Morceau_de_viande, 2)],
                 Attaques.ECRASEMENT,
                 Attaques.PROTECTION,
                 Attaques.COUP_DE_PIED,
@@ -219,7 +219,7 @@ namespace Premon
                 80,
                 1,
                 Alimentation.Herbivore,
-                [Objet.CreerObjet(Objets.Graine)],
+                [Objet.CreerObjet(Objets.Graine, 2), Objet.CreerObjet(Objets.Herbe_Medicinale)],
                 Attaques.EMPALEMENT,
                 Attaques.AIGUISAGE,
                 Attaques.CHARGE));
@@ -232,7 +232,7 @@ namespace Premon
                 90, 
                 2, 
                 Alimentation.Carnivore, 
-                [Objet.CreerObjet(Objets.Morceau_de_viande)], 
+                [Objet.CreerObjet(Objets.Morceau_de_viande, 2), Objet.CreerObjet(Objets.Herbe_Medicinale, 2)], 
                 Attaques.ATTAQUE_FURTIVE,
                 Attaques.AIGUISAGE,
                 Attaques.COUP_DE_GRIFFE,
@@ -245,8 +245,8 @@ namespace Premon
                 "Megaceros.png", 
                 160, 
                 10, 
-                Alimentation.Herbivore, 
-                [Objet.CreerObjet(Objets.Morceau_de_viande)], 
+                Alimentation.Herbivore,
+                [Objet.CreerObjet(Objets.Morceau_de_viande, 5), Objet.CreerObjet(Objets.Herbe_Medicinale, 4)], 
                 Attaques.EMPALEMENT,
                 Attaques.PROTECTION,
                 Attaques.CHARGE));
@@ -282,7 +282,7 @@ namespace Premon
                 110, 
                 2, 
                 Alimentation.Herbivore, 
-                [Objet.CreerObjet(Objets.Graine)], 
+                [Objet.CreerObjet(Objets.Graine), Objet.CreerObjet(Objets.Herbe_Medicinale)], 
                 Attaques.COUP_DE_PIED,
                 Attaques.MORSURE));
 

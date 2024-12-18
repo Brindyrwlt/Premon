@@ -266,8 +266,10 @@ namespace Premon
             Combat combat = new(); 
             combat.InitAnimaux(animauxPossedes[0], animalSauvage);
             combat.ShowDialog();
-
-            switch(combat.etatCombat)
+            animauxPossedes[combat.indexAnimalSelectionne].multiplicateur = 1;
+            animauxPossedes[combat.indexAnimalSelectionne].multiplicateurDegatRecu = 1;
+            
+            switch (combat.etatCombat)
             {
 
                 case 4:
@@ -285,6 +287,14 @@ namespace Premon
 
             }
 
+            if (animauxPossedes.Count == 0)
+            {
+
+                Inventaire.SuppressionSauvegarde();
+                Eteindre(true);
+
+            }
+                
             Inventaire.SauvegardeInventaire(animauxPossedes, objetsPossedes);
 
         }

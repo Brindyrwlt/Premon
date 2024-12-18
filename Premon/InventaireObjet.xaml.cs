@@ -20,7 +20,7 @@ namespace Premon
     public partial class InventaireObjet : Window
     {
 
-        private Rectangle[] cases;
+        internal Rectangle[] cases;
         private Label[] nomCases;
         private Label[] quantiteCases;
         internal Objet objetClique;

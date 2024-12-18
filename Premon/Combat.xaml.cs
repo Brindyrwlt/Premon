@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace Premon
@@ -203,6 +205,33 @@ namespace Premon
 
             InventaireObjet inventaireObjet = new();
             inventaireObjet.AffichageInventaire(MainWindow.objetsPossedes);
+            for(int i = 0; i < MainWindow.objetsPossedes.Count; i++)
+            {
+
+                Objets typeObjet = MainWindow.objetsPossedes[i].TypeObjet;
+                Rectangle rectangle = inventaireObjet.cases[i];
+
+                switch (animalSauvage.AlimentationAnimal)
+                {
+
+                    case Alimentation.Carnivore:
+                        if (typeObjet == Objets.Morceau_de_viande)
+                            rectangle.Stroke = new SolidColorBrush(Colors.Gold);
+                        break;
+
+                    case Alimentation.Herbivore:
+                        if (typeObjet == Objets.Graine)
+                            rectangle.Stroke = new SolidColorBrush(Colors.Gold);
+                        break;
+
+                    case Alimentation.Omnivore:
+                        if (typeObjet == Objets.Morceau_de_viande || typeObjet == Objets.Graine)
+                            rectangle.Stroke = new SolidColorBrush(Colors.Gold);
+                        break;
+
+                }
+
+            }
             inventaireObjet.EnCombat();
             inventaireObjet.ShowDialog();
 

@@ -70,6 +70,9 @@ namespace Premon
 
         }
 
+        internal static void SuppressionSauvegarde()
+            => File.Delete("inventaire.json");
+
         internal static void SauvegardeInventaire(List<Animal> animaux, List<Objet> objets)
         {
 

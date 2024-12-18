@@ -35,7 +35,7 @@ namespace Premon
 
         private void BoutonNouvellePartie_Click(object sender, RoutedEventArgs e)
         {
-            File.Delete("inventaire.json");
+            Inventaire.SuppressionSauvegarde();
             DialogResult = true;
         }
 
