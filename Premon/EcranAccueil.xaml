@@ -65,7 +65,8 @@
             BorderThickness="3"
             Content="Quitter le jeu"
             FontSize="20"
-            Foreground="White" />
+            Foreground="White"
+            Click="BoutonQuitter_Click"/>
         <TextBlock
             Width="200"
             Height="40"
