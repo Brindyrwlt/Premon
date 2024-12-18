@@ -103,7 +103,7 @@ namespace Premon
         internal static bool Capture(double chanceCapture, Animal animalSauvage, params Alimentation[] alimentationExclue)
         {
 
-            if (random.Next(0, (int) ((100 - CHANCE_CAPTURE_VIANDE * 100) * ((double) animalSauvage.HP / animalSauvage.HPMax))) == 0 && !alimentationExclue.Contains(animalSauvage.AlimentationAnimal))
+            if (random.Next(0, (int) ((100 - CHANCE_CAPTURE_VIANDE * 100) * ((double) animalSauvage.PV / animalSauvage.PVMax))) == 0 && !alimentationExclue.Contains(animalSauvage.AlimentationAnimal))
             {
 
                 MainWindow.animauxPossedes.Add(animalSauvage);
@@ -132,10 +132,10 @@ namespace Premon
                     break;
 
                 case Objets.Herbe_Medicinale:
-                    if (animalJoueur.HP + SOIN_HERBE_MEDICINALE >= animalJoueur.HPMax)
-                        animalJoueur.HP = animalJoueur.HPMax;
+                    if (animalJoueur.PV + SOIN_HERBE_MEDICINALE >= animalJoueur.PVMax)
+                        animalJoueur.PV = animalJoueur.PVMax;
                     else
-                        animalJoueur.HP += SOIN_HERBE_MEDICINALE;
+                        animalJoueur.PV += SOIN_HERBE_MEDICINALE;
                     return TypeAction.Soin;
 
             }

@@ -5,9 +5,6 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
-using System.IO;
-using System.Text.Json;
-using System.Media;
 
 namespace Premon
 {
@@ -68,7 +65,7 @@ namespace Premon
 
             EcranAccueil ecranAccueil = new();
             ecranAccueil.ShowDialog();
-            Eteindre(ecranAccueil.DialogResult);
+            Eteindre(ecranAccueil.quitterJeu);
             InitializeComponent();
             InitIntervalleDeplacement();
             InitBuissons();
@@ -266,8 +263,10 @@ namespace Premon
             Combat combat = new(); 
             combat.InitAnimaux(animauxPossedes[0], animalSauvage);
             combat.ShowDialog();
-
-            switch(combat.etatCombat)
+            animauxPossedes[combat.indexAnimalSelectionne].multiplicateur = 1;
+            animauxPossedes[combat.indexAnimalSelectionne].multiplicateurDegatRecu = 1;
+            
+            switch (combat.etatCombat)
             {
 
                 case 4:
@@ -285,6 +284,14 @@ namespace Premon
 
             }
 
+            if (animauxPossedes.Count == 0)
+            {
+
+                Inventaire.SuppressionSauvegarde();
+                Eteindre(true);
+
+            }
+                
             Inventaire.SauvegardeInventaire(animauxPossedes, objetsPossedes);
 
         }
@@ -327,9 +334,9 @@ namespace Premon
         }
 
 
-        private void Eteindre(bool? resultatDialogue)
+        private void Eteindre(bool resultatDialogue)
         {
-            if(resultatDialogue == false)
+            if(resultatDialogue)
             {
 
                 Environment.Exit(0);
@@ -384,7 +391,7 @@ namespace Premon
                     ecranAccueil.BoutonNouvellePartie.IsEnabled = false;
                     ecranAccueil.BoutonChargerPartie.IsEnabled = false;
                     ecranAccueil.ShowDialog();
-                    Eteindre(ecranAccueil.DialogResult);
+                    Eteindre(ecranAccueil.quitterJeu);
                     ChangementSon(volume);
                     break;
             }

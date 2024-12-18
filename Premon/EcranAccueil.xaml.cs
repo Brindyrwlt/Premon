@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace Premon
 {
@@ -20,6 +7,9 @@ namespace Premon
     /// </summary>
     public partial class EcranAccueil : Window
     {
+
+        internal bool quitterJeu = false;
+
         public EcranAccueil()
         {
             InitializeComponent();
@@ -32,7 +22,7 @@ namespace Premon
 
         private void BoutonNouvellePartie_Click(object sender, RoutedEventArgs e)
         {
-            File.Delete("inventaire.json");
+            Inventaire.SuppressionSauvegarde();
             DialogResult = true;
         }
 
@@ -45,7 +35,8 @@ namespace Premon
         private void BoutonQuitter_Click(object sender, RoutedEventArgs e)
         {
 
-            DialogResult = false;
+            quitterJeu = true;
+            DialogResult = true;
 
         }
     }

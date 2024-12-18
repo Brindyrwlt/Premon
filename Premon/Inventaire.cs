@@ -70,6 +70,9 @@ namespace Premon
 
         }
 
+        internal static void SuppressionSauvegarde()
+            => File.Delete("inventaire.json");
+
         internal static void SauvegardeInventaire(List<Animal> animaux, List<Objet> objets)
         {
 
@@ -80,7 +83,7 @@ namespace Premon
 
                 inventaire.AnimauxPossedes.Add(animal.TypeAnimal);
                 inventaire.NomAnimaux.Add(animal.Nom);
-                inventaire.HPAnimaux.Add(animal.HP);
+                inventaire.HPAnimaux.Add(animal.PV);
 
             }
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Premon"
         mc:Ignorable="d"
-        Title="EcranAnimal" Height="400" Width="500">
+        Title="Vos animaux" Height="400" Width="500" WindowStartupLocation="CenterScreen">
     <Canvas>
         <ListView x:Name="ListeAnimal">
             <ListView.View>

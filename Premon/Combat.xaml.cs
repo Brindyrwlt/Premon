@@ -1,6 +1,6 @@
-﻿using System;
-using System.Globalization;
-using System.Windows;
+﻿using System.Windows;
+using System.Windows.Media;
+using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace Premon
@@ -70,11 +70,11 @@ namespace Premon
         private byte CombatFini()
         {
 
-            if (animalSauvage.HP <= 0 && animalJoueur.HP <= 0)
+            if (animalSauvage.PV <= 0 && animalJoueur.PV <= 0)
                 return 3;
-            if (animalJoueur.HP <= 0)
+            if (animalJoueur.PV <= 0)
                 return 2;
-            else if (animalSauvage.HP <= 0)
+            else if (animalSauvage.PV <= 0)
                 return 1;
             else
                 return 0;
@@ -102,7 +102,7 @@ namespace Premon
 
                 }
                 else
-                    animalJoueur.HP = 0;
+                    animalJoueur.PV = 0;
 
                 ActualiserHP();
                 Inventaire.SauvegardeInventaire(MainWindow.animauxPossedes, MainWindow.objetsPossedes);
@@ -127,16 +127,16 @@ namespace Premon
                 {
 
                     case 1:
-                        animalSauvage.HP = 0;
+                        animalSauvage.PV = 0;
                         break;
 
                     case 2:
-                        animalJoueur.HP = 0;
+                        animalJoueur.PV = 0;
                         break;
 
                     case 3:
-                        animalJoueur.HP = 0;
-                        animalSauvage.HP = 0;
+                        animalJoueur.PV = 0;
+                        animalSauvage.PV = 0;
                         break;
 
                 }
@@ -193,8 +193,8 @@ namespace Premon
         private void ActualiserHP()
         {
 
-            HPJoueur.Content = $"HP : {animalJoueur.HP}";
-            HPEnnemi.Content = $"HP : {animalSauvage.HP}";
+            PVJoueur.Content = $"PV : {animalJoueur.PV}";
+            PVEnnemi.Content = $"PV : {animalSauvage.PV}";
 
         }
 
@@ -203,6 +203,34 @@ namespace Premon
 
             InventaireObjet inventaireObjet = new();
             inventaireObjet.AffichageInventaire(MainWindow.objetsPossedes);
+            for(int i = 0; i < MainWindow.objetsPossedes.Count; i++)
+            {
+
+                Objets typeObjet = MainWindow.objetsPossedes[i].TypeObjet;
+                Rectangle rectangle = inventaireObjet.cases[i];
+
+                switch (animalSauvage.AlimentationAnimal)
+                {
+
+                    case Alimentation.Carnivore:
+                        if (typeObjet == Objets.Morceau_de_viande)
+                            rectangle.Stroke = new SolidColorBrush(Colors.Gold);
+                        break;
+
+                    case Alimentation.Herbivore:
+                        if (typeObjet == Objets.Graine)
+                            rectangle.Stroke = new SolidColorBrush(Colors.Gold);
+                        break;
+
+                    case Alimentation.Omnivore:
+                        if (typeObjet == Objets.Morceau_de_viande || typeObjet == Objets.Graine)
+                            rectangle.Stroke = new SolidColorBrush(Colors.Gold);
+                        break;
+
+                }
+
+            }
+
             inventaireObjet.EnCombat();
             inventaireObjet.ShowDialog();
 
