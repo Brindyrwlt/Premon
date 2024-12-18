@@ -128,20 +128,20 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top" />
         <Label
-            x:Name="HPJoueur"
+            x:Name="PVJoueur"
             Canvas.Left="182"
             Canvas.Top="261"
             Background="Gainsboro"
-            Content="HP : 100"
+            Content="PV : 100"
             FontSize="36" />
         <Label
-            x:Name="HPEnnemi"
+            x:Name="PVEnnemi"
             Canvas.Left="450"
             Canvas.Top="159"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Background="Gainsboro"
-            Content="HP : 100"
+            Content="PV : 100"
             FontSize="36" />
         <Label
             x:Name="TexteAction"

@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace Premon
 {
@@ -26,16 +14,30 @@ namespace Premon
         {
 
             InitializeComponent();
+
+            // Assignation des animaux possédés à la liste
             ListeAnimal.ItemsSource = MainWindow.animauxPossedes;
             
         }
 
+        /// <summary>
+        /// Active le bouton de sélection d'animal.
+        /// </summary>
+        internal void EnCombat()
+            => BoutonSelectionner.IsEnabled = true;
+
+        /// <summary>
+        /// Récupération l'animal sélectionné
+        /// </summary>
+        private void RecuperationAnimalSelectionne()
+            => animalSelectionne = (Animal) ListeAnimal.SelectedItem;
+
         private void BoutonSelectionner_Click(object sender, RoutedEventArgs e)
         {
 
-            animalSelectionne = (Animal) ListeAnimal.SelectedItem;
+            RecuperationAnimalSelectionne();
 
-            if(animalSelectionne != null )
+            if (animalSelectionne != null)
                 DialogResult = true;
 
         }
@@ -43,10 +45,12 @@ namespace Premon
         private void BoutonPromouvoir_Click(object sender, RoutedEventArgs e)
         {
 
+            // Animal en première position dans l'équipe
             Animal animalEnTete;
 
-            animalSelectionne = (Animal) ListeAnimal.SelectedItem;
+            RecuperationAnimalSelectionne();
 
+            // Echange entre l'animal en tête d'équipe et l'animal sélectionné
             if (animalSelectionne != null)
             {
 
@@ -61,17 +65,10 @@ namespace Premon
 
         }
 
-        internal void EnCombat()
-        {
-
-            BoutonSelectionner.IsEnabled = true;
-            BoutonRetour.IsEnabled = false;
-
-        }
-
+        // Retour en arrière
         private void BoutonRetour_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+            DialogResult = false;
         }
     }
 }

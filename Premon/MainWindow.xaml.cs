@@ -5,9 +5,6 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
-using System.IO;
-using System.Text.Json;
-using System.Media;
 
 namespace Premon
 {
@@ -38,10 +35,6 @@ namespace Premon
 
         private static ImageBrush imgPerso = new();
 
-        // Musiques 
-        private static MediaPlayer musiqueFond;
-        private static MediaPlayer musiqueCombat;
-
         // Variables système  --------------------------------
 
         // Mouvement
@@ -55,6 +48,11 @@ namespace Premon
         internal static List<Animal> animauxPossedes;
         internal static List<Objet> objetsPossedes;
 
+        // Musiques 
+        private static MediaPlayer musiqueFond;
+        private static MediaPlayer musiqueForet;
+        private static MediaPlayer musiqueCombat;
+        internal static double volume = 0.5;
 
         // Autre
         private Random aleatoire = new Random();
@@ -67,13 +65,15 @@ namespace Premon
 
             EcranAccueil ecranAccueil = new();
             ecranAccueil.ShowDialog();
+            Eteindre(ecranAccueil.quitterJeu);
             InitializeComponent();
             InitIntervalleDeplacement();
             InitBuissons();
             InitObstacles();
             InitBitmap();
             InitMusiqueFond();
-            InitMusiqueComabt();
+            InitMusiqueCombat();
+            ChangementSon(volume);
             Objet.InitObjets();
             Animal.InitAnimaux();
             Animal.InitDescriptions();
@@ -91,26 +91,40 @@ namespace Premon
 
         }
 
+        private void ChangementSon(double volume)
+        {
+
+            musiqueFond.Volume = volume;
+            musiqueForet.Volume = volume;
+            musiqueCombat.Volume = volume;
+
+        }
+
         private void InitMusiqueFond()
         {
             musiqueFond = new MediaPlayer();
             musiqueFond.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/Musique_fond.mp3"));
+            musiqueForet = new MediaPlayer();
+            musiqueFond.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/Musique_fond.mp3"));
+            musiqueForet.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/Bruit_foret.mp3"));
             musiqueFond.MediaEnded += RelanceMusiqueFond;
-            musiqueFond.Volume = 0.5;
+            musiqueForet.MediaEnded += RelanceMusiqueFond;
             musiqueFond.Play();
+            musiqueForet.Play();
         }
         private void RelanceMusiqueFond(object? sender, EventArgs e)
         {
             musiqueFond.Position = TimeSpan.Zero;
+            musiqueForet.Position = TimeSpan.Zero;
             musiqueFond.Play();
+            musiqueForet.Play();
         }
 
-        private void InitMusiqueComabt()
+        private void InitMusiqueCombat()
         {
             musiqueCombat = new MediaPlayer();
             musiqueCombat.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/Musique_combat.mp3"));
             musiqueCombat.MediaEnded += RelanceMusiqueCombat;
-            musiqueCombat.Volume = 0.5;
         }
         private void RelanceMusiqueCombat(object? sender, EventArgs e)
         {
@@ -217,7 +231,11 @@ namespace Premon
                     }
                     Personnage.Fill = imgPerso;
                     if (aleatoire.NextDouble() < POURCENTAGE_RENCONTRE_BUISSON)
+                    {
                         DebutCombat();
+                        musiqueFond.Play();
+                        musiqueCombat.Stop();
+                    }
 
                 }
 
@@ -239,19 +257,16 @@ namespace Premon
              * Quand l'animal est sélectionné aléatoirement, si la chance complémentaire est supérieure à 1,
              * le tirage a une chance de se réeffectuer
              */
-            do
-            {
-
-                animalSauvage = Animal.CreerAnimal((Animaux) aleatoire.Next(0, Animal.nombreAnimaux));          
-
-            }
+            do animalSauvage = Animal.CreerAnimal((Animaux) aleatoire.Next(0, Animal.nombreAnimaux));          
             while (!(aleatoire.Next(0, animalSauvage.ChanceComplementaire - 1) == 0));
 
             Combat combat = new(); 
             combat.InitAnimaux(animauxPossedes[0], animalSauvage);
             combat.ShowDialog();
-
-            switch(combat.etatCombat)
+            animauxPossedes[combat.indexAnimalSelectionne].multiplicateur = 1;
+            animauxPossedes[combat.indexAnimalSelectionne].multiplicateurDegatRecu = 1;
+            
+            switch (combat.etatCombat)
             {
 
                 case 4:
@@ -259,16 +274,24 @@ namespace Premon
                     break;
 
                 case 5:
-                    animauxPossedes.RemoveAt(0);
+                    animauxPossedes.RemoveAt(combat.indexAnimalSelectionne);
                     break;
 
                 case 6:
                     Objet.AjouterObjet(objetsPossedes, animalSauvage.Butin);
-                    animauxPossedes.RemoveAt(0);
+                    animauxPossedes.RemoveAt(combat.indexAnimalSelectionne);
                     break;
 
             }
 
+            if (animauxPossedes.Count == 0)
+            {
+
+                Inventaire.SuppressionSauvegarde();
+                Eteindre(true);
+
+            }
+                
             Inventaire.SauvegardeInventaire(animauxPossedes, objetsPossedes);
 
         }
@@ -310,6 +333,19 @@ namespace Premon
             }
         }
 
+
+        private void Eteindre(bool resultatDialogue)
+        {
+            if(resultatDialogue)
+            {
+
+                Environment.Exit(0);
+                Inventaire.SauvegardeInventaire(animauxPossedes, objetsPossedes);
+
+            }
+
+        }
+
         private void fenetre_KeyDown(object sender, KeyEventArgs e)
         {
 
@@ -348,6 +384,15 @@ namespace Premon
                 case Key.A:
                     EcranAnimal ecranAnimal = new();
                     ecranAnimal.ShowDialog();
+                    break;
+
+                case Key.Escape:
+                    EcranAccueil ecranAccueil = new();
+                    ecranAccueil.BoutonNouvellePartie.IsEnabled = false;
+                    ecranAccueil.BoutonChargerPartie.IsEnabled = false;
+                    ecranAccueil.ShowDialog();
+                    Eteindre(ecranAccueil.quitterJeu);
+                    ChangementSon(volume);
                     break;
             }
 

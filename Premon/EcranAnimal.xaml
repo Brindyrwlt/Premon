@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Premon"
         mc:Ignorable="d"
-        Title="EcranAnimal" Height="400" Width="500">
+        Title="Vos animaux" Height="400" Width="500" WindowStartupLocation="CenterScreen">
     <Canvas>
         <ListView x:Name="ListeAnimal">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
                         <GridViewColumn Header="Nom animal" DisplayMemberBinding="{Binding Nom}" Width="200"/>
-                        <GridViewColumn x:Name="GrilleHP" Header="HP" DisplayMemberBinding="{Binding HP}" Width="75"/>
-                        <GridViewColumn Header="HP Max" DisplayMemberBinding="{Binding HPMax}" Width="75"/>
+                        <GridViewColumn x:Name="GrilleHP" Header="HP" DisplayMemberBinding="{Binding PV}" Width="75"/>
+                        <GridViewColumn Header="HP Max" DisplayMemberBinding="{Binding PVMax}" Width="75"/>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>

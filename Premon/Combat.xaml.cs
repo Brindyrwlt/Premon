@@ -1,6 +1,6 @@
-﻿using System;
-using System.Globalization;
-using System.Windows;
+﻿using System.Windows;
+using System.Windows.Media;
+using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace Premon
@@ -12,19 +12,25 @@ namespace Premon
     {
 
         private Animal animalJoueur, animalSauvage;
+
+        // Attaque choisie par le joueur
         private Attaques? attaqueChoisie;
 
+        // Délai d'action du joueur et de l'ennemi
         private static readonly double TEMPS_ATTAQUE_JOUEUR = 0.5,
                                        TEMPS_ATTAQUE_ENNEMI = 1.5;
 
-        private static DispatcherTimer minuterieActionEnnemi;
+        // Variable système permettant de savoir si le tour est à l'ennemi
         private static bool ennemiAttaque = false;
-        private Random random = new Random();
 
+        // Minuterie permettant de rajouter un délai entre les actions
+        private static DispatcherTimer minuterieAction;
+
+        private Random random = new Random();
 
         /*
          * 
-         * Etats de la variable
+         * Etats de la variable "etatCombat"
          * 
          * Dans Combat.xaml.cs
          * 0 : Partie en cours
@@ -41,6 +47,9 @@ namespace Premon
          */
         internal byte etatCombat = 0;
 
+        // Index dans le tableau animalPossedes de l'animal sur le terrain
+        internal int indexAnimalSelectionne = 0;
+
         public Combat()
         {
 
@@ -49,15 +58,45 @@ namespace Premon
             
         }
 
+        /// <summary>
+        /// Initialise la minuterie pour les tours du combat.
+        /// </summary>
         private void InitTimer()
         {
 
-            minuterieActionEnnemi = new DispatcherTimer();
+            minuterieAction = new DispatcherTimer();
             //minuterieActionEnnemi.Interval = TimeSpan.FromSeconds(1);
-            minuterieActionEnnemi.Tick += Action;
+            minuterieAction.Tick += Action;
 
         }
 
+        /// <summary>
+        /// Initialise les animaux présents sur le terrain.
+        /// </summary>
+        /// <param name="animalJoueur"></param>
+        /// <param name="animalSauvage"></param>
+        internal void InitAnimaux(Animal animalJoueur, Animal animalSauvage)
+        {
+
+            this.animalJoueur = animalJoueur;
+            this.animalSauvage = animalSauvage;
+
+            // Affiche de l'image des animaux actifs
+            ImageAnimalJoueur.Source = animalJoueur.Image;
+            ImageAnimalSauvage.Source = animalSauvage.Image;
+
+            ActualiserPV();
+
+#if DEBUG
+            Console.WriteLine(animalJoueur.AttaquesAnimal.ToString());
+#endif
+        }
+
+
+        /// <summary>
+        /// Change l'état des boutons.
+        /// </summary>
+        /// <param name="actifs"></param>
         private void BoutonsActifs(bool actifs)
         {
 
@@ -65,50 +104,61 @@ namespace Premon
             BoutonFuite.IsEnabled = actifs;
             BoutonObjets.IsEnabled = actifs;
 
-        } 
+        }
 
+        /// <summary>
+        /// Définit l'état du combat en fonction des PV des animaux sur le terrain.
+        /// </summary>
+        /// <returns></returns>
         private byte CombatFini()
         {
 
-            if (animalSauvage.HP <= 0 && animalJoueur.HP <= 0)
+            if (animalSauvage.PV <= 0 && animalJoueur.PV <= 0) // Si match nul
                 return 3;
-            if (animalJoueur.HP <= 0)
+            if (animalJoueur.PV <= 0) // Si joueur perdu
                 return 2;
-            else if (animalSauvage.HP <= 0)
+            else if (animalSauvage.PV <= 0) // Si joueur gagné
                 return 1;
             else
-                return 0;
+                return 0; // Combat toujours pas fini
 
         }
-        
+
+        /// <summary>
+        /// Effectue chaque action du joueur ou de l'ennemi, pendant leur tour.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Action(object? sender, EventArgs e)
         {
 
-            if (ennemiAttaque && etatCombat == 0)
+            if (ennemiAttaque && etatCombat == 0) // Tour de l'ennemi
             {
 
                 Attaques attaqueChoisie = animalSauvage.AttaquesAnimal[random.Next(0, animalSauvage.AttaquesAnimal.Length)];
 
                 animalSauvage.Attaque(attaqueChoisie, animalJoueur);
                 TexteAction.Content = $"{animalSauvage.Nom} sauvage a utilisé {MainWindow.FormatageNomAttaque(attaqueChoisie)}.";
+                
+                // Vérification de si le combat est fini ou non
                 etatCombat = CombatFini();
 
-                if (etatCombat == 0)
+                if (etatCombat == 0) // Si le combat n'est toujours pas fini, on continue le combat
                 {
 
                     ennemiAttaque = false;
                     BoutonsActifs(true);
-                    minuterieActionEnnemi.Stop();
+                    minuterieAction.Stop();
 
                 }
-                else
-                    animalJoueur.HP = 0;
+                else // Si combat perdu on met à 0 les PV du joueur (pour ne pas dépasser 0)
+                    animalJoueur.PV = 0;
 
-                ActualiserHP();
+                ActualiserPV();
                 Inventaire.SauvegardeInventaire(MainWindow.animauxPossedes, MainWindow.objetsPossedes);
 
             }
-            else if (etatCombat == 0)
+            else if (etatCombat == 0) // Tour du joueur
             {
 
                 if(attaqueChoisie != null)
@@ -120,41 +170,57 @@ namespace Premon
                 }                   
 
                 ennemiAttaque = true;
-                minuterieActionEnnemi.Interval = TimeSpan.FromSeconds(TEMPS_ATTAQUE_ENNEMI);
+
+                // Changement d'intervale de la minuterie pour le tour de l'ennemi
+                minuterieAction.Interval = TimeSpan.FromSeconds(TEMPS_ATTAQUE_ENNEMI);
+
+                // Vérification de si le combat est fini ou non
                 etatCombat = CombatFini();
-                ActualiserHP();
 
-            }
-            else
-            {
-
-                switch (etatCombat)
+                // Changement des PV en fonction de l'état du combat
+                switch(etatCombat)
                 {
 
                     case 1:
-                        animalSauvage.HP = 0;
-                        ActualiserHP();
+                        animalSauvage.PV = 0;
+                        break;
+
+                    case 2:
+                        animalJoueur.PV = 0;
+                        break;
+
+                    case 3:
+                        animalJoueur.PV = 0;
+                        animalSauvage.PV = 0;
+                        break;
+
+                }
+                ActualiserPV();
+
+            }
+            else // Combat fini
+            {
+
+                switch (etatCombat) // Affichage en fonction de l'état du combat et changement d'état
+                {
+
+                    case 1:
                         TexteAction.Content = $"{animalJoueur.Nom} a gagné !";
                         etatCombat = 4;
                         break;
 
                     case 2:
-                        animalJoueur.HP = 0;
-                        ActualiserHP();
                         TexteAction.Content = $"{animalSauvage.Nom} a gagné !";
                         etatCombat = 5;
                         break;
 
                     case 3:
-                        animalJoueur.HP = 0;
-                        animalSauvage.HP = 0;
-                        ActualiserHP();
                         TexteAction.Content = "Les deux animaux sont morts !";
                         etatCombat = 6;
                         break;
 
-                    default:
-                        minuterieActionEnnemi.Stop();
+                    default: // Quand l'état du combat est supérieur à 3, fin du combat
+                        minuterieAction.Stop();
                         DialogResult = true;
                         break;
                 }
@@ -163,69 +229,111 @@ namespace Premon
 
         }
 
-        internal void InitAnimaux(Animal animalJoueur, Animal animalSauvage)
+        /// <summary>
+        /// Actualise l'affichage des PV des animaux sur le terrain.
+        /// </summary>
+        private void ActualiserPV()
         {
 
-            this.animalJoueur = animalJoueur;
-            this.animalSauvage = animalSauvage;
-            ImageAnimalJoueur.Source = animalJoueur.Image;
-            ImageAnimalSauvage.Source = animalSauvage.Image;
-            ActualiserHP();
+            PVJoueur.Content = $"PV : {animalJoueur.PV}";
+            PVEnnemi.Content = $"PV : {animalSauvage.PV}";
 
-#if DEBUG
-            Console.WriteLine(animalJoueur.AttaquesAnimal.ToString());
-#endif
         }
 
-        /*private void Attaque()*/
-
-        private void ActualiserHP()
+        /// <summary>
+        /// Déclenchement de l'attaque des joueurs. Si l'attaque est null, le tour du joueur est passé.
+        /// </summary>
+        /// <param name="attaque"></param>
+        private void DeclencherAttaqueJoueur(Attaques? attaque)
         {
 
-            HPJoueur.Content = $"HP : {animalJoueur.HP}";
-            HPEnnemi.Content = $"HP : {animalSauvage.HP}";
+            attaqueChoisie = attaque;
+            minuterieAction.Interval = TimeSpan.FromSeconds(TEMPS_ATTAQUE_JOUEUR);
+            minuterieAction.Start();
+            BoutonsActifs(false);
 
         }
 
         private void BoutonObjets_Click(object sender, RoutedEventArgs e)
         {
 
+            // Ouverture de l'inventaire du joueur
             InventaireObjet inventaireObjet = new();
             inventaireObjet.AffichageInventaire(MainWindow.objetsPossedes);
+
+            // Changement de couleurs des bordures de la nourriture en fonction de l'alimentation de l'animal sauvage
+            for(int i = 0; i < MainWindow.objetsPossedes.Count; i++)
+            {
+
+                Objets typeObjet = MainWindow.objetsPossedes[i].TypeObjet;
+                Rectangle rectangle = inventaireObjet.cases[i];
+
+                switch (animalSauvage.AlimentationAnimal)
+                {
+
+                    // Si l'animal sauvage est carnivore, changement en doré de la bordure de l'icône de la viande
+                    case Alimentation.Carnivore:
+                        if (typeObjet == Objets.Morceau_de_viande)
+                            rectangle.Stroke = new SolidColorBrush(Colors.Gold);
+                        break;
+
+                    // Si l'animal sauvage est herbivore, changement en doré de la bordure de l'icône des graines
+                    case Alimentation.Herbivore:
+                        if (typeObjet == Objets.Graine)
+                            rectangle.Stroke = new SolidColorBrush(Colors.Gold);
+                        break;
+
+                    // Si l'animal sauvage est herbivore, changement en doré de la bordure de l'icône des graines et de la viande
+                    case Alimentation.Omnivore:
+                        if (typeObjet == Objets.Morceau_de_viande || typeObjet == Objets.Graine)
+                            rectangle.Stroke = new SolidColorBrush(Colors.Gold);
+                        break;
+
+                }
+
+            }
+
             inventaireObjet.EnCombat();
             inventaireObjet.ShowDialog();
 
-            if (inventaireObjet.DialogResult == true)
+            if (inventaireObjet.DialogResult == true) // Effet de l'objet utilisé
             {
 
                 Objet objetClique = inventaireObjet.objetClique;
                 TypeAction? action = Objet.ActionObjet(objetClique, animalJoueur, animalSauvage);
 
-
-                if (action == TypeAction.Capture)
+                if (action == TypeAction.Capture) // Si l'animal sauvage est capturé
                 {
 
                     TexteAction.Content = $"{animalSauvage.Nom} a été capturé !";
                     etatCombat = 10;
 
-                } else
+                } else if(action == TypeAction.Soin) // Si le joueur s'est soigné
+                {
+
+                    TexteAction.Content = $"{animalJoueur.Nom} a été soigné !";
+
+                } else // Si la capture a écouché
                 {
 
                     TexteAction.Content = $"La capture n'a pas fonctionné...";
 
                 }
 
+                // Passage du tour du joueur
                 DeclencherAttaqueJoueur(null);
 
             }
         }
 
+        // Fuite du combat
         private void BoutonFuite_Click(object sender, RoutedEventArgs e)
             => DialogResult = false;
 
         private void BoutonAnimaux_Click(object sender, RoutedEventArgs e)
         {
 
+            // Affichage des animaux du joueur
             EcranAnimal ecranAnimal = new();
             ecranAnimal.EnCombat();
             ecranAnimal.ShowDialog();
@@ -233,8 +341,12 @@ namespace Premon
             if(ecranAnimal.DialogResult == true)
             {
 
+                // Changement des animaux en fonction du nouvel animal actif
                 InitAnimaux(ecranAnimal.animalSelectionne, animalSauvage);
                 TexteAction.Content = $"{animalJoueur.Nom} est arrivé sur le terrain !";
+                indexAnimalSelectionne = ecranAnimal.ListeAnimal.SelectedIndex;
+
+                // Passage du tour du joueur
                 DeclencherAttaqueJoueur(null);
 
             }
@@ -243,9 +355,14 @@ namespace Premon
 
         private void BoutonAttaque_Click(object sender, RoutedEventArgs e)
         {
+
+            // Affichage de l'écran des attaques
             EcranAttaque ecranAttaque = new();
+
+            // Assignation des attaques de l'animal du joueur aux attaques de l'écran et affichage des boutons
             ecranAttaque.attaques = animalJoueur.AttaquesAnimal;
             ecranAttaque.InitBoutons();
+            
             ecranAttaque.ShowDialog();
 
             if(ecranAttaque.DialogResult == true)
@@ -258,14 +375,5 @@ namespace Premon
 
         }
 
-        private void DeclencherAttaqueJoueur(Attaques? attaque)
-        {
-
-            attaqueChoisie = attaque;
-            minuterieActionEnnemi.Interval = TimeSpan.FromSeconds(TEMPS_ATTAQUE_JOUEUR);
-            minuterieActionEnnemi.Start();
-            BoutonsActifs(false);
-
-        }
     }
 }

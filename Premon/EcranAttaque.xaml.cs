@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Premon
 {
@@ -21,35 +10,41 @@ namespace Premon
     public partial class EcranAttaque : Window
     {
 
+        // Attaques de l'animal du joueur
         internal Attaques[] attaques;
+
         internal Attaques attaqueChoisie;
+
+        // Boutons d'attaques et leur ordre
+        // Utilisation d'un dictionnaire pour pouvoir récupérer les attaques et les descriptions plus simplement avec l'ordre du bouton
         internal Dictionary<Button, int> boutons = new Dictionary<Button, int>();
 
         public EcranAttaque()
         {
-
             InitializeComponent();
-
         }
 
         internal void InitBoutons()
         {
 
+            // Assignation des différents boutons dans le dictionnaire
             boutons[BoutonAttaque1] = 0;
             boutons[BoutonAttaque2] = 1;
             boutons[BoutonAttaque3] = 2;
             boutons[BoutonAttaque4] = 3;
             
+            // Pour chaque bouton et son ordre dans le dictionnaire
             foreach(KeyValuePair<Button, int> bouton in boutons)
             {
 
+                // Assignation des attaques à chaque bouton
                 if(bouton.Value < attaques.Length)
                 {
 
                     bouton.Key.IsEnabled = true;
                     bouton.Key.Content = MainWindow.FormatageNomAttaque(attaques[bouton.Value]);
 
-                } else
+                } else // Quand il n'y a plus d'attaques à afficher, désactivation des boutons
                 {
 
                     bouton.Key.Visibility = Visibility.Hidden;
@@ -60,17 +55,30 @@ namespace Premon
 
         }
 
+        /// <summary>
+        /// Assigne l'attaque effectuée et ferme l'écran
+        /// </summary>
+        /// <param name="button"></param>
+        private void Attaque(object button)
+        {
+
+            attaqueChoisie = attaques[boutons[(Button) button]];
+            DialogResult = true;
+
+        }
+
+        // Change la description d'attaques en fonction du numéro de l'attaque
         private void ChangeDescription(int nombreBouton = 0)
         {
 
-            if(nombreBouton != 0)
+            if(nombreBouton != 0) // Affichage de la description
             {
 
                 Attaques attaque = attaques[nombreBouton - 1];
                 NomAttaque.Content = MainWindow.FormatageNomAttaque(attaque);
                 DescriptionAttaque.Text = Animal.descriptionsAttaques[attaque];
 
-            } else
+            } else // Quand la souris n'est pas sur un bouton
             {
 
                 NomAttaque.Content = "Sélectionnez une attaque";
@@ -78,15 +86,6 @@ namespace Premon
 
             }
             
-
-        }
-
-        private void Attaque(object button)
-        {
-
-            attaqueChoisie = attaques[boutons[(Button) button]];
-            DialogResult = true;
-
         }
 
         private void BoutonRetour_Click(object sender, RoutedEventArgs e)
