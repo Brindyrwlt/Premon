@@ -232,6 +232,7 @@ namespace Premon
                 }
 
             }
+
             inventaireObjet.EnCombat();
             inventaireObjet.ShowDialog();
 
