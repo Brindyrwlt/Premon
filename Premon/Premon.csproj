@@ -20,9 +20,11 @@
     <None Remove="Textures\Animal\Deinotherium.png" />
     <None Remove="Textures\Animal\Diprotodon.png" />
     <None Remove="Textures\Animal\Gastornis.png" />
+    <None Remove="Textures\Animal\Glyptodon.png" />
     <None Remove="Textures\Animal\Lion_des_cavernes.png" />
     <None Remove="Textures\Animal\Mammouth.png" />
     <None Remove="Textures\Animal\Megaceros.png" />
+    <None Remove="Textures\Animal\Megalonyx.png" />
     <None Remove="Textures\Animal\Rhinoceros_laineux.png" />
     <None Remove="Textures\Animal\Smilodon.png" />
     <None Remove="Textures\Decoration\Arbre\Arbre_1.png" />
@@ -61,6 +63,7 @@
     <None Remove="Textures\Mur\Mur_6.png" />
     <None Remove="Textures\Mur\Mur_7.png" />
     <None Remove="Textures\Mur\Mur_8.png" />
+    <None Remove="Textures\Objets\Graines.png" />
     <None Remove="Textures\Personnage\Personnage_derriere.png" />
     <None Remove="Textures\Personnage\Personnage_derriere\Personnage_derriere_1.png" />
     <None Remove="Textures\Personnage\Personnage_derriere\Personnage_derriere_1_buisson.png" />
@@ -109,6 +112,9 @@
     <Resource Include="Textures\Animal\Gastornis.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Textures\Animal\Glyptodon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Textures\Animal\Lion_des_cavernes.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -116,6 +122,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Textures\Animal\Megaceros.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Animal\Megalonyx.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Textures\Animal\Rhinoceros_laineux.png">
@@ -232,9 +241,9 @@
     <Resource Include="Textures\Mur\Mur_8.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Content Include="Textures\Objets\Graines.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Resource Include="Textures\Objets\Graines.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Textures\Objets\Morceau_de_viande.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
