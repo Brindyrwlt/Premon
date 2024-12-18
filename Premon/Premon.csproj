@@ -244,12 +244,9 @@
     <Resource Include="Textures\Mur\Mur_8.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Textures\Objets\Graines.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Textures\Objets\Herbe_medicinale.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
+    <Content Include="Textures\Objets\Graines.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Textures\Objets\Morceau_de_viande.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
