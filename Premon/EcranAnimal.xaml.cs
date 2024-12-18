@@ -14,16 +14,26 @@ namespace Premon
         {
 
             InitializeComponent();
+
+            // Assignation des animaux possédés à la liste
             ListeAnimal.ItemsSource = MainWindow.animauxPossedes;
             
         }
 
+        // Le bouton Sélectionner est seulement activé en combat
+        internal void EnCombat()
+            => BoutonSelectionner.IsEnabled = true;
+
+        // Récupération de l'animal sélectionné
+        private void RecuperationAnimalSelectionne()
+            => animalSelectionne = (Animal) ListeAnimal.SelectedItem;
+
         private void BoutonSelectionner_Click(object sender, RoutedEventArgs e)
         {
 
-            animalSelectionne = (Animal) ListeAnimal.SelectedItem;
+            RecuperationAnimalSelectionne();
 
-            if(animalSelectionne != null )
+            if (animalSelectionne != null)
                 DialogResult = true;
 
         }
@@ -31,10 +41,12 @@ namespace Premon
         private void BoutonPromouvoir_Click(object sender, RoutedEventArgs e)
         {
 
+            // Animal en première position dans l'équipe
             Animal animalEnTete;
 
-            animalSelectionne = (Animal) ListeAnimal.SelectedItem;
+            RecuperationAnimalSelectionne();
 
+            // Echange entre l'animal en tête d'équipe et l'animal sélectionné
             if (animalSelectionne != null)
             {
 
@@ -49,13 +61,7 @@ namespace Premon
 
         }
 
-        internal void EnCombat()
-        {
-
-            BoutonSelectionner.IsEnabled = true;
-
-        }
-
+        // Retour en arrière
         private void BoutonRetour_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
