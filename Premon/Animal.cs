@@ -88,7 +88,9 @@ namespace Premon
 
         }
 
-        // Insertion dans le dictionnaire des différements animaux
+        /// <summary>
+        /// Insert dans le dictionnaire les différents animaux.
+        /// </summary>
         internal static void InitAnimaux()
         {
 
@@ -233,7 +235,10 @@ namespace Premon
 
         }
 
-        // Création des descriptions des attaques
+        /// <summary>
+        /// Crée les descriptions des attaques.
+        /// </summary>
+        /// <exception cref="Exception"></exception>
         internal static void InitDescriptions()
         {
             descriptionsAttaques[Attaques.COUP_DE_PIED] = $"L'animal fonce vers l'ennemi et lui lance un gros coup de pied, infligeant {Animal.DEGAT_COUP_DE_PIED} dégâts.";
@@ -251,6 +256,12 @@ namespace Premon
 
         }
 
+        /// <summary>
+        /// Effectue une attaque de l'animal sur une cible.
+        /// </summary>
+        /// <param name="attaque"></param>
+        /// <param name="cible"></param>
+        /// <exception cref="ArgumentException"></exception>
         public void Attaque(Attaques attaque, Animal? cible = null)
         {
 
@@ -318,18 +329,29 @@ namespace Premon
             }
         }
 
-        // Crée une instance d'un animal selon son identifiant à partir du dictionnaire "animaux"
+        /// <summary>
+        /// Crée une instance d'un animal selon son identifiant à partir du dictionnaire "animaux".
+        /// </summary>
+        /// <param name="animal"></param>
+        /// <returns></returns>
         internal static Animal CreerAnimal(Animaux animal)
         {
             return (Animal) animaux[animal].Clone();
         }
 
-        internal static Animal CreerAnimal(Animaux animal, string nom, int hp)
+        /// <summary>
+        /// Crée une instance d'un animal selon son identifiant à partir du dictionnaire "animaux" et lui change son nom et ses pv.
+        /// </summary>
+        /// <param name="animal"></param>
+        /// <param name="nom"></param>
+        /// <param name="pv"></param>
+        /// <returns></returns>
+        internal static Animal CreerAnimal(Animaux animal, string nom, int pv)
         {
 
             Animal animalCree = (Animal) animaux[animal].Clone();
             animalCree.Nom = nom;
-            animalCree.PV = hp;
+            animalCree.PV = pv;
 
             return animalCree;
 

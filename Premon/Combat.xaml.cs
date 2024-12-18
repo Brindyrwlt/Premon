@@ -58,6 +58,9 @@ namespace Premon
             
         }
 
+        /// <summary>
+        /// Initialise la minuterie pour les tours du combat.
+        /// </summary>
         private void InitTimer()
         {
 
@@ -67,6 +70,11 @@ namespace Premon
 
         }
 
+        /// <summary>
+        /// Initialise les animaux présents sur le terrain.
+        /// </summary>
+        /// <param name="animalJoueur"></param>
+        /// <param name="animalSauvage"></param>
         internal void InitAnimaux(Animal animalJoueur, Animal animalSauvage)
         {
 
@@ -85,7 +93,10 @@ namespace Premon
         }
 
 
-        // Permet de désactiver les boutons tant que le tour n'est pas au joueur
+        /// <summary>
+        /// Change l'état des boutons.
+        /// </summary>
+        /// <param name="actifs"></param>
         private void BoutonsActifs(bool actifs)
         {
 
@@ -93,9 +104,12 @@ namespace Premon
             BoutonFuite.IsEnabled = actifs;
             BoutonObjets.IsEnabled = actifs;
 
-        } 
+        }
 
-        // Défini l'état du combat en fonction des PV des animaux sur le terrain
+        /// <summary>
+        /// Définit l'état du combat en fonction des PV des animaux sur le terrain.
+        /// </summary>
+        /// <returns></returns>
         private byte CombatFini()
         {
 
@@ -109,8 +123,12 @@ namespace Premon
                 return 0; // Combat toujours pas fini
 
         }
-        
-        // Méthode invoquée pour chaque action du joueur ou de l'ennemi, dans la minuterie
+
+        /// <summary>
+        /// Effectue chaque action du joueur ou de l'ennemi, pendant leur tour.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Action(object? sender, EventArgs e)
         {
 
@@ -211,6 +229,9 @@ namespace Premon
 
         }
 
+        /// <summary>
+        /// Actualise l'affichage des PV des animaux sur le terrain.
+        /// </summary>
         private void ActualiserPV()
         {
 
@@ -219,7 +240,10 @@ namespace Premon
 
         }
 
-        // Si l'attaque est null, passage du tour du joueur (pour les objets et le changement d'animal actif)
+        /// <summary>
+        /// Déclenchement de l'attaque des joueurs. Si l'attaque est null, le tour du joueur est passé.
+        /// </summary>
+        /// <param name="attaque"></param>
         private void DeclencherAttaqueJoueur(Attaques? attaque)
         {
 
