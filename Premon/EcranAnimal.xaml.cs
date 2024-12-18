@@ -20,11 +20,15 @@ namespace Premon
             
         }
 
-        // Le bouton Sélectionner est seulement activé en combat
+        /// <summary>
+        /// Active le bouton de sélection d'animal.
+        /// </summary>
         internal void EnCombat()
             => BoutonSelectionner.IsEnabled = true;
 
-        // Récupération de l'animal sélectionné
+        /// <summary>
+        /// Récupération l'animal sélectionné
+        /// </summary>
         private void RecuperationAnimalSelectionne()
             => animalSelectionne = (Animal) ListeAnimal.SelectedItem;
 
