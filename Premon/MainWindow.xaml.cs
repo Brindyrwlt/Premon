@@ -68,7 +68,7 @@ namespace Premon
 
             EcranAccueil ecranAccueil = new();
             ecranAccueil.ShowDialog();
-            Eteindre(ecranAccueil.DialogResult);
+            Eteindre(ecranAccueil.quitterJeu);
             InitializeComponent();
             InitIntervalleDeplacement();
             InitBuissons();
@@ -327,9 +327,9 @@ namespace Premon
         }
 
 
-        private void Eteindre(bool? resultatDialogue)
+        private void Eteindre(bool resultatDialogue)
         {
-            if(resultatDialogue == false)
+            if(resultatDialogue)
             {
 
                 Environment.Exit(0);
@@ -384,7 +384,7 @@ namespace Premon
                     ecranAccueil.BoutonNouvellePartie.IsEnabled = false;
                     ecranAccueil.BoutonChargerPartie.IsEnabled = false;
                     ecranAccueil.ShowDialog();
-                    Eteindre(ecranAccueil.DialogResult);
+                    Eteindre(ecranAccueil.quitterJeu);
                     ChangementSon(volume);
                     break;
             }

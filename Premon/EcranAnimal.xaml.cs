@@ -65,13 +65,12 @@ namespace Premon
         {
 
             BoutonSelectionner.IsEnabled = true;
-            BoutonRetour.IsEnabled = false;
 
         }
 
         private void BoutonRetour_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+            DialogResult = false;
         }
     }
 }

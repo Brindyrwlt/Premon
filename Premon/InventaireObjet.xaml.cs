@@ -179,16 +179,13 @@ namespace Premon
         }
 
         internal void EnCombat()
-        {
+            => enCombat = true;
 
-            BoutonRetour.IsEnabled = false;
-            enCombat = true;
-
-        }
+       
 
         private void BoutonRetour_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+            DialogResult = false;
         }
     }
 }

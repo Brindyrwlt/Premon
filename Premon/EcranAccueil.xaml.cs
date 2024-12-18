@@ -20,6 +20,9 @@ namespace Premon
     /// </summary>
     public partial class EcranAccueil : Window
     {
+
+        internal bool quitterJeu = false;
+
         public EcranAccueil()
         {
             InitializeComponent();
@@ -45,7 +48,8 @@ namespace Premon
         private void BoutonQuitter_Click(object sender, RoutedEventArgs e)
         {
 
-            DialogResult = false;
+            quitterJeu = true;
+            DialogResult = true;
 
         }
     }
