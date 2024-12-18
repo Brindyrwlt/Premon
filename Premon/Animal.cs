@@ -208,7 +208,8 @@ namespace Premon
                 [Objet.CreerObjet(Objets.Morceau_de_viande)],
                 Attaques.ECRASEMENT,
                 Attaques.PROTECTION,
-                Attaques.COUP_DE_PIED));
+                Attaques.COUP_DE_PIED,
+                Attaques.CHARGE));
 
             animaux.Add( // Bouquetin
                 Animaux.Bouquetin,
@@ -220,7 +221,8 @@ namespace Premon
                 Alimentation.Herbivore,
                 [Objet.CreerObjet(Objets.Graine)],
                 Attaques.EMPALEMENT,
-                Attaques.AIGUISAGE));
+                Attaques.AIGUISAGE,
+                Attaques.CHARGE));
 
             animaux.Add( // Smilodon
                 Animaux.Smilodon, 
@@ -231,7 +233,10 @@ namespace Premon
                 2, 
                 Alimentation.Carnivore, 
                 [Objet.CreerObjet(Objets.Morceau_de_viande)], 
-                Attaques.ECRASEMENT));
+                Attaques.ATTAQUE_FURTIVE,
+                Attaques.AIGUISAGE,
+                Attaques.COUP_DE_GRIFFE,
+                Attaques.MORSURE));
 
             animaux.Add( // Megaceros
                 Animaux.Megaceros, 
@@ -242,7 +247,9 @@ namespace Premon
                 10, 
                 Alimentation.Herbivore, 
                 [Objet.CreerObjet(Objets.Morceau_de_viande)], 
-                Attaques.ECRASEMENT));
+                Attaques.EMPALEMENT,
+                Attaques.PROTECTION,
+                Attaques.CHARGE));
 
             animaux.Add( // Diprotodon
                 Animaux.Diprotodon, 
@@ -253,7 +260,8 @@ namespace Premon
                 1, 
                 Alimentation.Herbivore, 
                 [Objet.CreerObjet(Objets.Graine)], 
-                Attaques.ECRASEMENT));
+                Attaques.PROTECTION,
+                Attaques.AIGUISAGE));
 
             animaux.Add( // Deinotherium
                 Animaux.Deinotherium, 
@@ -275,7 +283,8 @@ namespace Premon
                 2, 
                 Alimentation.Herbivore, 
                 [Objet.CreerObjet(Objets.Graine)], 
-                Attaques.ECRASEMENT));
+                Attaques.COUP_DE_PIED,
+                Attaques.MORSURE));
 
             animaux.Add( // Lion des cavernes
                 Animaux.Lion_des_cavernes, 
@@ -286,7 +295,9 @@ namespace Premon
                 1, 
                 Alimentation.Carnivore, 
                 [Objet.CreerObjet(Objets.Morceau_de_viande)], 
-                Attaques.ECRASEMENT));
+                Attaques.COUP_DE_GRIFFE,
+                Attaques.MORSURE,
+                Attaques.ATTAQUE_FURTIVE));
 
             animaux.Add( // Rhinocéros laineux
                 Animaux.Rhinoceros_laineux, 
@@ -297,9 +308,11 @@ namespace Premon
                 4, 
                 Alimentation.Herbivore, 
                 [Objet.CreerObjet(Objets.Graine)], 
-                Attaques.ECRASEMENT));
+                Attaques.EMPALEMENT,
+                Attaques.ECRASEMENT,
+                Attaques.CHARGE));
 
-            animaux.Add(
+            animaux.Add( // Megalonyx
                 Animaux.Megalonyx,
                 new Animal(Animaux.Megalonyx,
                 "Megalonyx", "Megalonyx.png",
@@ -307,9 +320,11 @@ namespace Premon
                 2,
                 Alimentation.Omnivore,
                 [Objet.CreerObjet(Objets.Morceau_de_viande)],
-                Attaques.ECRASEMENT));
+                Attaques.COUP_DE_GRIFFE,
+                Attaques.MORSURE,
+                Attaques.AIGUISAGE));
 
-            animaux.Add(
+            animaux.Add( // Glyptodon
                 Animaux.Glyptodon,
                 new Animal(Animaux.Glyptodon,
                 "Glyptodon", "Glyptodon.png",
@@ -317,7 +332,9 @@ namespace Premon
                 3,
                 Alimentation.Herbivore,
                 [Objet.CreerObjet(Objets.Graine)],
-                Attaques.ECRASEMENT));
+                Attaques.PROTECTION,
+                Attaques.COUP_DE_GRIFFE,
+                Attaques.AIGUISAGE));
 
         }
 
