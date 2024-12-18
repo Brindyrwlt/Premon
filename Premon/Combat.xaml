@@ -12,7 +12,7 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.Background>
-        <ImageBrush ImageSource="/fond_combat.png" />
+        <ImageBrush ImageSource="Textures/ArrierePlan/fond_combat.png" />
     </Window.Background>
     <Canvas>
         <Rectangle

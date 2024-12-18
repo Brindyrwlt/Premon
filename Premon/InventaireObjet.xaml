@@ -12,7 +12,7 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.Background>
-        <ImageBrush ImageSource="/Fond_sac_a_dos.png" />
+        <ImageBrush ImageSource="/Textures/ArrierePlan/Fond_sac_a_dos.png" />
     </Window.Background>
     <Canvas x:Name="Inventaire">
         <TextBlock

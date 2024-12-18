@@ -32,7 +32,7 @@ namespace Premon
 
             objets.Add(Objets.Morceau_de_viande, new(Objets.Morceau_de_viande, "Viande", "Morceau_de_viande.png"));
             objets.Add(Objets.Graine, new(Objets.Graine, "Graine", "Graines.png"));
-            objets.Add(Objets.Herbe_Medicinale, new(Objets.Herbe_Medicinale, "Herbe médicinale", "Herbe_medicinale.png"));
+            objets.Add(Objets.Herbe_Medicinale, new(Objets.Herbe_Medicinale, "Herbe médicinale", "Herbes_medicinale.png"));
 
         }
 

@@ -65,6 +65,7 @@
     <None Remove="Textures\Mur\Mur_7.png" />
     <None Remove="Textures\Mur\Mur_8.png" />
     <None Remove="Textures\Objets\Graines.png" />
+    <None Remove="Textures\Objets\Herbes_medicinale.png" />
     <None Remove="Textures\Objets\Herbe_medicinale.png" />
     <None Remove="Textures\Objets\Morceau_de_viande.png" />
     <None Remove="Textures\Personnage\Personnage_derriere.png" />
@@ -99,10 +100,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Fond_combat.png">
+    <Resource Include="Textures\ArrierePlan\Fond_combat.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Fond_sac_a_dos.png" />
+    <Resource Include="Textures\ArrierePlan\Fond_sac_a_dos.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Textures\Animal\Bouquetin.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -247,6 +250,9 @@
     <Content Include="Textures\Objets\Graines.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Textures\Objets\Herbes_medicinale.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Textures\Objets\Morceau_de_viande.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
