@@ -83,7 +83,7 @@ namespace Premon
 
                 inventaire.AnimauxPossedes.Add(animal.TypeAnimal);
                 inventaire.NomAnimaux.Add(animal.Nom);
-                inventaire.HPAnimaux.Add(animal.HP);
+                inventaire.HPAnimaux.Add(animal.PV);
 
             }
 

@@ -72,11 +72,11 @@ namespace Premon
         private byte CombatFini()
         {
 
-            if (animalSauvage.HP <= 0 && animalJoueur.HP <= 0)
+            if (animalSauvage.PV <= 0 && animalJoueur.PV <= 0)
                 return 3;
-            if (animalJoueur.HP <= 0)
+            if (animalJoueur.PV <= 0)
                 return 2;
-            else if (animalSauvage.HP <= 0)
+            else if (animalSauvage.PV <= 0)
                 return 1;
             else
                 return 0;
@@ -104,7 +104,7 @@ namespace Premon
 
                 }
                 else
-                    animalJoueur.HP = 0;
+                    animalJoueur.PV = 0;
 
                 ActualiserHP();
                 Inventaire.SauvegardeInventaire(MainWindow.animauxPossedes, MainWindow.objetsPossedes);
@@ -129,16 +129,16 @@ namespace Premon
                 {
 
                     case 1:
-                        animalSauvage.HP = 0;
+                        animalSauvage.PV = 0;
                         break;
 
                     case 2:
-                        animalJoueur.HP = 0;
+                        animalJoueur.PV = 0;
                         break;
 
                     case 3:
-                        animalJoueur.HP = 0;
-                        animalSauvage.HP = 0;
+                        animalJoueur.PV = 0;
+                        animalSauvage.PV = 0;
                         break;
 
                 }
@@ -195,8 +195,8 @@ namespace Premon
         private void ActualiserHP()
         {
 
-            HPJoueur.Content = $"HP : {animalJoueur.HP}";
-            HPEnnemi.Content = $"HP : {animalSauvage.HP}";
+            PVJoueur.Content = $"PV : {animalJoueur.PV}";
+            PVEnnemi.Content = $"PV : {animalSauvage.PV}";
 
         }
 

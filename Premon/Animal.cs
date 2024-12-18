@@ -15,8 +15,8 @@ namespace Premon
     {
 
         internal readonly Animaux TypeAnimal;
-        public int HPMax { get; private set; }
-        public int HP { get; set; }
+        public int PVMax { get; private set; }
+        public int PV { get; set; }
         public string Nom { get; set; }
         internal Attaques[] AttaquesAnimal;
         internal Objet[] Butin;
@@ -75,8 +75,8 @@ namespace Premon
 
             TypeAnimal = typeAnimal;
             Nom = nom;
-            HPMax = hpMax;
-            HP = HPMax;
+            PVMax = hpMax;
+            PV = PVMax;
             Butin = butin;
             AlimentationAnimal = alimentation;
             ChanceComplementaire = chanceComplementaire;
@@ -98,36 +98,36 @@ namespace Premon
                 {
 
                     case Attaques.EMPALEMENT:
-                        cible.HP -= (int) (DEGAT_EMPALEMENT * multiplicateur * cible.multiplicateurDegatRecu);
+                        cible.PV -= (int) (DEGAT_EMPALEMENT * multiplicateur * cible.multiplicateurDegatRecu);
                         multiplicateur = MULTIPLICATEUR_BASE;
                         break;
 
                     case Attaques.COUP_DE_PIED:
-                        cible.HP -= (int)(DEGAT_COUP_DE_PIED * multiplicateur * cible.multiplicateurDegatRecu);
+                        cible.PV -= (int)(DEGAT_COUP_DE_PIED * multiplicateur * cible.multiplicateurDegatRecu);
                         multiplicateur = MULTIPLICATEUR_BASE;
                         break;
 
                     case Attaques.COUP_DE_GRIFFE:
-                        cible.HP -= (int)(DEGAT_COUP_DE_GRIFFE * multiplicateur * cible.multiplicateurDegatRecu);
+                        cible.PV -= (int)(DEGAT_COUP_DE_GRIFFE * multiplicateur * cible.multiplicateurDegatRecu);
                         multiplicateur = MULTIPLICATEUR_BASE;
                         break;
 
                     case Attaques.CHARGE:
-                        cible.HP -= (int)(DEGAT_CHARGE * multiplicateur * cible.multiplicateurDegatRecu);
+                        cible.PV -= (int)(DEGAT_CHARGE * multiplicateur * cible.multiplicateurDegatRecu);
                         break;
 
                     case Attaques.ATTAQUE_FURTIVE:
-                        cible.HP -= (int)(DEGAT_ATTAQUE_FURTIVE * multiplicateur * cible.multiplicateurDegatRecu);
+                        cible.PV -= (int)(DEGAT_ATTAQUE_FURTIVE * multiplicateur * cible.multiplicateurDegatRecu);
                         multiplicateur *= MULTIPLICATEUR_ATTAQUE_FURTIVE;
                         break;
 
                     case Attaques.MORSURE:
-                        cible.HP -= (int)(DEGAT_MORSURE * multiplicateur * cible.multiplicateurDegatRecu);
+                        cible.PV -= (int)(DEGAT_MORSURE * multiplicateur * cible.multiplicateurDegatRecu);
                         multiplicateur *= MULTIPLICATEUR_MORSURE;
                         break;
 
                     case Attaques.ECRASEMENT:
-                        cible.HP -= (int)(DEGAT_ECRASEMENT * multiplicateur * cible.multiplicateurDegatRecu);
+                        cible.PV -= (int)(DEGAT_ECRASEMENT * multiplicateur * cible.multiplicateurDegatRecu);
                         multiplicateur *= MULTIPLICATEUR_ECRASEMENT;
                         break;
 
@@ -170,7 +170,7 @@ namespace Premon
 
             Animal animalCree = (Animal) animaux[animal].Clone();
             animalCree.Nom = nom;
-            animalCree.HP = hp;
+            animalCree.PV = hp;
 
             return animalCree;
 
