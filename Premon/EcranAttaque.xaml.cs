@@ -67,7 +67,10 @@ namespace Premon
 
         }
 
-        // Change la description d'attaques en fonction du numéro de l'attaque
+        /// <summary>
+        /// Change la description d'attaques en fonction du numéro de l'attaque
+        /// </summary>
+        /// <param name="nombreBouton"></param>
         private void ChangeDescription(int nombreBouton = 0)
         {
 
@@ -88,44 +91,43 @@ namespace Premon
             
         }
 
+        // Ferme le menu d'attaque
         private void BoutonRetour_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
         }
 
+        // Change la description pour celle de la première attaque quand la souris survole le bouton d'attaque
         private void BoutonAttaque1_MouseEnter(object sender, MouseEventArgs e)
             => ChangeDescription(1);
-
         private void BoutonAttaque1_MouseLeave(object sender, MouseEventArgs e)
             => ChangeDescription();
 
+        // Change la description pour celle de la deuxième attaque quand la souris survole le bouton d'attaque
         private void BoutonAttaque2_MouseEnter(object sender, MouseEventArgs e)
             => ChangeDescription(2);
-
         private void BoutonAttaque2_MouseLeave(object sender, MouseEventArgs e)
             => ChangeDescription();
 
+        // Change la description pour celle de la troisième attaque quand la souris survole le bouton d'attaque
         private void BoutonAttaque3_MouseEnter(object sender, MouseEventArgs e)
             => ChangeDescription(3);
-
         private void BoutonAttaque3_MouseLeave(object sender, MouseEventArgs e)
             => ChangeDescription();
 
+        // Change la description pour celle de la quatrième attaque quand la souris survole le bouton d'attaque
         private void BoutonAttaque4_MouseEnter(object sender, MouseEventArgs e)
             => ChangeDescription(4);
-
         private void BoutonAttaque4_MouseLeave(object sender, MouseEventArgs e)
             => ChangeDescription();
 
+        // Attaque selon le bouton cliqué
         private void BoutonAttaque1_Click(object sender, RoutedEventArgs e)
             => Attaque(sender);
-
         private void BoutonAttaque2_Click(object sender, RoutedEventArgs e)
             => Attaque(sender);
-
         private void BoutonAttaque3_Click(object sender, RoutedEventArgs e)
             => Attaque(sender);
-
         private void BoutonAttaque4_Click(object sender, RoutedEventArgs e)
             => Attaque(sender);
     }
