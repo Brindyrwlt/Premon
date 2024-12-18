@@ -262,7 +262,7 @@ namespace Premon
                 "Deinotherium.png", 
                 220,
                 4,
-                Alimentation.Herbivore, 
+                Alimentation.Herbivore,
                 [Objet.CreerObjet(Objets.Graine)], 
                 Attaques.ECRASEMENT));
 
@@ -299,23 +299,21 @@ namespace Premon
                 [Objet.CreerObjet(Objets.Graine)], 
                 Attaques.ECRASEMENT));
 
-            animaux.Add( // Megalonyx
+            animaux.Add(
                 Animaux.Megalonyx,
                 new Animal(Animaux.Megalonyx,
-                "Megalonyx",
-                "Megalonyx.png",
+                "Megalonyx", "Megalonyx.png",
                 130,
-                3,
-                Alimentation.Herbivore,
-                [Objet.CreerObjet(Objets.Graine)],
+                2,
+                Alimentation.Omnivore,
+                [Objet.CreerObjet(Objets.Morceau_de_viande)],
                 Attaques.ECRASEMENT));
 
-            animaux.Add( // Glyptodon
+            animaux.Add(
                 Animaux.Glyptodon,
                 new Animal(Animaux.Glyptodon,
-                "Glyptodon",
-                "Glyptodon.png",
-                130,
+                "Glyptodon", "Glyptodon.png",
+                150,
                 3,
                 Alimentation.Herbivore,
                 [Objet.CreerObjet(Objets.Graine)],

@@ -38,10 +38,6 @@ namespace Premon
 
         private static ImageBrush imgPerso = new();
 
-        // Musiques 
-        private static MediaPlayer musiqueFond;
-        private static MediaPlayer musiqueCombat;
-
         // Variables système  --------------------------------
 
         // Mouvement
@@ -55,6 +51,11 @@ namespace Premon
         internal static List<Animal> animauxPossedes;
         internal static List<Objet> objetsPossedes;
 
+        // Musiques 
+        private static MediaPlayer musiqueFond;
+        private static MediaPlayer musiqueForet;
+        private static MediaPlayer musiqueCombat;
+        internal static double volume = 0.5;
 
         // Autre
         private Random aleatoire = new Random();
@@ -73,7 +74,8 @@ namespace Premon
             InitObstacles();
             InitBitmap();
             InitMusiqueFond();
-            InitMusiqueComabt();
+            InitMusiqueCombat();
+            ChangementSon(volume);
             Objet.InitObjets();
             Animal.InitAnimaux();
             Animal.InitDescriptions();
@@ -91,26 +93,40 @@ namespace Premon
 
         }
 
+        private void ChangementSon(double volume)
+        {
+
+            musiqueFond.Volume = volume;
+            musiqueForet.Volume = volume;
+            musiqueCombat.Volume = volume;
+
+        }
+
         private void InitMusiqueFond()
         {
             musiqueFond = new MediaPlayer();
             musiqueFond.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/Musique_fond.mp3"));
+            musiqueForet = new MediaPlayer();
+            musiqueFond.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/Musique_fond.mp3"));
+            musiqueForet.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/Bruit_foret.mp3"));
             musiqueFond.MediaEnded += RelanceMusiqueFond;
-            musiqueFond.Volume = 0.5;
+            musiqueForet.MediaEnded += RelanceMusiqueFond;
             musiqueFond.Play();
+            musiqueForet.Play();
         }
         private void RelanceMusiqueFond(object? sender, EventArgs e)
         {
             musiqueFond.Position = TimeSpan.Zero;
+            musiqueForet.Position = TimeSpan.Zero;
             musiqueFond.Play();
+            musiqueForet.Play();
         }
 
-        private void InitMusiqueComabt()
+        private void InitMusiqueCombat()
         {
             musiqueCombat = new MediaPlayer();
             musiqueCombat.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "Musiques/Musique_combat.mp3"));
             musiqueCombat.MediaEnded += RelanceMusiqueCombat;
-            musiqueCombat.Volume = 0.5;
         }
         private void RelanceMusiqueCombat(object? sender, EventArgs e)
         {
@@ -217,7 +233,11 @@ namespace Premon
                     }
                     Personnage.Fill = imgPerso;
                     if (aleatoire.NextDouble() < POURCENTAGE_RENCONTRE_BUISSON)
+                    {
                         DebutCombat();
+                        musiqueFond.Play();
+                        musiqueCombat.Stop();
+                    }
 
                 }
 
@@ -348,6 +368,12 @@ namespace Premon
                 case Key.A:
                     EcranAnimal ecranAnimal = new();
                     ecranAnimal.ShowDialog();
+                    break;
+
+                case Key.Escape:
+                    EcranParametres ecranParametres = new();
+                    ecranParametres.ShowDialog();
+                    ChangementSon(volume);
                     break;
             }
 
