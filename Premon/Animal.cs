@@ -299,7 +299,7 @@ namespace Premon
                 [Objet.CreerObjet(Objets.Graine)], 
                 Attaques.ECRASEMENT));
 
-            animaux.Add(
+            animaux.Add( // Megalonyx
                 Animaux.Megalonyx,
                 new Animal(Animaux.Megalonyx,
                 "Megalonyx", "Megalonyx.png",
@@ -309,7 +309,7 @@ namespace Premon
                 [Objet.CreerObjet(Objets.Morceau_de_viande)],
                 Attaques.ECRASEMENT));
 
-            animaux.Add(
+            animaux.Add( // Glyptodon
                 Animaux.Glyptodon,
                 new Animal(Animaux.Glyptodon,
                 "Glyptodon", "Glyptodon.png",
