@@ -262,7 +262,7 @@ namespace Premon
                 "Deinotherium.png", 
                 220,
                 4,
-                Alimentation.Herbivore, 
+                Alimentation.Herbivore,
                 [Objet.CreerObjet(Objets.Graine)], 
                 Attaques.ECRASEMENT));
 

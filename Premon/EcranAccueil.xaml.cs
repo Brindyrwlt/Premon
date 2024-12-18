@@ -23,7 +23,6 @@ namespace Premon
         public EcranAccueil()
         {
             InitializeComponent();
-            
         }
 
         private void BoutonChargerPartie_Click(object sender, RoutedEventArgs e)
@@ -34,6 +33,13 @@ namespace Premon
         private void BoutonNouvellePartie_Click(object sender, RoutedEventArgs e)
         {
             File.Delete("inventaire.json");
+            DialogResult = true;
+        }
+
+        private void BoutonParametres_Click(object sender, RoutedEventArgs e)
+        {
+            EcranParametres ecranParametres = new();
+            ecranParametres.ShowDialog();
         }
     }
 }

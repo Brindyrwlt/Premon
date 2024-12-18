@@ -1,0 +1,16 @@
+﻿<Window x:Class="Premon.EcranParametres"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Premon"
+        mc:Ignorable="d"
+        Title="EcranParametres" Height="300" Width="400">
+    <Canvas>
+        <Label x:Name="LabelVolume" Content="Volume" Canvas.Left="40" Canvas.Top="40" FontSize="18"/>
+        <Slider x:Name="GlissiereVolume" Canvas.Left="40" Canvas.Top="80" Width="170" Maximum="1" ValueChanged="Slider_ValueChanged"/>
+        <Button x:Name="BoutonRetour" Content="Retour" Height="20" Width="50" Click="BoutonRetour_Click" HorizontalAlignment="Left" Canvas.Top="236" VerticalAlignment="Top" Canvas.Left="20"/>
+
+
+    </Canvas>
+</Window>
