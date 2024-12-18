@@ -5,9 +5,6 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
-using System.IO;
-using System.Text.Json;
-using System.Media;
 
 namespace Premon
 {
