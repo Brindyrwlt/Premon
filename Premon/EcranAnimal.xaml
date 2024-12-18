@@ -12,8 +12,8 @@
                 <GridView>
                     <GridView.Columns>
                         <GridViewColumn Header="Nom animal" DisplayMemberBinding="{Binding Nom}" Width="200"/>
-                        <GridViewColumn x:Name="GrilleHP" Header="HP" DisplayMemberBinding="{Binding HP}" Width="75"/>
-                        <GridViewColumn Header="HP Max" DisplayMemberBinding="{Binding HPMax}" Width="75"/>
+                        <GridViewColumn x:Name="GrilleHP" Header="HP" DisplayMemberBinding="{Binding PV}" Width="75"/>
+                        <GridViewColumn Header="HP Max" DisplayMemberBinding="{Binding PVMax}" Width="75"/>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
