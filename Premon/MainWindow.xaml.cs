@@ -68,6 +68,7 @@ namespace Premon
 
             EcranAccueil ecranAccueil = new();
             ecranAccueil.ShowDialog();
+            Eteindre(ecranAccueil.DialogResult);
             InitializeComponent();
             InitIntervalleDeplacement();
             InitBuissons();
@@ -259,12 +260,7 @@ namespace Premon
              * Quand l'animal est sélectionné aléatoirement, si la chance complémentaire est supérieure à 1,
              * le tirage a une chance de se réeffectuer
              */
-            do
-            {
-
-                animalSauvage = Animal.CreerAnimal((Animaux) aleatoire.Next(0, Animal.nombreAnimaux));          
-
-            }
+            do animalSauvage = Animal.CreerAnimal((Animaux) aleatoire.Next(0, Animal.nombreAnimaux));          
             while (!(aleatoire.Next(0, animalSauvage.ChanceComplementaire - 1) == 0));
 
             Combat combat = new(); 
@@ -279,12 +275,12 @@ namespace Premon
                     break;
 
                 case 5:
-                    animauxPossedes.RemoveAt(0);
+                    animauxPossedes.RemoveAt(combat.indexAnimalSelectionne);
                     break;
 
                 case 6:
                     Objet.AjouterObjet(objetsPossedes, animalSauvage.Butin);
-                    animauxPossedes.RemoveAt(0);
+                    animauxPossedes.RemoveAt(combat.indexAnimalSelectionne);
                     break;
 
             }
@@ -330,6 +326,14 @@ namespace Premon
             }
         }
 
+
+        private void Eteindre(bool? resultatDialogue)
+        {
+            if(resultatDialogue == false)
+                Environment.Exit(0);
+
+        }
+
         private void fenetre_KeyDown(object sender, KeyEventArgs e)
         {
 
@@ -371,8 +375,11 @@ namespace Premon
                     break;
 
                 case Key.Escape:
-                    EcranParametres ecranParametres = new();
-                    ecranParametres.ShowDialog();
+                    EcranAccueil ecranAccueil = new();
+                    ecranAccueil.BoutonNouvellePartie.IsEnabled = false;
+                    ecranAccueil.BoutonChargerPartie.IsEnabled = false;
+                    ecranAccueil.ShowDialog();
+                    Eteindre(ecranAccueil.DialogResult);
                     ChangementSon(volume);
                     break;
             }

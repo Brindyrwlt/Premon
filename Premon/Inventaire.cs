@@ -64,6 +64,7 @@ namespace Premon
 
                 objets.Add(Objet.CreerObjet(Objets.Morceau_de_viande, 5));
                 objets.Add(Objet.CreerObjet(Objets.Graine, 5));
+                objets.Add(Objet.CreerObjet(Objets.Herbe_Medicinale, 3));
 
             }
 

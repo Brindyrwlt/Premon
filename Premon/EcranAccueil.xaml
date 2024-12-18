@@ -10,7 +10,7 @@
         <Button x:Name="BoutonNouvellePartie" Content="Nouvelle partie" HorizontalAlignment="Center" Margin="0,85,0,0" VerticalAlignment="Top" Width="200" Height="75" FontSize="20" Click="BoutonNouvellePartie_Click"/>
         <Button x:Name="BoutonChargerPartie" Content="Charger la partie" HorizontalAlignment="Center" Margin="0,182,0,0" VerticalAlignment="Top" Width="200" Height="75" FontSize="20" Click="BoutonChargerPartie_Click"/>
         <Button x:Name="BoutonParametres" Content="Paramètres" HorizontalAlignment="Center" Margin="0,281,0,0" VerticalAlignment="Top" Width="200" Height="75" FontSize="20" Click="BoutonParametres_Click"/>
-        <Button x:Name="BoutonQuitter" Content="Quitter le jeu" HorizontalAlignment="Center" Margin="0,383,0,0" VerticalAlignment="Top" Width="200" Height="75" FontSize="20"/>
+        <Button x:Name="BoutonQuitter" Content="Quitter le jeu" HorizontalAlignment="Center" Margin="0,383,0,0" VerticalAlignment="Top" Width="200" Height="75" FontSize="20" Click="BoutonQuitter_Click"/>
 
     </Grid>
 </Window>

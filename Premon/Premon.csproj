@@ -64,6 +64,8 @@
     <None Remove="Textures\Mur\Mur_7.png" />
     <None Remove="Textures\Mur\Mur_8.png" />
     <None Remove="Textures\Objets\Graines.png" />
+    <None Remove="Textures\Objets\Herbe_medicinale.png" />
+    <None Remove="Textures\Objets\Morceau_de_viande.png" />
     <None Remove="Textures\Personnage\Personnage_derriere.png" />
     <None Remove="Textures\Personnage\Personnage_derriere\Personnage_derriere_1.png" />
     <None Remove="Textures\Personnage\Personnage_derriere\Personnage_derriere_1_buisson.png" />
@@ -242,6 +244,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Textures\Objets\Graines.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Textures\Objets\Herbe_medicinale.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Textures\Objets\Morceau_de_viande.png">

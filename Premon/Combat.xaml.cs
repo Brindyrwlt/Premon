@@ -21,7 +21,6 @@ namespace Premon
         private static bool ennemiAttaque = false;
         private Random random = new Random();
 
-
         /*
          * 
          * Etats de la variable
@@ -40,6 +39,7 @@ namespace Premon
          * 
          */
         internal byte etatCombat = 0;
+        internal int indexAnimalSelectionne = 0;
 
         public Combat()
         {
@@ -208,6 +208,11 @@ namespace Premon
                     TexteAction.Content = $"{animalSauvage.Nom} a été capturé !";
                     etatCombat = 10;
 
+                } else if(action == TypeAction.Soin)
+                {
+
+                    TexteAction.Content = $"{animalJoueur.Nom} a été soigné !";
+
                 } else
                 {
 
@@ -235,6 +240,7 @@ namespace Premon
 
                 InitAnimaux(ecranAnimal.animalSelectionne, animalSauvage);
                 TexteAction.Content = $"{animalJoueur.Nom} est arrivé sur le terrain !";
+                indexAnimalSelectionne = ecranAnimal.ListeAnimal.SelectedIndex;
                 DeclencherAttaqueJoueur(null);
 
             }
