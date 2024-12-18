@@ -122,6 +122,24 @@ namespace Premon
                 ennemiAttaque = true;
                 minuterieActionEnnemi.Interval = TimeSpan.FromSeconds(TEMPS_ATTAQUE_ENNEMI);
                 etatCombat = CombatFini();
+
+                switch(etatCombat)
+                {
+
+                    case 1:
+                        animalSauvage.HP = 0;
+                        break;
+
+                    case 2:
+                        animalJoueur.HP = 0;
+                        break;
+
+                    case 3:
+                        animalJoueur.HP = 0;
+                        animalSauvage.HP = 0;
+                        break;
+
+                }
                 ActualiserHP();
 
             }
@@ -132,23 +150,16 @@ namespace Premon
                 {
 
                     case 1:
-                        animalSauvage.HP = 0;
-                        ActualiserHP();
                         TexteAction.Content = $"{animalJoueur.Nom} a gagné !";
                         etatCombat = 4;
                         break;
 
                     case 2:
-                        animalJoueur.HP = 0;
-                        ActualiserHP();
                         TexteAction.Content = $"{animalSauvage.Nom} a gagné !";
                         etatCombat = 5;
                         break;
 
                     case 3:
-                        animalJoueur.HP = 0;
-                        animalSauvage.HP = 0;
-                        ActualiserHP();
                         TexteAction.Content = "Les deux animaux sont morts !";
                         etatCombat = 6;
                         break;

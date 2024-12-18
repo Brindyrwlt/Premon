@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Textures\Icones\Mammouth.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -279,6 +280,7 @@
     <Resource Include="Textures\SacADos\Sac_a_dos.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Textures\Icones\Mammouth.ico" />
     <Content Include="Textures\Scene\scene1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -330,7 +330,12 @@ namespace Premon
         private void Eteindre(bool? resultatDialogue)
         {
             if(resultatDialogue == false)
+            {
+
                 Environment.Exit(0);
+                Inventaire.SauvegardeInventaire(animauxPossedes, objetsPossedes);
+
+            }
 
         }
 
