@@ -3,7 +3,7 @@
 namespace Premon
 {
     /// <summary>
-    /// Interaction logic for EcranParametres.xaml
+    /// Logique d'interaction pour EcranParametres.xaml
     /// </summary>
     public partial class EcranParametres : Window
     {

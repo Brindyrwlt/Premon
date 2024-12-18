@@ -27,6 +27,9 @@ namespace Premon
 
         }
 
+        /// <summary>
+        /// Insert dans le dictionnaire les différents objets.
+        /// </summary>
         internal static void InitObjets()
         {
 
@@ -36,6 +39,12 @@ namespace Premon
 
         }
 
+        /// <summary>
+        /// Crée un objet en fonction de son identifiant et de sa quantité.
+        /// </summary>
+        /// <param name="typeObjet"></param>
+        /// <param name="quantite"></param>
+        /// <returns></returns>
         internal static Objet CreerObjet(Objets typeObjet, int quantite = 1)
         {
 
@@ -45,6 +54,11 @@ namespace Premon
             return objet;
         }
 
+        /// <summary>
+        /// Ajoute un objet à la liste des objets possédés du joueur.
+        /// </summary>
+        /// <param name="objetsPossedes"></param>
+        /// <param name="objetAjoute"></param>
         internal static void AjouterObjet(List<Objet> objetsPossedes, Objet objetAjoute)
         {
 
@@ -69,6 +83,11 @@ namespace Premon
 
         }
 
+        /// <summary>
+        /// Ajoute plusieurs objets à la liste des objets possédés du joueur. 
+        /// </summary>
+        /// <param name="objetsPossedes"></param>
+        /// <param name="objetsAjoute"></param>
         internal static void AjouterObjet(List<Objet> objetsPossedes, Objet[] objetsAjoute)
         {
 
@@ -100,6 +119,13 @@ namespace Premon
 
         }
 
+        /// <summary>
+        /// Lance un essai de capture d'un animal sauvage en fonction de sa chance de capture et de son alimentation.
+        /// </summary>
+        /// <param name="chanceCapture"></param>
+        /// <param name="animalSauvage"></param>
+        /// <param name="alimentationExclue"></param>
+        /// <returns></returns>
         internal static bool Capture(double chanceCapture, Animal animalSauvage, params Alimentation[] alimentationExclue)
         {
 
@@ -115,6 +141,13 @@ namespace Premon
             return false;
         }
 
+        /// <summary>
+        /// Effectue une action sur un des animaux fourni en fonction de l'objet fourni.
+        /// </summary>
+        /// <param name="objet"></param>
+        /// <param name="animalJoueur"></param>
+        /// <param name="animalSauvage"></param>
+        /// <returns></returns>
         internal static TypeAction? ActionObjet(Objet objet, Animal animalJoueur, Animal animalSauvage)
         {
 
@@ -144,6 +177,12 @@ namespace Premon
 
         }
              
+        /// <summary>
+        /// Enlève un objet de l'inventaire du joueur en fonction de sa position dans la liste.
+        /// </summary>
+        /// <param name="objetUtilise"></param>
+        /// <param name="index"></param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         internal static void UtiliserObjet(out Objet objetUtilise, byte index)
         {
 
@@ -158,12 +197,14 @@ namespace Premon
 
         }
 
+        // Provient de l'interface ICloneable, permet de créer un clone d'un objet
         public object Clone()
         {
             return MemberwiseClone();
         }
     }
 
+    // Identifiants des objets
     enum Objets
     {
         Morceau_de_viande,
@@ -171,6 +212,7 @@ namespace Premon
         Herbe_Medicinale
     }
 
+    // Identifiants des types d'actions
     enum TypeAction
     {
         Capture,

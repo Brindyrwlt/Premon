@@ -6,7 +6,7 @@ using System.Windows.Threading;
 namespace Premon
 {
     /// <summary>
-    /// Interaction logic for Combat.xaml
+    /// Logique d'interaction pour Combat.xaml
     /// </summary>
     public partial class Combat : Window
     {

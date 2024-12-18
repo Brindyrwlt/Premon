@@ -3,7 +3,7 @@
 namespace Premon
 {
     /// <summary>
-    /// Interaction logic for EcranAnimal.xaml
+    /// Logique d'interaction pour EcranAnimal.xaml
     /// </summary>
     public partial class EcranAnimal : Window
     {

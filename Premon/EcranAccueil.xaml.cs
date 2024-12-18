@@ -3,7 +3,7 @@
 namespace Premon
 {
     /// <summary>
-    /// Interaction logic for EcranAccueil.xaml
+    /// Logique d'interaction pour EcranAccueil.xaml
     /// </summary>
     public partial class EcranAccueil : Window
     {

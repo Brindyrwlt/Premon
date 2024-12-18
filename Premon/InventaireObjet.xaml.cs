@@ -29,15 +29,28 @@ namespace Premon
 
         }
 
+        /// <summary>
+        /// Initialise les cases de la fenêtre dans un tableau.
+        /// </summary>
         private void InitCases()
             => cases = [ObjetInv1, ObjetInv2, ObjetInv3, ObjetInv4, ObjetInv5, ObjetInv6, ObjetInv7, ObjetInv8];
 
+        /// <summary>
+        /// Initialise les textes des cases de la fenêtre dans un tableau
+        /// </summary>
         private void InitNomCases()
             => nomCases = [LabObjet1, LabObjet2, LabObjet3, LabObjet4, LabObjet5, LabObjet6, LabObjet7, LabObjet8];
 
+        /// <summary>
+        /// Initialise les chiffres des quantités d'objets dans un tableau
+        /// </summary>
         private void InitQuantiteCases()
             => quantiteCases = [QuantiteObjet1, QuantiteObjet2, QuantiteObjet3, QuantiteObjet4, QuantiteObjet5, QuantiteObjet6, QuantiteObjet7, QuantiteObjet8];
 
+        /// <summary>
+        /// Affiche les objets de la liste dans les cases de la fenêtre.
+        /// </summary>
+        /// <param name="objetsPossedes"></param>
         internal void AffichageInventaire(List<Objet> objetsPossedes)
         {
 
@@ -67,117 +80,57 @@ namespace Premon
 
         }
 
-        private void ObjetInv1_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if(enCombat)
-            {
-
-                Objet.UtiliserObjet(out objetClique, 0);
-                DialogResult = true;
-
-            }
-
-        }
-
-        private void ObjetInv2_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-            if (enCombat)
-            {
-
-                Objet.UtiliserObjet(out objetClique, 1);
-                DialogResult = true;
-
-            }
-
-        }
-
-        private void ObjetInv3_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-            if (enCombat)
-            {
-
-                Objet.UtiliserObjet(out objetClique, 2);
-                DialogResult = true;
-
-            }
-
-        }
-
-        private void ObjetInv4_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-            if (enCombat)
-            {
-
-                Objet.UtiliserObjet(out objetClique, 3);
-                DialogResult = true;
-
-            }
-
-        }
-
-        private void ObjetInv5_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-            if (enCombat)
-            {
-
-                Objet.UtiliserObjet(out objetClique, 4);
-                DialogResult = true;
-
-            }
-
-        }
-
-        private void ObjetInv6_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-            if (enCombat)
-            {
-
-                Objet.UtiliserObjet(out objetClique, 5);
-                DialogResult = true;
-
-            }
-
-        }
-
-        private void ObjetInv7_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-            if (enCombat)
-            {
-
-                Objet.UtiliserObjet(out objetClique, 6);
-                DialogResult = true;
-
-            }
-
-        }
-
-        private void ObjetInv8_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-            if (enCombat)
-            {
-
-                Objet.UtiliserObjet(out objetClique, 7);
-                DialogResult = true;
-
-            }
-
-        }
-
+        /// <summary>
+        /// Active la possibilité de cliquer sur les objets pour les utiliser en combat.
+        /// </summary>
         internal void EnCombat()
             => enCombat = true;
 
-       
-
-        private void BoutonRetour_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Utilise un objet à l'indice donné si la fenêtre est invoquée en combat.
+        /// </summary>
+        /// <param name="indice"></param>
+        internal void InteractionObjet(byte indice)
         {
-            DialogResult = false;
+
+            if (enCombat)
+            {
+
+                Objet.UtiliserObjet(out objetClique, indice);
+                DialogResult = true;
+
+            }
+
         }
+
+        // Interaction avec l'objet en fonction de la case appuyée
+        private void ObjetInv1_MouseDown(object sender, MouseButtonEventArgs e)
+            => InteractionObjet(0);
+
+        private void ObjetInv2_MouseDown(object sender, MouseButtonEventArgs e)
+            => InteractionObjet(1);
+
+        private void ObjetInv3_MouseDown(object sender, MouseButtonEventArgs e)
+            => InteractionObjet(2);
+
+        private void ObjetInv4_MouseDown(object sender, MouseButtonEventArgs e)
+            => InteractionObjet(3);
+
+        private void ObjetInv5_MouseDown(object sender, MouseButtonEventArgs e)
+            => InteractionObjet(4);
+
+        private void ObjetInv6_MouseDown(object sender, MouseButtonEventArgs e)
+            => InteractionObjet(5);
+
+        private void ObjetInv7_MouseDown(object sender, MouseButtonEventArgs e)
+            => InteractionObjet(6);
+
+        private void ObjetInv8_MouseDown(object sender, MouseButtonEventArgs e)
+            => InteractionObjet(7);
+
+        // Ferme la fenêtre
+        private void BoutonRetour_Click(object sender, RoutedEventArgs e)
+            => DialogResult = false;
+        
     }
 }

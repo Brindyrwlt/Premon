@@ -5,7 +5,7 @@ using System.Windows.Input;
 namespace Premon
 {
     /// <summary>
-    /// Interaction logic for EcranAttaque.xaml
+    /// Logique d'interaction pour EcranAttaque.xaml
     /// </summary>
     public partial class EcranAttaque : Window
     {
