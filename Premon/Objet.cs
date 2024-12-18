@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Media.Imaging;
+﻿using System.Windows.Media.Imaging;
 
 namespace Premon
 {
@@ -21,6 +15,7 @@ namespace Premon
 
         private static readonly double CHANCE_CAPTURE_VIANDE = 0.90;
         private static readonly double CHANCE_CAPTURE_GRAINE = 0.90;
+        private static readonly int SOIN_HERBE_MEDICINALE = 40;
 
         public Objet(Objets typeObjet, string nom, string nomImage, int quantite = 1)
         {
@@ -37,6 +32,7 @@ namespace Premon
 
             objets.Add(Objets.Morceau_de_viande, new(Objets.Morceau_de_viande, "Viande", "Morceau_de_viande.png"));
             objets.Add(Objets.Graine, new(Objets.Graine, "Graine", "Graines.png"));
+            objets.Add(Objets.Herbe_Medicinale, new(Objets.Herbe_Medicinale, "Herbe médicinale", "Herbe_medicinale.png"));
 
         }
 
@@ -79,21 +75,28 @@ namespace Premon
             bool aEteAjoute = false;
 
             foreach(Objet objetAAjouter in objetsAjoute)
-            foreach (Objet objet in objetsPossedes)
             {
 
-                if (objet.TypeObjet == objetAAjouter.TypeObjet)
+                foreach (Objet objet in objetsPossedes)
                 {
 
-                    objet.Quantite += objetAAjouter.Quantite;
-                    aEteAjoute = true;
-                    break;
+                    if (objet.TypeObjet == objetAAjouter.TypeObjet)
+                    {
 
+                        objet.Quantite += objetAAjouter.Quantite;
+                        aEteAjoute = true;
+                        break;
+
+                    }
+
+                    
                 }
 
-                    if (!aEteAjoute)
-                        objetsPossedes.Add(objetAAjouter);
+                if (!aEteAjoute)
+                    objetsPossedes.Add(objetAAjouter);
+
             }
+            
 
         }
 
@@ -128,6 +131,13 @@ namespace Premon
                         return TypeAction.Capture;
                     break;
 
+                case Objets.Herbe_Medicinale:
+                    if (animalJoueur.HP + SOIN_HERBE_MEDICINALE >= animalJoueur.HPMax)
+                        animalJoueur.HP = animalJoueur.HPMax;
+                    else
+                        animalJoueur.HP += SOIN_HERBE_MEDICINALE;
+                    return TypeAction.Soin;
+
             }
 
             return null;
@@ -157,7 +167,8 @@ namespace Premon
     enum Objets
     {
         Morceau_de_viande,
-        Graine
+        Graine,
+        Herbe_Medicinale
     }
 
     enum TypeAction

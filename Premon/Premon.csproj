@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Textures\Icones\Mammouth.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -64,6 +65,8 @@
     <None Remove="Textures\Mur\Mur_7.png" />
     <None Remove="Textures\Mur\Mur_8.png" />
     <None Remove="Textures\Objets\Graines.png" />
+    <None Remove="Textures\Objets\Herbe_medicinale.png" />
+    <None Remove="Textures\Objets\Morceau_de_viande.png" />
     <None Remove="Textures\Personnage\Personnage_derriere.png" />
     <None Remove="Textures\Personnage\Personnage_derriere\Personnage_derriere_1.png" />
     <None Remove="Textures\Personnage\Personnage_derriere\Personnage_derriere_1_buisson.png" />
@@ -244,6 +247,9 @@
     <Resource Include="Textures\Objets\Graines.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Textures\Objets\Herbe_medicinale.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Textures\Objets\Morceau_de_viande.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -274,6 +280,7 @@
     <Resource Include="Textures\SacADos\Sac_a_dos.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Textures\Icones\Mammouth.ico" />
     <Content Include="Textures\Scene\scene1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

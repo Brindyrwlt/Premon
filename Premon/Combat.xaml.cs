@@ -21,7 +21,6 @@ namespace Premon
         private static bool ennemiAttaque = false;
         private Random random = new Random();
 
-
         /*
          * 
          * Etats de la variable
@@ -40,6 +39,7 @@ namespace Premon
          * 
          */
         internal byte etatCombat = 0;
+        internal int indexAnimalSelectionne = 0;
 
         public Combat()
         {
@@ -122,6 +122,24 @@ namespace Premon
                 ennemiAttaque = true;
                 minuterieActionEnnemi.Interval = TimeSpan.FromSeconds(TEMPS_ATTAQUE_ENNEMI);
                 etatCombat = CombatFini();
+
+                switch(etatCombat)
+                {
+
+                    case 1:
+                        animalSauvage.HP = 0;
+                        break;
+
+                    case 2:
+                        animalJoueur.HP = 0;
+                        break;
+
+                    case 3:
+                        animalJoueur.HP = 0;
+                        animalSauvage.HP = 0;
+                        break;
+
+                }
                 ActualiserHP();
 
             }
@@ -132,23 +150,16 @@ namespace Premon
                 {
 
                     case 1:
-                        animalSauvage.HP = 0;
-                        ActualiserHP();
                         TexteAction.Content = $"{animalJoueur.Nom} a gagné !";
                         etatCombat = 4;
                         break;
 
                     case 2:
-                        animalJoueur.HP = 0;
-                        ActualiserHP();
                         TexteAction.Content = $"{animalSauvage.Nom} a gagné !";
                         etatCombat = 5;
                         break;
 
                     case 3:
-                        animalJoueur.HP = 0;
-                        animalSauvage.HP = 0;
-                        ActualiserHP();
                         TexteAction.Content = "Les deux animaux sont morts !";
                         etatCombat = 6;
                         break;
@@ -208,6 +219,11 @@ namespace Premon
                     TexteAction.Content = $"{animalSauvage.Nom} a été capturé !";
                     etatCombat = 10;
 
+                } else if(action == TypeAction.Soin)
+                {
+
+                    TexteAction.Content = $"{animalJoueur.Nom} a été soigné !";
+
                 } else
                 {
 
@@ -235,6 +251,7 @@ namespace Premon
 
                 InitAnimaux(ecranAnimal.animalSelectionne, animalSauvage);
                 TexteAction.Content = $"{animalJoueur.Nom} est arrivé sur le terrain !";
+                indexAnimalSelectionne = ecranAnimal.ListeAnimal.SelectedIndex;
                 DeclencherAttaqueJoueur(null);
 
             }

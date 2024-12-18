@@ -41,5 +41,12 @@ namespace Premon
             EcranParametres ecranParametres = new();
             ecranParametres.ShowDialog();
         }
+
+        private void BoutonQuitter_Click(object sender, RoutedEventArgs e)
+        {
+
+            DialogResult = false;
+
+        }
     }
 }
